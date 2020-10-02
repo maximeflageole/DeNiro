@@ -10,6 +10,8 @@ public class Tower : MonoBehaviour
     protected GameObject m_projectile;
     [SerializeField]
     protected Transform m_radiusTransform;
+    [SerializeField]
+    protected Transform m_canon;
 
     protected TdEnemy m_target;
     protected float m_currentFireTimer;
@@ -38,7 +40,7 @@ public class Tower : MonoBehaviour
     protected void Shoot()
     {
         Debug.Log("Shooting");
-        var projectile = Instantiate(m_projectile).GetComponent<Projectile>();
+        var projectile = Instantiate(m_projectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<Projectile>();
         if (projectile != null)
         {
             projectile.Launch(m_target);
