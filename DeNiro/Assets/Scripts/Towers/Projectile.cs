@@ -3,9 +3,7 @@
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    protected float m_damage = 10.0f;
-    [SerializeField]
-    protected float m_speed = 500.0f;
+    protected ProjectileData m_data;
 
     protected TdEnemy m_target;
 
@@ -14,9 +12,14 @@ public class Projectile : MonoBehaviour
         var enemy = other.GetComponent<TdEnemy>();
         if (enemy == m_target)
         {
-            enemy.Damage(m_damage);
+            enemy.Damage(m_data.Damage);
             Destroy(gameObject);
         }
+    }
+
+    public void Init(ProjectileData data)
+    {
+        m_data = data;
     }
 
     public void Launch(TdEnemy target)
@@ -33,6 +36,6 @@ public class Projectile : MonoBehaviour
         }
 
         var directionalVector = (m_target.transform.position - transform.position).normalized;
-        GetComponent<Rigidbody>().velocity = directionalVector * Time.deltaTime * m_speed;
+        GetComponent<Rigidbody>().velocity = directionalVector * Time.deltaTime * m_data.ProjectileSpeed;
     }
 }

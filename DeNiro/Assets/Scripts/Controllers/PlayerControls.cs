@@ -56,16 +56,21 @@ public class PlayerControls : MonoBehaviour
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        PlaceTower(tile.GetTowerAnchor());
+                        PlaceTower(tile);
                     }
                 }
             }
         }
     }
 
-    private void PlaceTower(Transform anchor)
+    private void PlaceTower(Tile tile)
     {
-        m_towerInPlacement.PlaceTower(anchor);
+        if (tile.IsOccupied)
+        {
+            return;
+        }
+        m_towerInPlacement.PlaceTower(tile.GetTowerAnchor());
+        tile.IsOccupied = true;
         StopPlacingTower();
     }
 }

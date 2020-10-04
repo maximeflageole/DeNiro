@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_towerToBuild: {fileID: 1587973237594984087, guid: e34c07f0880143b41a8019e140405c7a,
     type: 3}
-  m_radius: 100
   m_radiusTransform: {fileID: 1587973238375586769}
+  m_towerMeshFilter: {fileID: 1587973238378814412}
 --- !u!1 &1587973238375586768
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +172,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4aaff3c1852e49145b20131f27ca1c48, type: 3}
-  m_Color: {r: 0.7216981, g: 1, b: 0.7353776, a: 0.2627451}
+  m_Sprite: {fileID: 21300000, guid: fb76b2af7d0ea784eb373ea132938ce4, type: 3}
+  m_Color: {r: 0.7216981, g: 1, b: 0.7353776, a: 0.3882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
