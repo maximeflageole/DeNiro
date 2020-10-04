@@ -103,7 +103,7 @@ MonoBehaviour:
   m_rateOfFire: 1
   m_projectile: {fileID: 6008273815989587059, guid: 21148fb7fb205734482ee1a2885974f2,
     type: 3}
-  m_radiusTransform: {fileID: 1587973238375586769}
+  m_radiusTransform: {fileID: 3044575679514202547}
   m_canon: {fileID: 7921285380459364040}
 --- !u!1 &1587973238375586768
 GameObject:
@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 1587973238375586769}
   - component: {fileID: 1587973238375586770}
   - component: {fileID: 1587973238375586771}
+  - component: {fileID: 3044575679514202547}
   m_Layer: 8
   m_Name: RadiusSprite
   m_TagString: Untagged
@@ -201,6 +202,19 @@ CapsuleCollider:
   m_Height: 20
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3044575679514202547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587973238375586768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c29206a7fcfd94f83b1fcdb78fb0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tower: {fileID: 2718400883871180771}
 --- !u!1 &1587973238378814409
 GameObject:
   m_ObjectHideFlags: 0

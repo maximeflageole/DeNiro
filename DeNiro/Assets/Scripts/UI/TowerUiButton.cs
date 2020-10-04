@@ -14,7 +14,7 @@ public class TowerUiButton : MonoBehaviour
 
 	void OnClick()
 	{
-		var tower = Instantiate(m_towerPrefab).GetComponent<Tower>();
+		var tower = Instantiate(m_towerPrefab).GetComponent<TowerInPlacement>();
 		PlayerControls.Instance.StartPlacingTower(tower);
 	}
 }

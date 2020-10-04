@@ -6,7 +6,7 @@ public class PlayerControls : MonoBehaviour
     public static PlayerControls Instance;
 
     [SerializeField]
-    private Tower m_towerInPlacement;
+    private TowerInPlacement m_towerInPlacement;
 
     private void Awake()
     {
@@ -18,13 +18,13 @@ public class PlayerControls : MonoBehaviour
         Instance = this;
     }
 
-    public void StartPlacingTower(Tower tower)
+    public void StartPlacingTower(TowerInPlacement towerInPlacement)
     {
         if (m_towerInPlacement != null)
         {
             StopPlacingTower();
         }
-        m_towerInPlacement = tower;
+        m_towerInPlacement = towerInPlacement;
     }
 
     public void StopPlacingTower(bool destroy = true)
@@ -65,6 +65,7 @@ public class PlayerControls : MonoBehaviour
 
     private void PlaceTower(Transform anchor)
     {
-        StopPlacingTower(false);
+        m_towerInPlacement.PlaceTower(anchor);
+        StopPlacingTower();
     }
 }
