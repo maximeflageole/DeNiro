@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 2034615881}
   - component: {fileID: 2034615880}
   - component: {fileID: 2034615884}
+  - component: {fileID: 2034615885}
   m_Layer: 5
   m_Name: TowerBtn
   m_TagString: Untagged
@@ -917,6 +918,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 1
   m_AspectRatio: 1
+--- !u!114 &2034615885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034615878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2052e184791635242867f7257d9e56df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_towerPrefab: {fileID: 1587973237594984087, guid: 12dd0ae94fa41d548a66c97794c4bdc5,
+    type: 3}
 --- !u!1 &2126283439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36795dfba1890c94f87dba09a8342fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ignoredLayer: 0
+  m_towerInPlacement: {fileID: 0}
 --- !u!4 &2134529158
 Transform:
   m_ObjectHideFlags: 0
@@ -1090,6 +1107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587973237594984087, guid: e34c07f0880143b41a8019e140405c7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1587973237594984090, guid: e34c07f0880143b41a8019e140405c7a,
         type: 3}
@@ -1146,6 +1168,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1587973238375586768, guid: e34c07f0880143b41a8019e140405c7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1587973238375586769, guid: e34c07f0880143b41a8019e140405c7a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1155,6 +1182,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_rateOfFire
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587973238378814409, guid: e34c07f0880143b41a8019e140405c7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960825336254118723, guid: e34c07f0880143b41a8019e140405c7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34c07f0880143b41a8019e140405c7a, type: 3}
