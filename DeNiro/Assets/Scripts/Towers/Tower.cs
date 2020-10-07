@@ -3,7 +3,9 @@
 public class Tower : MonoBehaviour
 {
     [SerializeField]
-    protected GameObject m_projectile;
+    protected GameObject m_homingProjectile;
+    [SerializeField]
+    protected GameObject m_artilleryProjectile;
     [SerializeField]
     protected TowerRange m_radiusTransform;
     [SerializeField]
@@ -44,11 +46,23 @@ public class Tower : MonoBehaviour
 
     protected void Shoot()
     {
-        var projectile = Instantiate(m_projectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<Projectile>();
-        if (projectile != null)
+        if (m_data.ProjectileData.GetType() == typeof(ArtilleryData))
         {
-            projectile.Init(m_data.ProjectileData);
-            projectile.Launch(m_target);
+            var artilleryProjectile = Instantiate(m_artilleryProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<ArtilleryProjectile>();
+            if (artilleryProjectile != null)
+            {
+                artilleryProjectile.Init(m_data.ProjectileData, m_target.transform.position);
+            }
+            return;
+        }
+
+        else if (m_data.ProjectileData.GetType() == typeof(HomingProjectileData))
+        {
+            var homingProjectile = Instantiate(m_homingProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<HomingProjectile>();
+            if (homingProjectile != null)
+            {
+                homingProjectile.Init(m_data.ProjectileData, m_target);
+            }
         }
     }
 

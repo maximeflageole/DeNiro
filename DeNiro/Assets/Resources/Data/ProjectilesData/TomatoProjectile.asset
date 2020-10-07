@@ -13,4 +13,38 @@ MonoBehaviour:
   m_Name: TomatoProjectile
   m_EditorClassIdentifier: 
   ProjectileSpeed: 400
-  Damage: 80
+  Damage: 0
+  AoEData: {fileID: 11400000, guid: 2811ac2688eca9b4ab34f5a1997fa59e, type: 2}
+  VerticalPositionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0025558472
+      value: 0.2
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.45904237
+      value: 0.5022298
+      inSlope: -0.50464475
+      outSlope: -0.50464475
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.23899366
+      outWeight: 0.27609187
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.0559089
+      outSlope: -1.0559089
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.099537745
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
