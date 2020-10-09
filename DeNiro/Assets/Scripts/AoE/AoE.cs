@@ -3,12 +3,12 @@
 public class AoE : MonoBehaviour
 {
     [SerializeField]
-    private CapsuleCollider m_collider;
+    protected CapsuleCollider m_collider;
     [SerializeField]
-    private float m_yPosition;
+    protected float m_yPosition;
 
     private AoEData m_data;
-    private float m_lifespan;
+    protected float m_lifespan;
 
     public void Init(AoEData data)
     {
@@ -19,7 +19,7 @@ public class AoE : MonoBehaviour
         m_lifespan = 0.0f;
     }
 
-    private void Update()
+    protected void Update()
     {
         m_lifespan += Time.deltaTime;
         if (m_lifespan > m_data.DamageTimeStop)
@@ -37,10 +37,28 @@ public class AoE : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var enemy = other.gameObject.GetComponent<TdEnemy>();
-        if (enemy != null)
+        if (m_data.Target == ETarget.Enemies)
         {
-            enemy.Damage(m_data.Damage);
+            var enemy = other.gameObject.GetComponent<TdEnemy>();
+            if (enemy != null)
+            {
+                if (m_data.Effect == EEffect.Damage)
+                {
+                    enemy.Damage(m_data.Damage);
+                }
+            }
+        }
+
+        if (m_data.Target == ETarget.Towers)
+        {
+            var tower = other.gameObject.GetComponent<Tower>();
+            if (tower != null)
+            {
+                if (m_data.Effect == EEffect.AttackSpeedBuff)
+                {
+
+                }
+            }
         }
     }
 }

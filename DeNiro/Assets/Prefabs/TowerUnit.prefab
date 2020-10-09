@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1587973237594984089}
   - component: {fileID: 1587973237594984088}
   - component: {fileID: 2718400883871180771}
+  - component: {fileID: 3052633094864862503}
+  - component: {fileID: 1401154753994738791}
   m_Layer: 8
   m_Name: TowerUnit
   m_TagString: Untagged
@@ -105,8 +107,41 @@ MonoBehaviour:
     type: 3}
   m_radiusTransform: {fileID: 3044575679514202547}
   m_canon: {fileID: 7921285380459364040}
+  m_effectTriggerPrefab: {fileID: 8196590656541032325, guid: c6b9c8b42c496b048ae48c06fcac9b1f,
+    type: 3}
   m_towerMeshRenderer: {fileID: 1587973238378814411}
   m_towerMeshFilter: {fileID: 1587973238378814412}
+  m_effectTriggers: []
+--- !u!136 &3052633094864862503
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587973237594984087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.19999999
+  m_Height: 0.022451822
+  m_Direction: 1
+  m_Center: {x: -0.00020015985, y: 0.011225911, z: 0.00018344074}
+--- !u!54 &1401154753994738791
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587973237594984087}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1587973238375586768
 GameObject:
   m_ObjectHideFlags: 0

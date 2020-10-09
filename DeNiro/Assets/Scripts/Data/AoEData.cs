@@ -3,6 +3,8 @@
 [CreateAssetMenu(fileName = "AoeData", menuName = "Aoe Data")]
 public class AoEData : ScriptableObject
 {
+    public ETarget Target = ETarget.Enemies;
+    public EEffect Effect = EEffect.Damage;
     public float Radius = 30.0f;
     public float EffectDuration = 1.0f;
     public float DamageTimeStart = 0.0f;

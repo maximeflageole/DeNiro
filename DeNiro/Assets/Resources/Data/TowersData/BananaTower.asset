@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5188cd8c6657b8546af6d649427e192a, type: 3}
   m_Name: BananaTower
   m_EditorClassIdentifier: 
-  Radius: 100
+  Radius: 140
   RateOfFire: 0.6
   ProjectileData: {fileID: 11400000, guid: ce4918c4687374b48addd12fdffea3d4, type: 2}
   TowerSprite: {fileID: 21300000, guid: 9ff56da73f7648b45a9aa4c1f7f84c75, type: 3}
