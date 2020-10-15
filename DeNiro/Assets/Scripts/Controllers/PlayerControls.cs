@@ -73,4 +73,9 @@ public class PlayerControls : MonoBehaviour
         tile.IsOccupied = true;
         StopPlacingTower();
     }
+
+    public static void EndGame(bool victory)
+    {
+        Debug.LogError("Waves defeated! Congrats");
+    }
 }

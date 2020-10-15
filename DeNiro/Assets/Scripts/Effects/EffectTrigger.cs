@@ -16,6 +16,12 @@ public class EffectTrigger : MonoBehaviour
     {
         if (m_onEnterEffect.Target == ETarget.Enemies)
         {
+            var enemy = other.GetComponent<TdEnemy>();
+            if (enemy != null)
+            {
+                Debug.Log("Apply armor debuff");
+                enemy.AddEffect(m_onEnterEffect);
+            }
             return;
         }
         if (m_onEnterEffect.Target == ETarget.Towers)
@@ -23,7 +29,6 @@ public class EffectTrigger : MonoBehaviour
             var tower = other.GetComponent<Tower>();
             if (tower != null)
             {
-                Debug.Log("Should apply speed buff effect to tower");
                 tower.AddEffect(m_onEnterEffect);
             }
             return;
@@ -34,6 +39,12 @@ public class EffectTrigger : MonoBehaviour
     {
         if (m_onEnterEffect.Target == ETarget.Enemies)
         {
+            var enemy = other.GetComponent<TdEnemy>();
+            if (enemy != null)
+            {
+                Debug.Log("Remove armor debuff");
+                enemy.RemoveEffect(m_onEnterEffect);
+            }
             return;
         }
         if (m_onEnterEffect.Target == ETarget.Towers)

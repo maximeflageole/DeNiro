@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : TdUnit
 {
     [SerializeField]
     protected GameObject m_homingProjectile;
@@ -19,7 +19,6 @@ public class Tower : MonoBehaviour
     [SerializeField]
     protected MeshFilter m_towerMeshFilter;
 
-    protected Dictionary<EEffect, List<Effect>> m_effectsDictionary = new Dictionary<EEffect, List<Effect>>();
     [SerializeField]
     protected List<EffectTrigger> m_effectTriggers = new List<EffectTrigger>();
 
@@ -52,7 +51,7 @@ public class Tower : MonoBehaviour
             return;
         }
 
-        m_currentFireTimer += Time.deltaTime * GetAttackSpeedMultiplier();
+        m_currentFireTimer += Time.deltaTime * GetEffectMultiplier(EEffect.AttackSpeedBuff);
 
         if (m_currentFireTimer > m_data.RateOfFire)
         {
@@ -62,27 +61,6 @@ public class Tower : MonoBehaviour
                 ResetTimer();
             }
         }
-    }
-
-    protected float GetAttackSpeedMultiplier()
-    {
-        float attackSpeedMultiplier = 1.0f;
-        if (m_effectsDictionary.ContainsKey(EEffect.AttackSpeedBuff))
-        {
-            foreach (var speedBuff in m_effectsDictionary[EEffect.AttackSpeedBuff])
-            {
-                attackSpeedMultiplier += speedBuff.Magnitude;
-            }
-        }
-        if (m_effectsDictionary.ContainsKey(EEffect.AttackSpeedDebuff))
-        {
-            foreach (var speedBuff in m_effectsDictionary[EEffect.AttackSpeedDebuff])
-            {
-                attackSpeedMultiplier -= speedBuff.Magnitude;
-            }
-        }
-        attackSpeedMultiplier = Mathf.Clamp(attackSpeedMultiplier, 0.5f, 10.0f);
-        return attackSpeedMultiplier;
     }
 
     protected void Shoot()
@@ -115,34 +93,5 @@ public class Tower : MonoBehaviour
     public void AssignTarget(TdEnemy target)
     {
         m_target = target;
-    }
-
-    public void AddEffect(Effect effect)
-    {
-        if (!m_effectsDictionary.ContainsKey(effect.EffectType))
-        {
-            Debug.Log("Correctly adding effect to this tower");
-            m_effectsDictionary.Add(effect.EffectType, new List<Effect>());
-        }
-        m_effectsDictionary[effect.EffectType].Add(effect);
-    }
-
-    public void RemoveEffect(Effect effect)
-    {
-        if (!m_effectsDictionary.ContainsKey(effect.EffectType))
-        {
-            return;
-        }
-        foreach (var effectInstance in m_effectsDictionary[effect.EffectType])
-        {
-            if (effectInstance == effect)
-            {
-                m_effectsDictionary[effect.EffectType].Remove(effectInstance);
-            }
-        }
-        if (m_effectsDictionary[effect.EffectType].Count == 0)
-        {
-            m_effectsDictionary.Remove(effect.EffectType);
-        }
     }
 }

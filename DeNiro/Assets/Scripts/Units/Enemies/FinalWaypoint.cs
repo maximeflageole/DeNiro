@@ -7,7 +7,7 @@ public class FinalWaypoint : Waypoint
         var enemy = other.GetComponent<TdEnemy>();
         if (enemy != null)
         {
-            Destroy(enemy.gameObject);
+            enemy.Die();
         }
     }
 }

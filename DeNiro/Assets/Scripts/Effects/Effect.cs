@@ -17,7 +17,11 @@ public enum EEffect
 {
     Damage,
     AttackSpeedBuff,
-    AttackSpeedDebuff
+    AttackSpeedDebuff,
+    MovementSpeedBuff, //TODO
+    MovementSpeedDebuff,
+    DamageMultiplierBuff, //TODO
+    DamageMultiplierDebuff
 }
 
 [Serializable]
