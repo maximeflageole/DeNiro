@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32bc2a79b677ef5448b041ef67113c50, type: 3}
-  m_Name: BananaCreature
+  m_Name: SpeedBuffCreature
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: 03bbac2d7a942784680e1cae53982470, type: 2}
+  TowerData: {fileID: 11400000, guid: 8717812c78c06654bac95b15d8213c34, type: 2}
   EnemyData: {fileID: 11400000, guid: 9868ba8fbd741d04ab8232ad14755d69, type: 2}

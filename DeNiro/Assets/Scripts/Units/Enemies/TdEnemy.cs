@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class TdEnemy : TdUnit
 {
@@ -15,6 +16,7 @@ public class TdEnemy : TdUnit
 
     protected float m_currentHp;
     protected EnemyData m_data;
+    protected CreatureData m_creatureData;
 
     protected Waypoint m_nextWaypoint;
     protected Vector3 m_directionalVector;
@@ -55,9 +57,17 @@ public class TdEnemy : TdUnit
         }
     }
 
-    public void Die()
+    public void Die(bool wasKilled = true)
     {
         OnDeathCallback?.Invoke();
+        if (wasKilled)
+        {
+            var randomValue = Random.Range(0.0f, 1.0f);
+            if (randomValue < GameManager.RateOfConversion)
+            {
+                PlayerControls.Instance.CollectTower(m_creatureData);
+            }
+        }
         Destroy(gameObject);
     }
 
@@ -77,9 +87,10 @@ public class TdEnemy : TdUnit
         return calculatedDamage;
     }
 
-    public void AssignData(EnemyData data)
+    public void AssignData(CreatureData data)
     {
-        m_data = data;
+        m_creatureData = data;
+        m_data = data.EnemyData;
         m_currentHp = m_data.MaxHealth;
         m_speed = m_data.Speed;
     }

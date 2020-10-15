@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -7,6 +6,10 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField]
     private TowerInPlacement m_towerInPlacement;
+    [SerializeField]
+    private Transform m_towersPanel;
+    [SerializeField]
+    private GameObject m_towerBtnPrefab;
 
     private void Awake()
     {
@@ -76,6 +79,12 @@ public class PlayerControls : MonoBehaviour
 
     public static void EndGame(bool victory)
     {
-        Debug.LogError("Waves defeated! Congrats");
+        Debug.LogWarning("Waves defeated! Congrats");
+    }
+
+    public void CollectTower(CreatureData data)
+    {
+        var towerBtn = Instantiate(m_towerBtnPrefab, m_towersPanel).GetComponent<TowerUiButton>();
+        towerBtn.Init(data);
     }
 }

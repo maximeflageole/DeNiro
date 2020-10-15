@@ -25,12 +25,15 @@ public class Tower : TdUnit
     protected TdEnemy m_target;
     protected float m_currentFireTimer;
     protected TowerData m_data;
+    protected CreatureData m_creatureData;
 
-    public void Init(TowerData towerData)
+    public void Init(CreatureData creatureData)
     {
-        m_towerMeshFilter.mesh = towerData.TowerMesh;
-        m_towerMeshRenderer.materials = towerData.Materials.ToArray();
-        m_data = towerData;
+        m_creatureData = creatureData;
+        m_data = m_creatureData.TowerData;
+        m_towerMeshFilter.mesh = m_data.TowerMesh;
+        m_towerMeshRenderer.materials = m_data.Materials.ToArray();
+
         foreach (var effect in m_data.Effects)
         {
             var effectTrigger = Instantiate(m_effectTriggerPrefab, transform).GetComponent<EffectTrigger>();

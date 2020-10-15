@@ -8,20 +8,34 @@ public class TowerUiButton : MonoBehaviour
 	[SerializeField]
 	private Image m_buttonImage;
 	[SerializeField]
-	private TowerData m_towerData;
+	private CreatureData m_creatureData;
+
+	//TODO MF: Remove this and the Start entirely
+	private bool m_isStarted;
 
 	void Start()
 	{
-		m_buttonImage.sprite = m_towerData.TowerSprite;
+		if (m_creatureData == null || m_isStarted)
+        {
+			return;
+        }
+		m_buttonImage.sprite = m_creatureData.TowerData.TowerSprite;
 
 		Button btn = GetComponent<Button>();
 		btn.onClick.AddListener(OnClick);
+		m_isStarted = true;
 	}
 
 	void OnClick()
 	{
 		var towerInPlacement = Instantiate(m_towerPrefab).GetComponent<TowerInPlacement>();
-		towerInPlacement.Init(m_towerData);
+		towerInPlacement.Init(m_creatureData);
 		PlayerControls.Instance.StartPlacingTower(towerInPlacement);
+	}
+
+	public void Init(CreatureData creatureData)
+    {
+		m_creatureData = creatureData;
+		Start();
 	}
 }

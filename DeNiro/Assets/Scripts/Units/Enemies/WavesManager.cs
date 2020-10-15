@@ -28,7 +28,7 @@ public class WavesManager : Waypoint
         if (!m_gameEnded)
         {
             m_currentCooldown += Time.deltaTime;
-            if (m_currentCooldown > m_nextSpawnTimer && m_unitsSpawnedInWave < m_wavesData.Waves[m_currentWaveIndex].EnemiesData.Count)
+            if (m_currentCooldown > m_nextSpawnTimer && m_unitsSpawnedInWave < m_wavesData.Waves[m_currentWaveIndex].CreaturesData.Count)
             {
                 Spawn();
                 ResetUnitsCooldown();
@@ -50,7 +50,7 @@ public class WavesManager : Waypoint
     {
         var enemy = Instantiate(m_spawnee).GetComponent<TdEnemy>();
         enemy.AssignWaypoint(m_nextWaypoint);
-        enemy.AssignData(m_wavesData.Waves[m_currentWaveIndex].EnemiesData[m_unitsSpawnedInWave]);
+        enemy.AssignData(m_wavesData.Waves[m_currentWaveIndex].CreaturesData[m_unitsSpawnedInWave]);
         m_unitsSpawnedInWave ++;
         enemy.OnDeathCallback += OnUnitDeath;
     }
@@ -81,6 +81,6 @@ public class WavesManager : Waypoint
 
     private bool AreUnitsAllSpawned()
     {
-        return m_wavesData.Waves[m_currentWaveIndex].EnemiesData.Count == m_unitsSpawnedInWave;
+        return m_wavesData.Waves[m_currentWaveIndex].CreaturesData.Count == m_unitsSpawnedInWave;
     }
 }

@@ -12,5 +12,5 @@ public class WavesData
 [System.Serializable]
 public struct Wave
 {
-    public List<EnemyData> EnemiesData;
+    public List<CreatureData> CreaturesData;
 }
