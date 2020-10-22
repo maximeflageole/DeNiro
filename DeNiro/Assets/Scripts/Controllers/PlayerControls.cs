@@ -4,12 +4,14 @@ public class PlayerControls : MonoBehaviour
 {
     public static PlayerControls Instance;
 
-    [SerializeField]
     private TowerInPlacement m_towerInPlacement;
+
     [SerializeField]
-    private Transform m_towersPanel;
+    private GameObject m_towerInPlacementPrefab;
     [SerializeField]
-    private GameObject m_towerBtnPrefab;
+    private CreaturesInventory m_creaturesInventory;
+    [SerializeField]
+    private TowerUiButton m_currentlySelectedButton;
 
     private void Awake()
     {
@@ -19,27 +21,6 @@ public class PlayerControls : MonoBehaviour
             return;
         }
         Instance = this;
-    }
-
-    public void StartPlacingTower(TowerInPlacement towerInPlacement)
-    {
-        if (m_towerInPlacement != null)
-        {
-            StopPlacingTower();
-        }
-        m_towerInPlacement = towerInPlacement;
-    }
-
-    public void StopPlacingTower(bool destroy = true)
-    {
-        if (m_towerInPlacement != null)
-        {
-            if (destroy)
-            {
-                Destroy(m_towerInPlacement.gameObject);
-            }
-            m_towerInPlacement = null;
-        }
     }
 
     void Update()
@@ -66,6 +47,35 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    public void StartPlacingTower(TowerUiButton button)
+    {
+        var towerInPlacement = Instantiate(m_towerInPlacementPrefab).GetComponent<TowerInPlacement>();
+        towerInPlacement.Init(button.CreatureData);
+        if (m_towerInPlacement != null)
+        {
+            StopPlacingTower(true, false);
+        }
+        m_currentlySelectedButton = button;
+        m_towerInPlacement = towerInPlacement;
+    }
+
+    public void StopPlacingTower(bool destroy = true, bool wasConstructed = true)
+    {
+        if (m_towerInPlacement != null)
+        {
+            if (wasConstructed)
+            {
+                m_creaturesInventory.ConstructTower(m_currentlySelectedButton);
+            }
+            if (destroy)
+            {
+                Destroy(m_towerInPlacement.gameObject);
+            }
+            m_towerInPlacement = null;
+            m_currentlySelectedButton = null;
+        }
+    }
+
     private void PlaceTower(Tile tile)
     {
         if (tile.IsOccupied)
@@ -84,7 +94,6 @@ public class PlayerControls : MonoBehaviour
 
     public void CollectTower(CreatureData data)
     {
-        var towerBtn = Instantiate(m_towerBtnPrefab, m_towersPanel).GetComponent<TowerUiButton>();
-        towerBtn.Init(data);
+        m_creaturesInventory.AddTowerToInventory(data);
     }
 }

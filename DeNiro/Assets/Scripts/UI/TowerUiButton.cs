@@ -1,25 +1,34 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class TowerUiButton : MonoBehaviour
 {
 	[SerializeField]
-	private GameObject m_towerPrefab;
+	private CreatureData m_defaultData;
 	[SerializeField]
 	private Image m_buttonImage;
 	[SerializeField]
-	private CreatureData m_creatureData;
+	public CreatureData CreatureData { get; private set; }
+	public Action<TowerUiButton> m_onClickCallback;
 
 	//TODO MF: Remove this and the Start entirely
 	private bool m_isStarted;
 
 	void Start()
 	{
-		if (m_creatureData == null || m_isStarted)
+		if (CreatureData == null || m_isStarted)
         {
-			return;
+			if (m_defaultData != null)
+			{
+				Init(m_defaultData);
+			}
+			else
+            {
+				return;
+            }
         }
-		m_buttonImage.sprite = m_creatureData.TowerData.TowerSprite;
+		m_buttonImage.sprite = CreatureData.TowerData.TowerSprite;
 
 		Button btn = GetComponent<Button>();
 		btn.onClick.AddListener(OnClick);
@@ -28,14 +37,12 @@ public class TowerUiButton : MonoBehaviour
 
 	void OnClick()
 	{
-		var towerInPlacement = Instantiate(m_towerPrefab).GetComponent<TowerInPlacement>();
-		towerInPlacement.Init(m_creatureData);
-		PlayerControls.Instance.StartPlacingTower(towerInPlacement);
+		m_onClickCallback?.Invoke(this);
 	}
 
 	public void Init(CreatureData creatureData)
     {
-		m_creatureData = creatureData;
+		CreatureData = creatureData;
 		Start();
 	}
 }
