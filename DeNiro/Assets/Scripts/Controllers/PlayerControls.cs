@@ -33,9 +33,10 @@ public class PlayerControls : MonoBehaviour
         LayerMask gameplayMask = LayerMask.GetMask("Gameplay");
         LayerMask tilesMask = LayerMask.GetMask("Tiles");
 
+        var ignoreMasks = unitsMask + gameplayMask;
+
         if (m_towerInPlacement != null)
         {
-            var ignoreMasks = unitsMask + gameplayMask;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
             {
                 var tile = hit.transform.GetComponent<Tile>();
@@ -51,20 +52,28 @@ public class PlayerControls : MonoBehaviour
                 }
             }
         }
+
+        ignoreMasks = tilesMask + gameplayMask;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
+        {
+            var unit = hit.transform.GetComponent<TdUnit>();
+            if (unit != null)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    OnUnitSelected(unit);
+                }
+            }
+            else
+            {
+                m_unitPanel.EnablePanel(false);
+            }
+        }
         else
         {
-            var ignoreMasks = tilesMask + gameplayMask;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
+            if (Input.GetMouseButtonDown(0))
             {
-                var unit = hit.transform.GetComponent<TdUnit>();
-                if (unit != null)
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("Selected a unit");
-                        OnUnitSelected(unit);
-                    }
-                }
+                m_unitPanel.EnablePanel(false);
             }
         }
     }

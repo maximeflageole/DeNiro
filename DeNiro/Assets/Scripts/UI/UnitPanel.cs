@@ -19,6 +19,8 @@ public class UnitPanel : MonoBehaviour
 
     public void AssignData(CreatureData creatureData)
     {
+        gameObject.SetActive(creatureData != null);
+
         m_creatureData = creatureData;
 
         m_unitImage.sprite = m_creatureData.TowerData.TowerSprite;
@@ -26,5 +28,10 @@ public class UnitPanel : MonoBehaviour
         //TODO: Insert types when they are added to the game
         m_ability1Panel.AssignData(null);
         m_ability2Panel.AssignData(null);
+    }
+
+    public void EnablePanel(bool isEnabled)
+    {
+        gameObject.SetActive(isEnabled);
     }
 }
