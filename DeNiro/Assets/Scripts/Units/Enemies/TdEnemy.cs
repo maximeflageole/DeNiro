@@ -16,6 +16,7 @@ public class TdEnemy : TdUnit
 
     protected float m_currentHp;
     protected EnemyData m_data;
+
     protected CreatureData m_creatureData;
 
     protected Waypoint m_nextWaypoint;
@@ -29,7 +30,7 @@ public class TdEnemy : TdUnit
         m_directionalVector = (m_nextWaypoint.transform.position - transform.position).normalized;
     }
 
-    private void Update()
+    protected void Update()
     {
         GetComponent<Rigidbody>().velocity = m_directionalVector * m_speed * Time.deltaTime * GetSpeedMultiplier();
 
