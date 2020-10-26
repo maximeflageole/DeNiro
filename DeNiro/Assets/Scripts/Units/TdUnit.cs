@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class TdUnit : MonoBehaviour
 {
-    protected bool m_markedForDestruction;
     public CreatureData m_creatureData { get; protected set; }
+
     protected Dictionary<EEffect, List<Effect>> m_effectsDictionary = new Dictionary<EEffect, List<Effect>>();
+    protected uint level = 1;
+    protected bool m_markedForDestruction;
 
     public void AddEffect(Effect effect)
     {

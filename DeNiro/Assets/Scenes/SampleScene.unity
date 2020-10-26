@@ -1015,6 +1015,7 @@ MonoBehaviour:
     type: 3}
   m_creaturesInventory: {fileID: 1796313525}
   m_currentlySelectedButton: {fileID: 0}
+  m_currentlySelectedUnit: {fileID: 0}
   m_unitPanel: {fileID: 384681767}
 --- !u!4 &2134529158
 Transform:
@@ -1042,6 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b5e8d852b1c5e4e939027e0a8ccb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_xpCurve: {fileID: 11400000, guid: ca4841fa2d669b048852e27b80b0a825, type: 2}
 --- !u!4 &4586732772597787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2938158791481942372, guid: 6939e03d174129a4c9257947240cf2a4,

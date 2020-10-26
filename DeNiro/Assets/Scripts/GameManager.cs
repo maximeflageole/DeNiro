@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public const float RateOfConversion = 0.3f;
 
+	public CurveData m_xpCurve;
+
     public static GameManager Instance;
 
 	float deltaTime = 0.0f;
