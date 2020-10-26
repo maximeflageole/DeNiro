@@ -14,11 +14,15 @@ public class UnitPanel : MonoBehaviour
     protected AbilityPanel m_ability1Panel;
     [SerializeField]
     protected AbilityPanel m_ability2Panel;
+    [SerializeField]
+    protected Button m_removeBtn;
 
     protected CreatureData m_creatureData;
 
-    public void AssignData(CreatureData creatureData)
+    public void AssignData(CreatureData creatureData, bool isTower = false)
     {
+
+        m_removeBtn.gameObject.SetActive(isTower);
         gameObject.SetActive(creatureData != null);
 
         m_creatureData = creatureData;
@@ -33,5 +37,10 @@ public class UnitPanel : MonoBehaviour
     public void EnablePanel(bool isEnabled)
     {
         gameObject.SetActive(isEnabled);
+    }
+
+    public void OnClickRemove()
+    {
+        PlayerControls.Instance.ReturnUnitToInventory();
     }
 }

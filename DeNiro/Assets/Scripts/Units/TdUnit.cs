@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class TdUnit : MonoBehaviour
 {
+    protected bool m_markedForDestruction;
     public CreatureData m_creatureData { get; protected set; }
     protected Dictionary<EEffect, List<Effect>> m_effectsDictionary = new Dictionary<EEffect, List<Effect>>();
-
 
     public void AddEffect(Effect effect)
     {
@@ -73,10 +73,5 @@ public class TdUnit : MonoBehaviour
         }
 
         return multiplier;
-    }
-
-    public void OnClick()
-    {
-
     }
 }

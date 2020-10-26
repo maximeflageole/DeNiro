@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class PlayerControls : MonoBehaviour
     [SerializeField]
     private TowerUiButton m_currentlySelectedButton;
     [SerializeField]
+    private TdUnit m_currentlySelectedUnit;
+    [SerializeField]
     private UnitPanel m_unitPanel;
+    private static int guiInt = -1;
 
     private void Awake()
     {
@@ -23,6 +27,9 @@ public class PlayerControls : MonoBehaviour
             return;
         }
         Instance = this;
+    #if !UNITY_EDITOR
+            guiInt = 0;
+    #endif
     }
 
     void Update()
@@ -31,9 +38,14 @@ public class PlayerControls : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         LayerMask unitsMask = LayerMask.GetMask("Units");
         LayerMask gameplayMask = LayerMask.GetMask("Gameplay");
-        LayerMask tilesMask = LayerMask.GetMask("Tiles");
 
         var ignoreMasks = unitsMask + gameplayMask;
+
+        if (EventSystem.current.IsPointerOverGameObject(guiInt))    // is the touch on the GUI
+        {
+            // GUI Action
+            return;
+        }
 
         if (m_towerInPlacement != null)
         {
@@ -53,8 +65,7 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        ignoreMasks = tilesMask + gameplayMask;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, unitsMask))
         {
             var unit = hit.transform.GetComponent<TdUnit>();
             if (unit != null)
@@ -66,14 +77,14 @@ public class PlayerControls : MonoBehaviour
             }
             else
             {
-                m_unitPanel.EnablePanel(false);
+                UnselectUnit();
             }
         }
         else
         {
             if (Input.GetMouseButtonDown(0))
             {
-                m_unitPanel.EnablePanel(false);
+                UnselectUnit();
             }
         }
     }
@@ -128,8 +139,22 @@ public class PlayerControls : MonoBehaviour
         m_creaturesInventory.AddTowerToInventory(data);
     }
 
-    public void OnUnitSelected(TdUnit unit)
+    private void OnUnitSelected(TdUnit unit)
     {
-        m_unitPanel.AssignData(unit.m_creatureData);
+        m_currentlySelectedUnit = unit;
+        m_unitPanel.AssignData(unit.m_creatureData, unit.GetComponent<Tower>() != null);
+    }
+
+    private void UnselectUnit()
+    {
+        m_currentlySelectedUnit = null;
+        m_unitPanel.EnablePanel(false);
+    }
+
+    public void ReturnUnitToInventory()
+    {
+        m_creaturesInventory.AddTowerToInventory(m_currentlySelectedUnit.m_creatureData);
+        Destroy(m_currentlySelectedUnit.gameObject);
+        UnselectUnit();
     }
 }
