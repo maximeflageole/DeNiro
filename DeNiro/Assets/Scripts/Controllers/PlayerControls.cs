@@ -12,6 +12,8 @@ public class PlayerControls : MonoBehaviour
     private CreaturesInventory m_creaturesInventory;
     [SerializeField]
     private TowerUiButton m_currentlySelectedButton;
+    [SerializeField]
+    private UnitPanel m_unitPanel;
 
     private void Awake()
     {
@@ -25,13 +27,16 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        LayerMask unitsMask = LayerMask.GetMask("Units");
+        LayerMask gameplayMask = LayerMask.GetMask("Gameplay");
+        LayerMask tilesMask = LayerMask.GetMask("Tiles");
+
         if (m_towerInPlacement != null)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            LayerMask mask = LayerMask.GetMask("Units");
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~mask))
+            var ignoreMasks = unitsMask + gameplayMask;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
             {
                 var tile = hit.transform.GetComponent<Tile>();
                 if (tile != null)
@@ -41,6 +46,23 @@ public class PlayerControls : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         PlaceTower(tile);
+                    }
+                    return;
+                }
+            }
+        }
+        else
+        {
+            var ignoreMasks = tilesMask + gameplayMask;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
+            {
+                var unit = hit.transform.GetComponent<TdUnit>();
+                if (unit != null)
+                {
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        Debug.Log("Selected a unit");
+                        OnUnitSelected(unit);
                     }
                 }
             }
@@ -95,5 +117,10 @@ public class PlayerControls : MonoBehaviour
     public void CollectTower(CreatureData data)
     {
         m_creaturesInventory.AddTowerToInventory(data);
+    }
+
+    public void OnUnitSelected(TdUnit unit)
+    {
+        m_unitPanel.AssignData(unit.m_creatureData);
     }
 }

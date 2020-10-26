@@ -17,8 +17,6 @@ public class TdEnemy : TdUnit
     protected float m_currentHp;
     protected EnemyData m_data;
 
-    protected CreatureData m_creatureData;
-
     protected Waypoint m_nextWaypoint;
     protected float m_waypointDistance = 1;
     protected Vector3 m_directionalVector;

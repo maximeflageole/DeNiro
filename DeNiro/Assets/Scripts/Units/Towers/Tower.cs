@@ -25,7 +25,6 @@ public class Tower : TdUnit
     protected TdEnemy m_target;
     protected float m_currentFireTimer;
     protected TowerData m_data;
-    protected CreatureData m_creatureData;
 
     public void Init(CreatureData creatureData)
     {

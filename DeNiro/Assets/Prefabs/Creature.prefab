@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 775099212858327864}
   - component: {fileID: 874275430607388831}
   - component: {fileID: 4132991697094697130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Creature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ CapsuleCollider:
   m_Radius: 0.29593772
   m_Height: 0.72234976
   m_Direction: 1
-  m_Center: {x: 0.11050689, y: 0.16584462, z: 0.047494173}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &2989469219009258051
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 673379938147875054}
   - component: {fileID: 3451228081869665238}
   - component: {fileID: 8771276286578587742}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 6081373104735860843}
   - component: {fileID: 2463133612888123298}
   - component: {fileID: 79826180270870356}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HpImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 8523144928245046712}
   - component: {fileID: 82343671999051219}
   - component: {fileID: 1379319088615626406}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

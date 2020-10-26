@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3747453520386733773}
   - component: {fileID: 5721893913120625270}
   - component: {fileID: 7353670002969280153}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6567411369379371366}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TowerAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

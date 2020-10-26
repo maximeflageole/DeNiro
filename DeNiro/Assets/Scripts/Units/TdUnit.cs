@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TdUnit : MonoBehaviour
 {
+    public CreatureData m_creatureData { get; protected set; }
     protected Dictionary<EEffect, List<Effect>> m_effectsDictionary = new Dictionary<EEffect, List<Effect>>();
 
 
@@ -72,5 +73,10 @@ public class TdUnit : MonoBehaviour
         }
 
         return multiplier;
+    }
+
+    public void OnClick()
+    {
+
     }
 }

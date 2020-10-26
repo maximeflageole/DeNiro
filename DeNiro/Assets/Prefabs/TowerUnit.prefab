@@ -122,10 +122,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.19999999
-  m_Height: 0.022451822
+  m_Radius: 0.23415866
+  m_Height: 0.8410685
   m_Direction: 1
-  m_Center: {x: -0.00020015985, y: 0.011225911, z: 0.00018344074}
+  m_Center: {x: -0.03435883, y: 0.23176014, z: 0.0001834333}
 --- !u!54 &1401154753994738791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 1587973238375586770}
   - component: {fileID: 1587973238375586771}
   - component: {fileID: 3044575679514202547}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RadiusSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
