@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6807038472425113024}
   - component: {fileID: 6807038472425113027}
-  - component: {fileID: -63267721988992761}
   m_Layer: 0
   m_Name: Waypoint
   m_TagString: Untagged
@@ -44,17 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097b97830ec826f46b63e688dea463d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nextWaypoint: {fileID: 0}
---- !u!135 &-63267721988992761
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6807038472425113025}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

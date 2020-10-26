@@ -20,6 +20,7 @@ public class TdEnemy : TdUnit
     protected CreatureData m_creatureData;
 
     protected Waypoint m_nextWaypoint;
+    protected float m_waypointDistance = 1;
     protected Vector3 m_directionalVector;
 
     public Action OnDeathCallback;
@@ -27,12 +28,19 @@ public class TdEnemy : TdUnit
     public void AssignWaypoint(Waypoint waypoint)
     {
         m_nextWaypoint = waypoint;
+        var distanceVector = m_nextWaypoint.transform.position - transform.position;
+        m_waypointDistance = Mathf.Abs(distanceVector.magnitude);
+        Debug.Log("Assigning next waypoint in " + m_waypointDistance);
         m_directionalVector = (m_nextWaypoint.transform.position - transform.position).normalized;
     }
 
     protected void Update()
     {
-        GetComponent<Rigidbody>().velocity = m_directionalVector * m_speed * Time.deltaTime * GetSpeedMultiplier();
+        var directionalSpeed = m_directionalVector * m_speed * Time.deltaTime * GetSpeedMultiplier();
+        GetComponent<Rigidbody>().velocity = directionalSpeed;
+        m_waypointDistance -= (directionalSpeed * Time.deltaTime).magnitude;
+
+        WaypointCheck();
 
         m_hpImage.fillAmount = m_currentHp / m_maxHp;
         UiRotationUpdate();
@@ -40,6 +48,19 @@ public class TdEnemy : TdUnit
         if (Input.GetKeyDown(KeyCode.X))
         {
             Damage(m_maxHp / 2.0f);
+        }
+    }
+
+    protected void WaypointCheck()
+    {
+        if (m_waypointDistance <= 0)
+        {
+            if (m_nextWaypoint.GetNextWaypoint() != null)
+            {
+                AssignWaypoint(m_nextWaypoint.GetNextWaypoint());
+                return;
+            }
+            Die(false);
         }
     }
 
