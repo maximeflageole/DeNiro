@@ -54,7 +54,7 @@ public class Tower: TdUnit
             return;
         }
 
-        m_currentFireTimer += Time.deltaTime /*GetFinalStat(EStat.Haste)*/;
+        m_currentFireTimer += Time.deltaTime * GetFinalStat(EStat.Haste);
 
         if (m_currentFireTimer > m_data.RateOfFire)
         {
