@@ -185,7 +185,7 @@ public class PlayerControls : MonoBehaviour
             var tower = m_currentlySelectedUnit.GetComponent<Tower>();
             if (tower != null)
             {
-                m_unitPanel.AssignTowerData(m_currentlySelectedUnit.m_creatureData, tower.m_stats);
+                m_unitPanel.AssignTowerData(m_currentlySelectedUnit.m_creatureData, tower.GetData().Stats);
                 return;
             }
             m_unitPanel.AssignEnemyData(m_currentlySelectedUnit.m_creatureData, m_currentlySelectedUnit.m_stats);

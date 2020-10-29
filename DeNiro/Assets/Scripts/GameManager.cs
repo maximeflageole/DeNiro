@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
 
 	public bool LevelUpCheck(uint currentXp, uint currentLvl)
     {
+		if (currentLvl >= MAX_LEVEL)
+        {
+			return false;
+        }
 		return EvaluateCurrentLevelInXp(currentLvl + 1) <= currentXp;
     }
 

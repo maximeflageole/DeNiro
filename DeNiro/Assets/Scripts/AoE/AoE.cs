@@ -11,14 +11,16 @@ public class AoE : MonoBehaviour
 
     private AoEData m_data;
     protected float m_lifespan;
+    protected float m_damageMultiplier;
 
-    public void Init(AoEData data)
+    public void Init(AoEData data, float damageMultiplier)
     {
         transform.position = new Vector3(transform.position.x, m_yPosition, transform.position.z);
         m_data = data;
         var scale = m_data.Radius / 100.0f;
         transform.localScale = new Vector3(scale, scale, scale);
         m_lifespan = 0.0f;
+        m_damageMultiplier = damageMultiplier;
     }
 
     protected void Update()
@@ -48,9 +50,9 @@ public class AoE : MonoBehaviour
             var enemy = other.gameObject.GetComponent<TdEnemy>();
             if (enemy != null)
             {
-                if (m_data.Effect == EEffect.Damage)
+                if (m_data.Effect == EStat.Damage)
                 {
-                    enemy.Damage(m_data.Magnitude);
+                    enemy.Damage(m_data.Magnitude * m_damageMultiplier);
                 }
             }
         }

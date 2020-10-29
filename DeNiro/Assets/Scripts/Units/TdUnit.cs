@@ -5,7 +5,7 @@ public class TdUnit: MonoBehaviour
 {
     public CreatureData m_creatureData { get; protected set; }
 
-    protected Dictionary<EEffect, List<Effect>> m_effectsDictionary = new Dictionary<EEffect, List<Effect>>();
+    protected Dictionary<EStat, List<Effect>> m_effectsDictionary = new Dictionary<EStat, List<Effect>>();
     protected uint level = 1;
     protected bool m_markedForDestruction;
     public UnitStats m_stats { get; protected set; }
@@ -39,7 +39,7 @@ public class TdUnit: MonoBehaviour
         }
     }
 
-    protected float GetEffectMultiplier(EEffect effect, bool startsAt1 = true)
+    protected float GetEffectMultiplier(EStat effect, bool startsAt1 = true)
     {
         float multiplier = startsAt1 ? 1.0f: 0.0f;
         if (m_effectsDictionary.ContainsKey(effect))
@@ -52,7 +52,7 @@ public class TdUnit: MonoBehaviour
         return multiplier;
     }
 
-    protected float GetEffectMultiplier(EEffect buff, EEffect debuff, bool clamping = false, float clampMin = 0, float clampMax = 1)
+    protected float GetEffectMultiplier(EStat buff, EStat debuff, bool clamping = false, float clampMin = 0, float clampMax = 1)
     {
         float multiplier = 1.0f;
         if (m_effectsDictionary.ContainsKey(buff))
@@ -76,10 +76,5 @@ public class TdUnit: MonoBehaviour
         }
 
         return multiplier;
-    }
-
-    public void LoadStats(UnitStats stats)
-    {
-        m_stats = stats;
     }
 }

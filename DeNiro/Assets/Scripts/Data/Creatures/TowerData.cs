@@ -11,4 +11,5 @@ public class TowerData : ScriptableObject
     public Sprite TowerSprite;
     public Mesh TowerMesh;
     public List<Material> Materials;
+    public TowerStats Stats;
 }

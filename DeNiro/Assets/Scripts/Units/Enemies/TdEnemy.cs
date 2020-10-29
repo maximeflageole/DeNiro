@@ -43,7 +43,7 @@ public class TdEnemy: TdUnit
         m_hpImage.fillAmount = m_currentHp / m_maxHp;
         UiRotationUpdate();
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             Damage(m_maxHp / 2.0f);
         }
@@ -93,16 +93,16 @@ public class TdEnemy: TdUnit
 
     protected float GetSpeedMultiplier()
     {
-        var speedMultiplier = Mathf.Max(1.0f, GetEffectMultiplier(EEffect.MovementSpeedBuff, false));
-        speedMultiplier /= Mathf.Max(1.0f, GetEffectMultiplier(EEffect.MovementSpeedDebuff, false));
+        var speedMultiplier = Mathf.Max(1.0f, GetEffectMultiplier(EStat.MovementSpeed, false));
+        speedMultiplier /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.MovementSpeedDebuff, false));
 
         return speedMultiplier;
     }
 
     protected float GetCalculatedDamage(float damageAmount)
     {
-        var calculatedDamage = damageAmount * Mathf.Max(1.0f, GetEffectMultiplier(EEffect.DamageMultiplierDebuff, false));
-        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EEffect.DamageMultiplierBuff, false));
+        var calculatedDamage = damageAmount * Mathf.Max(1.0f, GetEffectMultiplier(EStat.AttackDebuff, false));
+        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.Attack, false));
 
         return calculatedDamage;
     }

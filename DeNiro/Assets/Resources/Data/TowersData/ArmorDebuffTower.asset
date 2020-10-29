@@ -32,3 +32,4 @@ MonoBehaviour:
   TowerMesh: {fileID: 4300000, guid: a7113a38503da0b49bc2e2aa3e226b66, type: 3}
   Materials:
   - {fileID: 2100000, guid: 1e75d51d555dec54b90544819dd5e13a, type: 2}
+  Stats: {fileID: 11400000, guid: 7751d146bc7cb8b419a63a8ef3f0c7b3, type: 2}

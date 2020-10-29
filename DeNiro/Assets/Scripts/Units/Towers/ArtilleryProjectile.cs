@@ -9,11 +9,12 @@ public class ArtilleryProjectile : Projectile
     protected Vector3 m_initialPoint;
     protected float m_lifetime = 0.0f;
 
-    public override void Init(ProjectileData data, Vector3 objective)
+    public override void Init(ProjectileData data, Vector3 objective, float damageMultiplier)
     {
         m_initialPoint = transform.position;
         m_objective = objective;
         m_data = (ArtilleryData)data;
+        m_damageMultiplier = damageMultiplier;
     }
 
     private void Update()
@@ -33,7 +34,7 @@ public class ArtilleryProjectile : Projectile
     {
         var aoe = Instantiate(m_aoe, transform.position, Quaternion.identity).GetComponent<AoE>();
         aoe.transform.Rotate(Vector3.right, 90.0f);
-        aoe.Init(m_data.AoEData);
+        aoe.Init(m_data.AoEData, m_damageMultiplier);
         Destroy(gameObject);
     }
 }

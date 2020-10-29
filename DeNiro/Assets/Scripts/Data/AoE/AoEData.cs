@@ -4,7 +4,7 @@
 public class AoEData : ScriptableObject
 {
     public ETarget Target = ETarget.Enemies;
-    public EEffect Effect = EEffect.Damage;
+    public EStat Effect = EStat.Damage;
     public bool IsPermanent = false;
     public bool Ticking = false;
     public float Radius = 30.0f;

@@ -4,7 +4,7 @@
 public class Effect
 {
     public static uint NextId = 0;
-    public EEffect EffectType = EEffect.Damage;
+    public EStat EffectType = EStat.Damage;
     public ETarget Target = ETarget.Enemies;
     public float Magnitude = 1.0f;
     public float Duration = 0.0f;
@@ -13,15 +13,19 @@ public class Effect
 }
 
 [Serializable]
-public enum EEffect
+public enum EStat
 {
     Damage,
-    AttackSpeedBuff,
-    AttackSpeedDebuff,
-    MovementSpeedBuff, //TODO
+    Haste,
+    HasteDebuff,
+    MovementSpeed, //TODO
     MovementSpeedDebuff,
-    DamageMultiplierBuff, //TODO
-    DamageMultiplierDebuff
+    Attack, //TODO
+    AttackDebuff,
+    Range, //TODO
+    RangeDebuff, //TODO
+    Presence, //TODO
+    PresenceDebuff //TODO
 }
 
 [Serializable]
@@ -31,4 +35,11 @@ public enum ETarget
     Enemies,
     Any,
     None
+}
+
+[Serializable]
+public struct StatValueTuplet
+{
+    public EStat stat;
+    public float value;
 }

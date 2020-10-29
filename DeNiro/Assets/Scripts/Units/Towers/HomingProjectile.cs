@@ -12,15 +12,16 @@ public class HomingProjectile : Projectile
         var enemy = other.GetComponent<TdEnemy>();
         if (enemy == m_target)
         {
-            enemy.Damage(m_data.Damage);
+            enemy.Damage(m_data.Damage * m_damageMultiplier);
             Destroy(gameObject);
         }
     }
 
-    public override void Init(ProjectileData data, TdEnemy target)
+    public override void Init(ProjectileData data, TdEnemy target, float damageMultiplier)
     {
         m_data = (HomingProjectileData)data;
         m_target = target;
+        m_damageMultiplier = damageMultiplier;
     }
 
     private void Update()

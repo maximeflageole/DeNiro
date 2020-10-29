@@ -13,7 +13,6 @@ public class Tower: TdUnit
     protected Transform m_canon;
     [SerializeField]
     protected GameObject m_effectTriggerPrefab;
-
     [SerializeField]
     protected MeshRenderer m_towerMeshRenderer;
     [SerializeField]
@@ -25,9 +24,7 @@ public class Tower: TdUnit
     protected TdEnemy m_target;
     protected float m_currentFireTimer;
     protected TowerData m_data;
-    public new TowerStats m_stats { get; protected set; }
-
-    protected float xp = 0.0f;
+    public TowerData GetData() { return m_data; }
 
     public void Init(CreatureData creatureData)
     {
@@ -42,18 +39,12 @@ public class Tower: TdUnit
             effectTrigger.Init(effect);
             m_effectTriggers.Add(effectTrigger);
         }
+        m_data.Stats.Init();
     }
 
     void Start()
     {
         m_radiusTransform.transform.localScale = Vector3.one * m_data.Radius / 100.0f;
-        TowerStats stats = new TowerStats();
-        LoadStats(stats);
-    }
-
-    public void LoadStats(TowerStats stats)
-    {
-        m_stats = stats;
     }
 
     protected void Update()
@@ -63,7 +54,7 @@ public class Tower: TdUnit
             return;
         }
 
-        m_currentFireTimer += Time.deltaTime * GetEffectMultiplier(EEffect.AttackSpeedBuff);
+        m_currentFireTimer += Time.deltaTime /*GetFinalStat(EStat.Haste)*/;
 
         if (m_currentFireTimer > m_data.RateOfFire)
         {
@@ -82,7 +73,7 @@ public class Tower: TdUnit
             var artilleryProjectile = Instantiate(m_artilleryProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<ArtilleryProjectile>();
             if (artilleryProjectile != null)
             {
-                artilleryProjectile.Init(m_data.ProjectileData, m_target.transform.position);
+                artilleryProjectile.Init(m_data.ProjectileData, m_target.transform.position, GetFinalStat(EStat.Attack));
             }
             return;
         }
@@ -92,7 +83,7 @@ public class Tower: TdUnit
             var homingProjectile = Instantiate(m_homingProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<HomingProjectile>();
             if (homingProjectile != null)
             {
-                homingProjectile.Init(m_data.ProjectileData, m_target);
+                homingProjectile.Init(m_data.ProjectileData, m_target, GetFinalStat(EStat.Attack));
             }
         }
     }
@@ -109,11 +100,23 @@ public class Tower: TdUnit
 
     public void GiveXP(uint xpAmount)
     {
-        m_stats.CurrentXp += xpAmount;
-        if (GameManager.Instance.LevelUpCheck(m_stats.CurrentXp, m_stats.CurrentLevel))
+        m_data.Stats.CurrentXp += xpAmount;
+        while (GameManager.Instance.LevelUpCheck(m_data.Stats.CurrentXp, m_data.Stats.CurrentLevel))
         {
-            m_stats.CurrentLevel++;
+            LevelUp();
         }
         PlayerControls.Instance.RefreshUnitUI();
+    }
+
+    protected void LevelUp()
+    {
+        m_data.Stats.CurrentLevel++;
+        m_data.Stats.LevelUp();
+    }
+
+    public float GetFinalStat(EStat stat)
+    {
+        var statValue = 1 + m_data.Stats.GetStat(stat, 100.0f); //Default to 1.0f if stat does not have a base value
+        return statValue * GetEffectMultiplier(stat); //TODO: Do I multiply buffs and debuffs or do I make them additive instead?!?
     }
 }
