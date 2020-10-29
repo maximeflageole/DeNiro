@@ -34,6 +34,9 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
+#if UNITY_EDITOR
+        UpdateHacks();
+#endif
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         LayerMask unitsMask = LayerMask.GetMask("Units");
@@ -89,6 +92,23 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
+    private void UpdateHacks()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (m_currentlySelectedUnit != null)
+            {
+                var tower = (Tower)m_currentlySelectedUnit;
+                if (tower != null)
+                {
+                    tower.GiveXP(10);
+                }
+            }
+        }
+    }
+#endif
+
     public void StartPlacingTower(TowerUiButton button)
     {
         var towerInPlacement = Instantiate(m_towerInPlacementPrefab).GetComponent<TowerInPlacement>();
@@ -142,7 +162,7 @@ public class PlayerControls : MonoBehaviour
     private void OnUnitSelected(TdUnit unit)
     {
         m_currentlySelectedUnit = unit;
-        m_unitPanel.AssignData(unit.m_creatureData, unit.GetComponent<Tower>() != null);
+        RefreshUnitUI();
     }
 
     private void UnselectUnit()
@@ -156,5 +176,19 @@ public class PlayerControls : MonoBehaviour
         m_creaturesInventory.AddTowerToInventory(m_currentlySelectedUnit.m_creatureData);
         Destroy(m_currentlySelectedUnit.gameObject);
         UnselectUnit();
+    }
+
+    public void RefreshUnitUI()
+    {
+        if (m_currentlySelectedUnit != null)
+        {
+            var tower = m_currentlySelectedUnit.GetComponent<Tower>();
+            if (tower != null)
+            {
+                m_unitPanel.AssignTowerData(m_currentlySelectedUnit.m_creatureData, tower.m_stats);
+                return;
+            }
+            m_unitPanel.AssignEnemyData(m_currentlySelectedUnit.m_creatureData, m_currentlySelectedUnit.m_stats);
+        }
     }
 }

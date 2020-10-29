@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class TdEnemy : TdUnit
+public class TdEnemy: TdUnit
 {
     [SerializeField]
     protected float m_speed = 10.0f;
@@ -83,7 +83,7 @@ public class TdEnemy : TdUnit
         if (wasKilled)
         {
             var randomValue = Random.Range(0.0f, 1.0f);
-            if (randomValue < GameManager.RateOfConversion)
+            if (randomValue < GameManager.RATE_OF_CONVERSION)
             {
                 PlayerControls.Instance.CollectTower(m_creatureData);
             }

@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TdUnit : MonoBehaviour
+public class TdUnit: MonoBehaviour
 {
     public CreatureData m_creatureData { get; protected set; }
 
     protected Dictionary<EEffect, List<Effect>> m_effectsDictionary = new Dictionary<EEffect, List<Effect>>();
     protected uint level = 1;
     protected bool m_markedForDestruction;
+    public UnitStats m_stats { get; protected set; }
 
     public void AddEffect(Effect effect)
     {
@@ -75,5 +76,10 @@ public class TdUnit : MonoBehaviour
         }
 
         return multiplier;
+    }
+
+    public void LoadStats(UnitStats stats)
+    {
+        m_stats = stats;
     }
 }

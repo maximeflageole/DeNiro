@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : TdUnit
+public class Tower: TdUnit
 {
     [SerializeField]
     protected GameObject m_homingProjectile;
@@ -25,6 +25,7 @@ public class Tower : TdUnit
     protected TdEnemy m_target;
     protected float m_currentFireTimer;
     protected TowerData m_data;
+    public new TowerStats m_stats { get; protected set; }
 
     protected float xp = 0.0f;
 
@@ -46,6 +47,13 @@ public class Tower : TdUnit
     void Start()
     {
         m_radiusTransform.transform.localScale = Vector3.one * m_data.Radius / 100.0f;
+        TowerStats stats = new TowerStats();
+        LoadStats(stats);
+    }
+
+    public void LoadStats(TowerStats stats)
+    {
+        m_stats = stats;
     }
 
     protected void Update()
@@ -97,5 +105,15 @@ public class Tower : TdUnit
     public void AssignTarget(TdEnemy target)
     {
         m_target = target;
+    }
+
+    public void GiveXP(uint xpAmount)
+    {
+        m_stats.CurrentXp += xpAmount;
+        if (GameManager.Instance.LevelUpCheck(m_stats.CurrentXp, m_stats.CurrentLevel))
+        {
+            m_stats.CurrentLevel++;
+        }
+        PlayerControls.Instance.RefreshUnitUI();
     }
 }

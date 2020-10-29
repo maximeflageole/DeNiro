@@ -2,7 +2,8 @@
 
 public class GameManager : MonoBehaviour
 {
-    public const float RateOfConversion = 0.3f;
+    public const float RATE_OF_CONVERSION = 0.3f;
+	public static uint MAX_LEVEL = 10;
 
 	public CurveData m_xpCurve;
 
@@ -40,4 +41,27 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
     }
+
+	public float GetNextLevelXpPercentage(uint currentXp, uint currentLvl)
+    {
+		var currentLevelXp = EvaluateCurrentLevelInXp(currentLvl);
+		var nextLevelXp = EvaluateCurrentLevelInXp(currentLvl + 1);
+
+		return ((float)currentXp - (float)currentLevelXp) / ((float)nextLevelXp - (float)currentLevelXp);
+	}
+
+	public bool LevelUpCheck(uint currentXp, uint currentLvl)
+    {
+		return EvaluateCurrentLevelInXp(currentLvl + 1) <= currentXp;
+    }
+
+	public uint EvaluateCurrentLevelInXp(uint level)
+    {
+		if (level > MAX_LEVEL)
+        {
+			return 1000;
+        }
+		var levelIncrement = 1.0f / (float)MAX_LEVEL;
+		return (uint)(m_xpCurve.Data.Evaluate(level * levelIncrement));
+	}
 }
