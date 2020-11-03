@@ -43,7 +43,7 @@ public class TdEnemy: TdUnit
         m_hpImage.fillAmount = m_currentHp / m_maxHp;
         UiRotationUpdate();
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             Damage(m_maxHp / 2.0f);
         }
