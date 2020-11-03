@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5188cd8c6657b8546af6d649427e192a, type: 3}
+  m_Script: {fileID: 11500000, guid: 78f24986403f73e46b9f903d49bbd5df, type: 3}
   m_Name: TomatoTower
   m_EditorClassIdentifier: 
   Radius: 100
-  RateOfFire: 1.5
+  RateOfFire: 1
   ProjectileData: {fileID: 11400000, guid: e06164968e0803b4cb4f3fc9c2a2e53b, type: 2}
   Effects: []
-  TowerSprite: {fileID: 21300000, guid: 00386c8b48e43da47b9123ec757d5568, type: 3}
+  TowerSprite: {fileID: 21300000, guid: 0435408c139716542ba609a495d4eb8c, type: 3}
   TowerMesh: {fileID: 4300000, guid: de526dc2d54bd4c2283aa5581353960f, type: 3}
   Materials:
   - {fileID: 2100000, guid: 5a9603aa200ca0c45bf4ce1b20e1a39a, type: 2}
-  - {fileID: 2100000, guid: 5abb3d18170c7cc4b8ce3577ef8b5ed8, type: 2}
   Stats: {fileID: 11400000, guid: 7751d146bc7cb8b419a63a8ef3f0c7b3, type: 2}

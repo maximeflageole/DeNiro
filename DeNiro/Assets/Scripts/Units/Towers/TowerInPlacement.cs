@@ -21,9 +21,10 @@ public class TowerInPlacement : MonoBehaviour
         m_radiusTransform.localScale = Vector3.one * m_creatureData.TowerData.Radius / 100.0f;
     }
 
-    public void PlaceTower(Transform transform)
+    public Tower PlaceTower(Transform transform)
     {
         var tower = Instantiate(m_towerToBuild, transform.position, transform.rotation).GetComponent<Tower>();
         tower.Init(m_creatureData);
+        return tower;
     }
 }

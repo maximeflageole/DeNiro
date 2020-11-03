@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerControls : MonoBehaviour
@@ -17,6 +18,7 @@ public class PlayerControls : MonoBehaviour
     private TdUnit m_currentlySelectedUnit;
     [SerializeField]
     private UnitPanel m_unitPanel;
+    private List<Tower> m_towersInField = new List<Tower>();
     private static int guiInt = -1;
 
     private void Awake()
@@ -144,7 +146,7 @@ public class PlayerControls : MonoBehaviour
         {
             return;
         }
-        m_towerInPlacement.PlaceTower(tile.GetTowerAnchor());
+        m_towersInField.Add(m_towerInPlacement.PlaceTower(tile.GetTowerAnchor()));
         tile.IsOccupied = true;
         StopPlacingTower();
     }
@@ -171,9 +173,10 @@ public class PlayerControls : MonoBehaviour
         m_unitPanel.EnablePanel(false);
     }
 
-    public void ReturnUnitToInventory()
+    public void ReturnTowerToInventory()
     {
         m_creaturesInventory.AddTowerToInventory(m_currentlySelectedUnit.m_creatureData);
+        m_towersInField.Remove(m_currentlySelectedUnit.GetComponent<Tower>());
         Destroy(m_currentlySelectedUnit.gameObject);
         UnselectUnit();
     }
@@ -185,10 +188,19 @@ public class PlayerControls : MonoBehaviour
             var tower = m_currentlySelectedUnit.GetComponent<Tower>();
             if (tower != null)
             {
-                m_unitPanel.AssignTowerData(m_currentlySelectedUnit.m_creatureData, tower.GetData().Stats);
+                m_unitPanel.AssignTowerData(m_currentlySelectedUnit.m_creatureData, tower.GetData().Stats, tower.GetSaveData());
                 return;
             }
             m_unitPanel.AssignEnemyData(m_currentlySelectedUnit.m_creatureData, m_currentlySelectedUnit.m_stats);
+        }
+    }
+
+    public void DistributeXp(uint amount)
+    {
+        uint individualAmount = (uint)Mathf.Ceil((float)amount / m_towersInField.Count);
+        foreach (var tower in m_towersInField)
+        {
+            tower.GiveXP(individualAmount);
         }
     }
 }

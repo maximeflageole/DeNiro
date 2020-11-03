@@ -17,7 +17,7 @@ public class TowerUiButton : MonoBehaviour
 
 	void Start()
 	{
-		if (CreatureData == null || m_isStarted)
+		if (CreatureData == null || !m_isStarted)
         {
 			if (m_defaultData != null)
 			{
@@ -43,6 +43,7 @@ public class TowerUiButton : MonoBehaviour
 	public void Init(CreatureData creatureData)
     {
 		CreatureData = creatureData;
+		m_isStarted = true;
 		Start();
 	}
 }

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 	public static uint MAX_LEVEL = 10;
 
 	public CurveData m_xpCurve;
+	public UnitsDictionary m_unitsDictionary;
 
     public static GameManager Instance;
 

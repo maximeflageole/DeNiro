@@ -20,8 +20,8 @@ public enum EStat
     HasteDebuff,
     MovementSpeed, //TODO
     MovementSpeedDebuff,
-    Attack, //TODO
-    AttackDebuff,
+    DefenseBuff, //TODO
+    DefenseDebuff,
     Range, //TODO
     RangeDebuff, //TODO
     Presence, //TODO

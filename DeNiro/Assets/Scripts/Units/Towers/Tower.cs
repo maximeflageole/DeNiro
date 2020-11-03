@@ -24,9 +24,11 @@ public class Tower: TdUnit
     protected TdEnemy m_target;
     protected float m_currentFireTimer;
     protected TowerData m_data;
+    protected TowerSaveData m_saveData;
     public TowerData GetData() { return m_data; }
+    public TowerSaveData GetSaveData() { return m_saveData; }
 
-    public void Init(CreatureData creatureData)
+    public void Init(CreatureData creatureData, TowerSaveData saveData = null)
     {
         m_creatureData = creatureData;
         m_data = m_creatureData.TowerData;
@@ -39,7 +41,16 @@ public class Tower: TdUnit
             effectTrigger.Init(effect);
             m_effectTriggers.Add(effectTrigger);
         }
-        m_data.Stats.Init();
+
+        if (saveData != null)
+        {
+            m_saveData = saveData;
+        }
+        else
+        {
+            m_saveData = new TowerSaveData() { id = creatureData.Id };
+        }
+        m_data.Stats.Init(m_saveData.level);
     }
 
     void Start()
@@ -73,7 +84,7 @@ public class Tower: TdUnit
             var artilleryProjectile = Instantiate(m_artilleryProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<ArtilleryProjectile>();
             if (artilleryProjectile != null)
             {
-                artilleryProjectile.Init(m_data.ProjectileData, m_target.transform.position, GetFinalStat(EStat.Attack));
+                artilleryProjectile.Init(m_data.ProjectileData, m_target.transform.position, GetFinalStat(EStat.DefenseBuff));
             }
             return;
         }
@@ -83,7 +94,7 @@ public class Tower: TdUnit
             var homingProjectile = Instantiate(m_homingProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<HomingProjectile>();
             if (homingProjectile != null)
             {
-                homingProjectile.Init(m_data.ProjectileData, m_target, GetFinalStat(EStat.Attack));
+                homingProjectile.Init(m_data.ProjectileData, m_target, GetFinalStat(EStat.DefenseBuff));
             }
         }
     }
@@ -100,8 +111,8 @@ public class Tower: TdUnit
 
     public void GiveXP(uint xpAmount)
     {
-        m_data.Stats.CurrentXp += xpAmount;
-        while (GameManager.Instance.LevelUpCheck(m_data.Stats.CurrentXp, m_data.Stats.CurrentLevel))
+        m_saveData.xp += xpAmount;
+        while (GameManager.Instance.LevelUpCheck(m_saveData.xp, m_saveData.level))
         {
             LevelUp();
         }
@@ -110,7 +121,7 @@ public class Tower: TdUnit
 
     protected void LevelUp()
     {
-        m_data.Stats.CurrentLevel++;
+        m_saveData.level++;
         m_data.Stats.LevelUp();
     }
 

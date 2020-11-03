@@ -2480,6 +2480,12 @@ MonoBehaviour:
   m_ability1Panel: {fileID: 7174094372959334158}
   m_ability2Panel: {fileID: 7174094370861562938}
   m_removeBtn: {fileID: 3766688687660746950}
+  m_xpImage: {fileID: 2185522722086836875}
+  m_levelTMPro: {fileID: 7174094371248084782}
+  m_attackValueTMPro: {fileID: 7017901766890362070}
+  m_hasteValueTMPro: {fileID: 1583872108903358322}
+  m_rangeValueTMPro: {fileID: 3745883261923679772}
+  m_presenceValueTMPro: {fileID: 6385478054644560163}
 --- !u!114 &8574196504114695673
 MonoBehaviour:
   m_ObjectHideFlags: 0

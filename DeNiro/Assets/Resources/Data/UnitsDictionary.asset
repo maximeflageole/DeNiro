@@ -9,9 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32bc2a79b677ef5448b041ef67113c50, type: 3}
-  m_Name: SpeedBuffCreature
+  m_Script: {fileID: 11500000, guid: 2a85f94072d18df43930a4bb53299601, type: 3}
+  m_Name: UnitsDictionary
   m_EditorClassIdentifier: 
-  Id: 3
-  TowerData: {fileID: 11400000, guid: 8717812c78c06654bac95b15d8213c34, type: 2}
-  EnemyData: {fileID: 11400000, guid: 9868ba8fbd741d04ab8232ad14755d69, type: 2}
+  m_unitsList:
+  - id: 0
+    assetName: BananaCreature
+  - id: 1
+    assetName: TomatoCreature
+  - id: 2
+    assetName: ArmorDebuffCreature
+  - id: 3
+    assetName: SpeedBuffCreature

@@ -82,13 +82,19 @@ public class TdEnemy: TdUnit
         OnDeathCallback?.Invoke();
         if (wasKilled)
         {
-            var randomValue = Random.Range(0.0f, 1.0f);
-            if (randomValue < GameManager.RATE_OF_CONVERSION)
-            {
-                PlayerControls.Instance.CollectTower(m_creatureData);
-            }
+            GetKilled();
         }
         Destroy(gameObject);
+    }
+
+    protected void GetKilled()
+    {
+        var randomValue = Random.Range(0.0f, 1.0f);
+        if (randomValue < GameManager.RATE_OF_CONVERSION)
+        {
+            PlayerControls.Instance.CollectTower(m_creatureData);
+        }
+        PlayerControls.Instance.DistributeXp(20);
     }
 
     protected float GetSpeedMultiplier()
@@ -101,8 +107,8 @@ public class TdEnemy: TdUnit
 
     protected float GetCalculatedDamage(float damageAmount)
     {
-        var calculatedDamage = damageAmount * Mathf.Max(1.0f, GetEffectMultiplier(EStat.AttackDebuff, false));
-        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.Attack, false));
+        var calculatedDamage = damageAmount * Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseDebuff, false));
+        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseBuff, false));
 
         return calculatedDamage;
     }
