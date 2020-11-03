@@ -17,14 +17,17 @@ public class FloatingText : MonoBehaviour
     protected float m_duration;
     protected Vector3 m_initialPos;
 
-    public void Init(string value, float duration = 1)
+    public void Init(string value, Color textColor, bool xAndYVariation = false, float duration = 1)
     {
         m_duration = duration;
         m_textMesh.text = value;
-        GetComponent<MeshRenderer>().material.renderQueue = 5000;
+        var material = GetComponent<MeshRenderer>().material;
+        material.renderQueue = 5000;
+        GetComponent<TextMeshPro>().color = textColor;
         m_xAxisVariation = Random.Range(-1.0f, 1.0f);
         m_zAxisVariation = Random.Range(-1.0f, 1.0f);
         m_initialPos = transform.position;
+        if (!xAndYVariation) m_xAndYMaxVariation = 0.0f;
     }
 
     private void Update()

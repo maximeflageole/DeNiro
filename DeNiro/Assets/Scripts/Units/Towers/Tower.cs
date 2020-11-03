@@ -17,6 +17,10 @@ public class Tower: TdUnit
     protected MeshRenderer m_towerMeshRenderer;
     [SerializeField]
     protected MeshFilter m_towerMeshFilter;
+    [SerializeField]
+    protected Color m_xpGainTxtColor;
+    [SerializeField]
+    protected Color m_levelUpTxtColor;
 
     [SerializeField]
     protected List<EffectTrigger> m_effectTriggers = new List<EffectTrigger>();
@@ -109,12 +113,14 @@ public class Tower: TdUnit
         m_target = target;
     }
 
-    public void GiveXP(uint xpAmount)
+    public void GainXp(uint xpAmount)
     {
         m_saveData.xp += xpAmount;
+        DisplayText(xpAmount.ToString("0"), m_xpGainTxtColor, false, 0.8f);
         while (GameManager.Instance.LevelUpCheck(m_saveData.xp, m_saveData.level))
         {
             LevelUp();
+            DisplayText("Level up!", m_levelUpTxtColor, false, 1.6f);
         }
         PlayerControls.Instance.RefreshUnitUI();
     }

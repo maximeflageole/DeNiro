@@ -14,7 +14,7 @@ public class TdEnemy: TdUnit
     [SerializeField]
     protected Canvas m_healthCanvas;
     [SerializeField]
-    protected GameObject m_damageDisplayPrefab;
+    protected Color m_damageTextColor;
 
     protected float m_currentHp;
     protected EnemyData m_data;
@@ -66,8 +66,7 @@ public class TdEnemy: TdUnit
     public void Damage(float damageAmount)
     {
         m_currentHp = Mathf.Clamp(m_currentHp - GetCalculatedDamage(damageAmount), 0.0f, m_maxHp);
-        var floatingText = Instantiate(m_damageDisplayPrefab, transform.position, Quaternion.identity).GetComponent<FloatingText>();
-        floatingText.Init(damageAmount.ToString("0"));
+        DisplayText(damageAmount.ToString("0"), m_damageTextColor, true);
         if (m_currentHp <= 0.0f)
         {
             Die();

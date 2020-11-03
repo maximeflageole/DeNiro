@@ -8,6 +8,9 @@ public class TdUnit: MonoBehaviour
     protected Dictionary<EStat, List<Effect>> m_effectsDictionary = new Dictionary<EStat, List<Effect>>();
     protected uint level = 1;
     protected bool m_markedForDestruction;
+
+    [SerializeField]
+    protected GameObject m_textDisplayPrefab;
     public UnitStats m_stats { get; protected set; }
 
     public void AddEffect(Effect effect)
@@ -76,5 +79,11 @@ public class TdUnit: MonoBehaviour
         }
 
         return multiplier;
+    }
+
+    public void DisplayText(string value, Color textColor, bool moveOnXAxis = false, float duration = 1.0f)
+    {
+        var floatingText = Instantiate(m_textDisplayPrefab, transform.position, Quaternion.identity).GetComponent<FloatingText>();
+        floatingText.Init(value, textColor, moveOnXAxis, duration);
     }
 }

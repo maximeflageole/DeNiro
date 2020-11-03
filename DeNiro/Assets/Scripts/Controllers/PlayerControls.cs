@@ -104,7 +104,7 @@ public class PlayerControls : MonoBehaviour
                 var tower = (Tower)m_currentlySelectedUnit;
                 if (tower != null)
                 {
-                    tower.GiveXP(10);
+                    tower.GainXp(10);
                 }
             }
         }
@@ -200,7 +200,7 @@ public class PlayerControls : MonoBehaviour
         uint individualAmount = (uint)Mathf.Ceil((float)amount / m_towersInField.Count);
         foreach (var tower in m_towersInField)
         {
-            tower.GiveXP(individualAmount);
+            tower.GainXp(individualAmount);
         }
     }
 }
