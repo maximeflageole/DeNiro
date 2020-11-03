@@ -13,6 +13,8 @@ public class TdEnemy: TdUnit
     protected Image m_hpImage;
     [SerializeField]
     protected Canvas m_healthCanvas;
+    [SerializeField]
+    protected GameObject m_damageDisplayPrefab;
 
     protected float m_currentHp;
     protected EnemyData m_data;
@@ -41,7 +43,6 @@ public class TdEnemy: TdUnit
         WaypointCheck();
 
         m_hpImage.fillAmount = m_currentHp / m_maxHp;
-        UiRotationUpdate();
 
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -62,15 +63,11 @@ public class TdEnemy: TdUnit
         }
     }
 
-    protected void UiRotationUpdate()
-    {
-        Quaternion camrot = Camera.main.transform.rotation;
-        m_healthCanvas.transform.rotation = camrot;
-    }
-
     public void Damage(float damageAmount)
     {
         m_currentHp = Mathf.Clamp(m_currentHp - GetCalculatedDamage(damageAmount), 0.0f, m_maxHp);
+        var floatingText = Instantiate(m_damageDisplayPrefab, transform.position, Quaternion.identity).GetComponent<FloatingText>();
+        floatingText.Init(damageAmount.ToString("0"));
         if (m_currentHp <= 0.0f)
         {
             Die();

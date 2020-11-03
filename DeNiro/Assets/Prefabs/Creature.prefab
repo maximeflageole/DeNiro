@@ -52,6 +52,8 @@ MonoBehaviour:
   m_maxHp: 100
   m_hpImage: {fileID: 79826180270870356}
   m_healthCanvas: {fileID: 673379938147875054}
+  m_damageDisplayPrefab: {fileID: 5586132209049661056, guid: 0e8e09648bb1ba64f9bc69e1264b20f9,
+    type: 3}
 --- !u!33 &741315012494806436
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -141,6 +143,7 @@ GameObject:
   - component: {fileID: 673379938147875054}
   - component: {fileID: 3451228081869665238}
   - component: {fileID: 8771276286578587742}
+  - component: {fileID: 6037067181264318412}
   m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
@@ -228,6 +231,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6037067181264318412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2989469219009258051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5237b76f0b778e242a28f63dd63bf941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8728998136034718277
 GameObject:
   m_ObjectHideFlags: 0
