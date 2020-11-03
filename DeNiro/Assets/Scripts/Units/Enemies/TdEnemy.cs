@@ -94,7 +94,7 @@ public class TdEnemy: TdUnit
         {
             PlayerControls.Instance.CollectTower(m_creatureData);
         }
-        PlayerControls.Instance.DistributeXp(20);
+        PlayerControls.Instance.DistributeXp(m_data.BaseXpValue);
     }
 
     protected float GetSpeedMultiplier()

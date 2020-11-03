@@ -12,12 +12,9 @@ public class TowerUiButton : MonoBehaviour
 	public CreatureData CreatureData { get; private set; }
 	public Action<TowerUiButton> m_onClickCallback;
 
-	//TODO MF: Remove this and the Start entirely
-	private bool m_isStarted;
-
 	void Start()
 	{
-		if (CreatureData == null || !m_isStarted)
+		if (CreatureData == null)
         {
 			if (m_defaultData != null)
 			{
@@ -32,7 +29,6 @@ public class TowerUiButton : MonoBehaviour
 
 		Button btn = GetComponent<Button>();
 		btn.onClick.AddListener(OnClick);
-		m_isStarted = true;
 	}
 
 	void OnClick()
@@ -43,7 +39,6 @@ public class TowerUiButton : MonoBehaviour
 	public void Init(CreatureData creatureData)
     {
 		CreatureData = creatureData;
-		m_isStarted = true;
 		Start();
 	}
 }
