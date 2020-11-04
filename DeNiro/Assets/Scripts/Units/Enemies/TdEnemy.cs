@@ -1,29 +1,16 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class TdEnemy: TdUnit
 {
     [SerializeField]
     protected float m_speed = 10.0f;
-    [SerializeField]
-    protected float m_maxHp = 100.0f;
-    [SerializeField]
-    protected Image m_hpImage;
-    [SerializeField]
-    protected Canvas m_healthCanvas;
-    [SerializeField]
-    protected Color m_damageTextColor;
 
-    protected float m_currentHp;
     protected EnemyData m_data;
 
     protected Waypoint m_nextWaypoint;
     protected float m_waypointDistance = 1;
     protected Vector3 m_directionalVector;
-
-    public Action OnDeathCallback;
 
     public void AssignWaypoint(Waypoint waypoint)
     {
@@ -34,19 +21,18 @@ public class TdEnemy: TdUnit
         m_directionalVector = (m_nextWaypoint.transform.position - transform.position).normalized;
     }
 
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         var directionalSpeed = m_directionalVector * m_speed * Time.deltaTime * GetSpeedMultiplier();
         GetComponent<Rigidbody>().velocity = directionalSpeed;
         m_waypointDistance -= (directionalSpeed * Time.deltaTime).magnitude;
 
         WaypointCheck();
 
-        m_hpImage.fillAmount = m_currentHp / m_maxHp;
-
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Damage(m_maxHp / 2.0f);
+            Damage(m_health.Max / 2.0f);
         }
     }
 
@@ -54,6 +40,7 @@ public class TdEnemy: TdUnit
     {
         if (m_waypointDistance <= 0)
         {
+            m_nextWaypoint.GetReached();
             if (m_nextWaypoint.GetNextWaypoint() != null)
             {
                 AssignWaypoint(m_nextWaypoint.GetNextWaypoint());
@@ -63,27 +50,7 @@ public class TdEnemy: TdUnit
         }
     }
 
-    public void Damage(float damageAmount)
-    {
-        m_currentHp = Mathf.Clamp(m_currentHp - GetCalculatedDamage(damageAmount), 0.0f, m_maxHp);
-        DisplayText(damageAmount.ToString("0"), m_damageTextColor, true);
-        if (m_currentHp <= 0.0f)
-        {
-            Die();
-        }
-    }
-
-    public void Die(bool wasKilled = true)
-    {
-        OnDeathCallback?.Invoke();
-        if (wasKilled)
-        {
-            GetKilled();
-        }
-        Destroy(gameObject);
-    }
-
-    protected void GetKilled()
+    protected override void GetKilled()
     {
         var randomValue = Random.Range(0.0f, 1.0f);
         if (randomValue < GameManager.RATE_OF_CONVERSION)
@@ -101,19 +68,11 @@ public class TdEnemy: TdUnit
         return speedMultiplier;
     }
 
-    protected float GetCalculatedDamage(float damageAmount)
-    {
-        var calculatedDamage = damageAmount * Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseDebuff, false));
-        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseBuff, false));
-
-        return calculatedDamage;
-    }
-
     public void AssignData(CreatureData data)
     {
         m_creatureData = data;
         m_data = data.EnemyData;
-        m_currentHp = m_data.MaxHealth;
         m_speed = m_data.Speed;
+        Init(m_data.MaxHealth);
     }
 }

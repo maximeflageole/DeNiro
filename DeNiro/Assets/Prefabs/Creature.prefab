@@ -51,7 +51,6 @@ MonoBehaviour:
   m_textDisplayPrefab: {fileID: 5586132209049661056, guid: 0e8e09648bb1ba64f9bc69e1264b20f9,
     type: 3}
   m_speed: 200
-  m_maxHp: 100
   m_hpImage: {fileID: 79826180270870356}
   m_healthCanvas: {fileID: 673379938147875054}
   m_damageTextColor: {r: 1, g: 0.97199464, b: 0.4009434, a: 1}

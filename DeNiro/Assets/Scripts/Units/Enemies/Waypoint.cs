@@ -6,4 +6,9 @@ public class Waypoint : MonoBehaviour
     protected Waypoint m_nextWaypoint;
 
     public Waypoint GetNextWaypoint() { return m_nextWaypoint; }
+
+    public virtual void GetReached()
+    {
+
+    }
 }

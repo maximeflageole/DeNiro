@@ -5,7 +5,7 @@ public class TdDummy : TdEnemy
     [SerializeField]
     protected CreatureData m_defaultCreatureData;
 
-    private void Start()
+    protected void Start()
     {
         AssignData(m_defaultCreatureData);
     }

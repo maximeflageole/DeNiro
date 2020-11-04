@@ -62,7 +62,7 @@ public class Tower: TdUnit
         m_radiusTransform.transform.localScale = Vector3.one * m_data.Radius / 100.0f;
     }
 
-    protected void Update()
+    protected override void Update()
     {
         if (m_data.RateOfFire <= 0.0f)
         {

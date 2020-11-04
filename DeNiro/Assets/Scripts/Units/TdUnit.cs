@@ -1,17 +1,46 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TdUnit: MonoBehaviour
 {
     public CreatureData m_creatureData { get; protected set; }
 
+    public Action OnDeathCallback;
+    public UnitStats m_stats { get; protected set; }
+
+    [SerializeField]
+    protected Image m_hpImage;
+    [SerializeField]
+    protected Canvas m_healthCanvas;
+    [SerializeField]
+    protected Color m_damageTextColor;
+
+    protected ResourceContainer m_health;
     protected Dictionary<EStat, List<Effect>> m_effectsDictionary = new Dictionary<EStat, List<Effect>>();
     protected uint level = 1;
     protected bool m_markedForDestruction;
 
+    public void Init(float maxHp)
+    {
+        if (m_health == null)
+        {
+            m_health = new ResourceContainer();
+        }
+        m_health.Init(maxHp);
+    }
+
+    protected virtual void Update()
+    {
+        if (m_hpImage != null)
+        {
+            m_hpImage.fillAmount = m_health.Current / m_health.Max;
+        }
+    }
+
     [SerializeField]
     protected GameObject m_textDisplayPrefab;
-    public UnitStats m_stats { get; protected set; }
 
     public void AddEffect(Effect effect)
     {
@@ -85,5 +114,37 @@ public class TdUnit: MonoBehaviour
     {
         var floatingText = Instantiate(m_textDisplayPrefab, transform.position, Quaternion.identity).GetComponent<FloatingText>();
         floatingText.Init(value, textColor, moveOnXAxis, duration);
+    }
+
+    public void Damage(float damageAmount)
+    {
+        if (m_health.RemoveResource(GetCalculatedDamage(damageAmount)))
+        {
+            Die();
+        }
+        DisplayText(damageAmount.ToString("0"), m_damageTextColor, true);
+    }
+
+    public void Die(bool wasKilled = true)
+    {
+        OnDeathCallback?.Invoke();
+        if (wasKilled)
+        {
+            GetKilled();
+        }
+        Destroy(gameObject);
+    }
+
+    protected virtual void GetKilled()
+    {
+
+    }
+
+    protected float GetCalculatedDamage(float damageAmount)
+    {
+        var calculatedDamage = damageAmount * Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseDebuff, false));
+        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseBuff, false));
+
+        return calculatedDamage;
     }
 }
