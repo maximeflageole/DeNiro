@@ -12,6 +12,7 @@ public class CreaturesInventory : MonoBehaviour
 
     private void Start()
     {
+        m_towerButtons.Clear();
         foreach (var data in m_defaultButtons)
         {
             AddTowerToInventory(data);

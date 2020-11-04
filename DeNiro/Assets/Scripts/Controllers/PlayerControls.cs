@@ -39,12 +39,23 @@ public class PlayerControls : MonoBehaviour
 #if UNITY_EDITOR
         UpdateHacks();
 #endif
+        UpdateHoveringAndClicks();
+    }
+
+    private void UpdateHoveringAndClicks()
+    {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         LayerMask unitsMask = LayerMask.GetMask("Units");
         LayerMask gameplayMask = LayerMask.GetMask("Gameplay");
 
         var ignoreMasks = unitsMask + gameplayMask;
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            StopPlacingTower(true, false);
+            return;
+        }
 
         if (EventSystem.current.IsPointerOverGameObject(guiInt))    // is the touch on the GUI
         {
@@ -64,8 +75,9 @@ public class PlayerControls : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         PlaceTower(tile);
+                        UnselectUnit();
+                        return;
                     }
-                    return;
                 }
             }
         }
@@ -82,8 +94,10 @@ public class PlayerControls : MonoBehaviour
                 }
             }
         }
+
         if (Input.GetMouseButtonDown(0))
         {
+            StopPlacingTower(true, false);
             UnselectUnit();
         }
     }
@@ -103,7 +117,13 @@ public class PlayerControls : MonoBehaviour
 
     public void StartPlacingTower(TowerUiButton button)
     {
+        if (m_currentlySelectedButton == button)
+        {
+            StopPlacingTower(true, false);
+            return;
+        }
         var towerInPlacement = Instantiate(m_towerInPlacementPrefab).GetComponent<TowerInPlacement>();
+
         towerInPlacement.Init(button.CreatureData);
         if (m_towerInPlacement != null)
         {
