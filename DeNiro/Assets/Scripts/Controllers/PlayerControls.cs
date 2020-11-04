@@ -15,9 +15,9 @@ public class PlayerControls : MonoBehaviour
     [SerializeField]
     private TowerUiButton m_currentlySelectedButton;
     [SerializeField]
-    private TdUnit m_currentlySelectedUnit;
+    private Tower m_currentlySelectedTower;
     [SerializeField]
-    private UnitPanel m_unitPanel;
+    private TowerPanel m_towerPanel;
     private List<Tower> m_towersInField = new List<Tower>();
     private static int guiInt = -1;
 
@@ -72,25 +72,19 @@ public class PlayerControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, unitsMask))
         {
-            var unit = hit.transform.GetComponent<TdUnit>();
+            var unit = hit.transform.GetComponent<Tower>();
             if (unit != null)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
                     OnUnitSelected(unit);
+                    return;
                 }
             }
-            else
-            {
-                UnselectUnit();
-            }
         }
-        else
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                UnselectUnit();
-            }
+            UnselectUnit();
         }
     }
 
@@ -99,13 +93,9 @@ public class PlayerControls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            if (m_currentlySelectedUnit != null)
+            if (m_currentlySelectedTower != null)
             {
-                var tower = (Tower)m_currentlySelectedUnit;
-                if (tower != null)
-                {
-                    tower.GainXp(10);
-                }
+                m_currentlySelectedTower.GainXp(10);
             }
         }
     }
@@ -161,37 +151,32 @@ public class PlayerControls : MonoBehaviour
         m_creaturesInventory.AddTowerToInventory(data);
     }
 
-    private void OnUnitSelected(TdUnit unit)
+    private void OnUnitSelected(Tower unit)
     {
-        m_currentlySelectedUnit = unit;
+        m_currentlySelectedTower = unit;
         RefreshUnitUI();
     }
 
     private void UnselectUnit()
     {
-        m_currentlySelectedUnit = null;
-        m_unitPanel.EnablePanel(false);
+        m_currentlySelectedTower = null;
+        m_towerPanel.EnablePanel(false);
     }
 
     public void ReturnTowerToInventory()
     {
-        m_creaturesInventory.AddTowerToInventory(m_currentlySelectedUnit.m_creatureData);
-        m_towersInField.Remove(m_currentlySelectedUnit.GetComponent<Tower>());
-        Destroy(m_currentlySelectedUnit.gameObject);
+        m_creaturesInventory.AddTowerToInventory(m_currentlySelectedTower.m_creatureData);
+        m_towersInField.Remove(m_currentlySelectedTower);
+        Destroy(m_currentlySelectedTower.gameObject);
         UnselectUnit();
     }
 
     public void RefreshUnitUI()
     {
-        if (m_currentlySelectedUnit != null)
+        if (m_currentlySelectedTower != null)
         {
-            var tower = m_currentlySelectedUnit.GetComponent<Tower>();
-            if (tower != null)
-            {
-                m_unitPanel.AssignTowerData(m_currentlySelectedUnit.m_creatureData, tower.GetData().Stats, tower.GetSaveData());
-                return;
-            }
-            m_unitPanel.AssignEnemyData(m_currentlySelectedUnit.m_creatureData, m_currentlySelectedUnit.m_stats);
+            m_towerPanel.AssignTowerData(m_currentlySelectedTower.m_creatureData, m_currentlySelectedTower.GetData().Stats, m_currentlySelectedTower.GetSaveData());
+            return;
         }
     }
 

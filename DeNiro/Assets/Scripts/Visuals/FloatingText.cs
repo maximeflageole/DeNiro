@@ -23,7 +23,7 @@ public class FloatingText : MonoBehaviour
         m_textMesh.text = value;
         var material = GetComponent<MeshRenderer>().material;
         material.renderQueue = 5000;
-        GetComponent<TextMeshPro>().color = textColor;
+        m_textMesh.color = textColor;
         m_xAxisVariation = Random.Range(-1.0f, 1.0f);
         m_zAxisVariation = Random.Range(-1.0f, 1.0f);
         m_initialPos = transform.position;
@@ -40,6 +40,7 @@ public class FloatingText : MonoBehaviour
         }
         var lifetime = m_timeSinceAlive / m_duration;
         var evaluation = m_animCurveYAxis.Evaluate(lifetime);
-        transform.localPosition = m_initialPos + new Vector3(m_xAxisVariation * evaluation * m_xAndYMaxVariation, evaluation * m_maxHeight, m_zAxisVariation * evaluation * m_xAndYMaxVariation);
+        transform.localPosition = m_initialPos + new Vector3(m_xAxisVariation * lifetime * m_xAndYMaxVariation, evaluation * m_maxHeight, m_zAxisVariation * lifetime * m_xAndYMaxVariation);
+        m_textMesh.alpha = Mathf.Min(1.8f - (lifetime * 1.8f), 1.0f); //0.6
     }
 }

@@ -6,7 +6,7 @@ public class EffectTrigger : MonoBehaviour
     [SerializeField]
     protected Effect m_onEnterEffect = null;
     protected List<TdEnemy> m_enemiesInCollider = new List<TdEnemy>();
-    protected List<Tower> m_towersInCollider = new List<Tower>();
+    protected List<TdUnit> m_towersInCollider = new List<TdUnit>();
 
     public void Init(Effect onEnterEffect)
     {
@@ -29,7 +29,7 @@ public class EffectTrigger : MonoBehaviour
         }
         if (m_onEnterEffect.Target == ETarget.Towers)
         {
-            var tower = other.GetComponent<Tower>();
+            var tower = other.GetComponent<TdUnit>();
             if (tower != null)
             {
                 m_towersInCollider.Add(tower);
@@ -53,7 +53,7 @@ public class EffectTrigger : MonoBehaviour
         }
         if (m_onEnterEffect.Target == ETarget.Towers)
         {
-            var tower = other.GetComponent<Tower>();
+            var tower = other.GetComponent<TdUnit>();
             if (tower != null)
             {
                 m_towersInCollider.Remove(tower);
