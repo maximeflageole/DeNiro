@@ -4,4 +4,10 @@
     {
         Init(500.0f);
     }
+
+    public override void Die(bool wasKilled = true)
+    {
+        GameManager.Instance.EndGame(false);
+        base.Die(wasKilled);
+    }
 }

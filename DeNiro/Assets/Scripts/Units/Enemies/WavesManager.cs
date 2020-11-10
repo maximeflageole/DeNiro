@@ -10,7 +10,6 @@ public class WavesManager : Waypoint
     private float m_currentCooldown;
     private float m_nextSpawnTimer;
     private uint m_unitsCount;
-    private bool m_gameEnded;
 
     [SerializeField]
     protected WavesData m_wavesData;
@@ -25,7 +24,7 @@ public class WavesManager : Waypoint
     // Update is called once per frame
     void Update()
     {
-        if (!m_gameEnded)
+        if (!GameManager.GAME_OVER)
         {
             m_currentCooldown += Time.deltaTime;
             if (m_currentCooldown > m_nextSpawnTimer && m_unitsSpawnedInWave < m_wavesData.Waves[m_currentWaveIndex].CreaturesData.Count)
@@ -74,8 +73,7 @@ public class WavesManager : Waypoint
     {
         if (m_currentWaveIndex == m_wavesData.Waves.Count)
         {
-            PlayerControls.EndGame(true);
-            m_gameEnded = true;
+            GameManager.Instance.EndGame(true);
         }
     }
 

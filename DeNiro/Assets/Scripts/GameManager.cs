@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public const float RATE_OF_CONVERSION = 0.3f;
 	public static uint MAX_LEVEL = 10;
+	public static bool GAME_OVER = false;
 
 	public CurveData m_xpCurve;
 	public UnitsDictionary m_unitsDictionary;
@@ -12,9 +15,18 @@ public class GameManager : MonoBehaviour
 
 	float deltaTime = 0.0f;
 
+	[SerializeField]
+	protected MainMenuPanel m_mainMenuPanel;
+	public Action m_restartAction { get; protected set; }
+	public Action m_exitAction { get; protected set; }
+
 	void Update()
 	{
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+		if (Input.GetKeyDown(KeyCode.Space))
+        {
+			m_mainMenuPanel.ToggleDisplay();
+        }
 	}
 
 	void OnGUI()
@@ -43,6 +55,27 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+		m_restartAction += RestartLevel;
+		m_exitAction += ExitGame;
+	}
+
+    private void OnEnable()
+    {
+		GAME_OVER = false;
+    }
+
+    private void RestartLevel()
+    {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	private void ExitGame()
+    {
+		Application.Quit();
+    }
+
 	public float GetNextLevelXpPercentage(uint currentXp, uint currentLvl)
     {
 		var currentLevelXp = EvaluateCurrentLevelInXp(currentLvl);
@@ -68,5 +101,12 @@ public class GameManager : MonoBehaviour
         }
 		var levelIncrement = 1.0f / (float)MAX_LEVEL;
 		return (uint)(m_xpCurve.Data.Evaluate(level * levelIncrement));
+	}
+
+	public void EndGame(bool victory)
+    {
+		m_mainMenuPanel.ToggleDisplay(victory, true);
+		GAME_OVER = true;
+
 	}
 }

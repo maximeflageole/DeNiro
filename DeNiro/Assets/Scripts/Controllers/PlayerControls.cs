@@ -161,11 +161,6 @@ public class PlayerControls : MonoBehaviour
         StopPlacingTower();
     }
 
-    public static void EndGame(bool victory)
-    {
-        Debug.LogWarning("Waves defeated! Congrats");
-    }
-
     public void CollectTower(CreatureData data)
     {
         m_creaturesInventory.AddTowerToInventory(data);

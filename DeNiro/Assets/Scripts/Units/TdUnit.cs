@@ -125,7 +125,7 @@ public class TdUnit: MonoBehaviour
         DisplayText(damageAmount.ToString("0"), m_damageTextColor, true);
     }
 
-    public void Die(bool wasKilled = true)
+    public virtual void Die(bool wasKilled = true)
     {
         OnDeathCallback?.Invoke();
         if (wasKilled)
