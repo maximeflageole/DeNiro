@@ -4,8 +4,6 @@ public class TowerInPlacement : MonoBehaviour
 {
     [SerializeField]
     private GameObject m_towerToBuild;
-    [SerializeField]
-    private Transform m_radiusTransform;
     private CreatureData m_creatureData;
     [SerializeField]
     protected MeshFilter m_towerMeshFilter;
@@ -14,11 +12,6 @@ public class TowerInPlacement : MonoBehaviour
     {
         m_creatureData = creatureData;
         m_towerMeshFilter.mesh = m_creatureData.TowerData.TowerMesh;
-    }
-
-    private void Start()
-    {
-        m_radiusTransform.localScale = Vector3.one * m_creatureData.TowerData.Radius / 100.0f;
     }
 
     public Tower PlaceTower(Transform transform)

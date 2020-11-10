@@ -18,7 +18,7 @@ public class TdUnit: MonoBehaviour
     protected Color m_damageTextColor;
 
     protected ResourceContainer m_health;
-    protected Dictionary<EStat, List<Effect>> m_effectsDictionary = new Dictionary<EStat, List<Effect>>();
+    protected Dictionary<EStat, List<StatEffect>> m_effectsDictionary = new Dictionary<EStat, List<StatEffect>>();
     protected uint level = 1;
     protected bool m_markedForDestruction;
 
@@ -42,16 +42,16 @@ public class TdUnit: MonoBehaviour
     [SerializeField]
     protected GameObject m_textDisplayPrefab;
 
-    public void AddEffect(Effect effect)
+    public void AddEffect(StatEffect effect)
     {
         if (!m_effectsDictionary.ContainsKey(effect.EffectType))
         {
-            m_effectsDictionary.Add(effect.EffectType, new List<Effect>());
+            m_effectsDictionary.Add(effect.EffectType, new List<StatEffect>());
         }
         m_effectsDictionary[effect.EffectType].Add(effect);
     }
 
-    public void RemoveEffect(Effect effect)
+    public void RemoveEffect(StatEffect effect)
     {
         if (!m_effectsDictionary.ContainsKey(effect.EffectType))
         {

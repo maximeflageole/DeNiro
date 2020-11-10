@@ -1,21 +1,23 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class EffectTrigger : MonoBehaviour
+public class AoeEffectTrigger : EffectTrigger
 {
-    protected Effect m_effect = null;
+    private StatEffect m_statEffect;
 
-    protected List<TdEnemy> m_enemiesInCollider = new List<TdEnemy>();
-    protected List<TdUnit> m_towersInCollider = new List<TdUnit>();
-
-    public virtual void Init(Effect effect)
+    public override void Init(Effect effect)
     {
-        m_effect = effect;
-        var radius = effect.Radius / 100.0f;
-        transform.localScale = new Vector3(radius, 5.0f, radius);
+        base.Init(effect);
+        if (effect.GetType() == typeof(StatEffect))
+        {
+            m_statEffect = (StatEffect)effect;
+        }
+        else
+        {
+            Debug.LogError("An AOE Effect Trigger does not have a Stat Effect type");
+        }
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if (m_effect.Target == ETarget.Enemies)
         {
@@ -23,6 +25,7 @@ public abstract class EffectTrigger : MonoBehaviour
             if (enemy != null)
             {
                 m_enemiesInCollider.Add(enemy);
+                enemy.AddEffect(m_statEffect);
             }
             return;
         }
@@ -32,12 +35,13 @@ public abstract class EffectTrigger : MonoBehaviour
             if (tower != null)
             {
                 m_towersInCollider.Add(tower);
+                tower.AddEffect(m_statEffect);
             }
             return;
         }
     }
 
-    protected virtual void OnTriggerExit(Collider other)
+    protected override void OnTriggerExit(Collider other)
     {
         if (m_effect.Target == ETarget.Enemies)
         {
@@ -45,6 +49,7 @@ public abstract class EffectTrigger : MonoBehaviour
             if (enemy != null)
             {
                 m_enemiesInCollider.Remove(enemy);
+                enemy.RemoveEffect(m_statEffect);
             }
             return;
         }
@@ -54,8 +59,21 @@ public abstract class EffectTrigger : MonoBehaviour
             if (tower != null)
             {
                 m_towersInCollider.Remove(tower);
+                tower.RemoveEffect(m_statEffect);
             }
             return;
+        }
+    }
+
+    public void OnDestroy()
+    {
+        foreach (var tower in m_towersInCollider)
+        {
+            tower.RemoveEffect(m_statEffect);
+        }
+        foreach (var enemy in m_enemiesInCollider)
+        {
+            enemy.RemoveEffect(m_statEffect);
         }
     }
 }

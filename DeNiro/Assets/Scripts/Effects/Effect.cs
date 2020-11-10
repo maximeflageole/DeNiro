@@ -1,15 +1,27 @@
 ﻿using System;
+using UnityEngine;
 
 [Serializable]
-public class Effect
+public abstract class Effect
 {
     public static uint NextId = 0;
-    public EStat EffectType = EStat.Damage;
     public ETarget Target = ETarget.Enemies;
+    public float Radius = 100.0f;
+}
+
+[Serializable]
+public class StatEffect: Effect
+{
+    public EStat EffectType = EStat.Damage;
     public float Magnitude = 1.0f;
     public float Duration = 0.0f;
-    public float CurrentDuration = 0.0f;
-    public float Radius = 100.0f;
+}
+
+[Serializable]
+public class ProjectileEffect: Effect
+{
+    public float RateOfFire = 1.0f; //Rate of fire is how long in seconds it takes to launch a projectile
+    public ProjectileData ProjectileData;
 }
 
 [Serializable]

@@ -8,11 +8,11 @@ public class Tower: TdUnit
     [SerializeField]
     protected GameObject m_artilleryProjectile;
     [SerializeField]
-    protected TowerRange m_radiusTransform;
-    [SerializeField]
     protected Transform m_canon;
     [SerializeField]
-    protected GameObject m_effectTriggerPrefab;
+    protected GameObject m_aoeTriggerPrefab;
+    [SerializeField]
+    protected GameObject m_projectileTriggerPrefab;
     [SerializeField]
     protected MeshRenderer m_towerMeshRenderer;
     [SerializeField]
@@ -23,10 +23,10 @@ public class Tower: TdUnit
     protected Color m_levelUpTxtColor;
 
     [SerializeField]
-    protected List<EffectTrigger> m_effectTriggers = new List<EffectTrigger>();
+    protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
+    [SerializeField]
+    protected List<ProjectileEffectTrigger> m_projectileEffectTriggers = new List<ProjectileEffectTrigger>();
 
-    protected TdEnemy m_target;
-    protected float m_currentFireTimer;
     protected TowerData m_data;
     protected TowerSaveData m_saveData;
     public TowerData GetData() { return m_data; }
@@ -39,11 +39,18 @@ public class Tower: TdUnit
         m_towerMeshFilter.mesh = m_data.TowerMesh;
         m_towerMeshRenderer.materials = m_data.Materials.ToArray();
 
-        foreach (var effect in m_data.Effects)
+        foreach (var effect in m_data.StatEffects)
         {
-            var effectTrigger = Instantiate(m_effectTriggerPrefab, transform).GetComponent<EffectTrigger>();
+            var effectTrigger = Instantiate(m_aoeTriggerPrefab, transform).GetComponent<AoeEffectTrigger>();
             effectTrigger.Init(effect);
             m_effectTriggers.Add(effectTrigger);
+        }
+        foreach (var projectileEffect in m_data.ProjectileEffects)
+        {
+            var effectTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<ProjectileEffectTrigger>();
+            effectTrigger.Init(projectileEffect);
+            m_projectileEffectTriggers.Add(effectTrigger);
+            effectTrigger.ShootInvoke += Shoot;
         }
 
         if (saveData != null)
@@ -57,60 +64,26 @@ public class Tower: TdUnit
         m_data.Stats.Init(m_saveData.level);
     }
 
-    void Start()
+    protected void Shoot(ProjectileData data, TdUnit target)
     {
-        m_radiusTransform.transform.localScale = Vector3.one * m_data.Radius / 100.0f;
-    }
-
-    protected override void Update()
-    {
-        if (m_data.RateOfFire <= 0.0f)
-        {
-            return;
-        }
-
-        m_currentFireTimer += Time.deltaTime * GetFinalStat(EStat.Haste);
-
-        if (m_currentFireTimer > m_data.RateOfFire)
-        {
-            if (m_target != null)
-            {
-                Shoot();
-                ResetTimer();
-            }
-        }
-    }
-
-    protected void Shoot()
-    {
-        if (m_data.ProjectileData.GetType() == typeof(ArtilleryData))
+        if (data.GetType() == typeof(ArtilleryData))
         {
             var artilleryProjectile = Instantiate(m_artilleryProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<ArtilleryProjectile>();
             if (artilleryProjectile != null)
             {
-                artilleryProjectile.Init(m_data.ProjectileData, m_target.transform.position, GetFinalStat(EStat.DefenseBuff));
+                artilleryProjectile.Init(data, target.transform.position, GetFinalStat(EStat.DefenseBuff));
             }
             return;
         }
 
-        else if (m_data.ProjectileData.GetType() == typeof(HomingProjectileData))
+        else if (data.GetType() == typeof(HomingProjectileData))
         {
             var homingProjectile = Instantiate(m_homingProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<HomingProjectile>();
             if (homingProjectile != null)
             {
-                homingProjectile.Init(m_data.ProjectileData, m_target, GetFinalStat(EStat.DefenseBuff));
+                homingProjectile.Init(data, target, GetFinalStat(EStat.DefenseBuff));
             }
         }
-    }
-
-    protected void ResetTimer()
-    {
-        m_currentFireTimer = 0.0f;
-    }
-
-    public void AssignTarget(TdEnemy target)
-    {
-        m_target = target;
     }
 
     public void GainXp(uint xpAmount)

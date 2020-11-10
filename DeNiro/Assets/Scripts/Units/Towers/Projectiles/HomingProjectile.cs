@@ -5,19 +5,19 @@ public class HomingProjectile : Projectile
     [SerializeField]
     protected HomingProjectileData m_data;
 
-    protected TdEnemy m_target;
+    protected TdUnit m_target;
 
     protected void OnTriggerEnter(Collider other)
     {
         var enemy = other.GetComponent<TdEnemy>();
-        if (enemy == m_target)
+        if (enemy != null && enemy == m_target)
         {
             enemy.Damage(m_data.Damage * m_damageMultiplier);
             Destroy(gameObject);
         }
     }
 
-    public override void Init(ProjectileData data, TdEnemy target, float damageMultiplier)
+    public override void Init(ProjectileData data, TdUnit target, float damageMultiplier)
     {
         m_data = (HomingProjectileData)data;
         m_target = target;
