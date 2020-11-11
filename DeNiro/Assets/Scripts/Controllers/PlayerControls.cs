@@ -75,7 +75,7 @@ public class PlayerControls : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         PlaceTower(tile);
-                        UnselectUnit();
+                        UnselectTower();
                         return;
                     }
                 }
@@ -89,7 +89,7 @@ public class PlayerControls : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    OnUnitSelected(unit);
+                    OnTowerSelected(unit);
                     return;
                 }
             }
@@ -98,7 +98,7 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             StopPlacingTower(true, false);
-            UnselectUnit();
+            UnselectTower();
         }
     }
 
@@ -166,14 +166,16 @@ public class PlayerControls : MonoBehaviour
         m_creaturesInventory.AddTowerToInventory(data);
     }
 
-    private void OnUnitSelected(Tower unit)
+    private void OnTowerSelected(Tower tower)
     {
-        m_currentlySelectedTower = unit;
+        m_currentlySelectedTower = tower;
+        tower.OnTowerSelected(true);
         RefreshUnitUI();
     }
 
-    private void UnselectUnit()
+    private void UnselectTower()
     {
+        m_currentlySelectedTower?.OnTowerSelected(false);
         m_currentlySelectedTower = null;
         m_towerPanel.EnablePanel(false);
     }
@@ -183,7 +185,7 @@ public class PlayerControls : MonoBehaviour
         m_creaturesInventory.AddTowerToInventory(m_currentlySelectedTower.m_creatureData);
         m_towersInField.Remove(m_currentlySelectedTower);
         Destroy(m_currentlySelectedTower.gameObject);
-        UnselectUnit();
+        UnselectTower();
     }
 
     public void RefreshUnitUI()

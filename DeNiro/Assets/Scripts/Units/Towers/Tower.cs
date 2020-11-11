@@ -109,4 +109,16 @@ public class Tower: TdUnit
         var statValue = 1 + m_data.Stats.GetStat(stat, 100.0f); //Default to 1.0f if stat does not have a base value
         return statValue * GetEffectMultiplier(stat); //TODO: Do I multiply buffs and debuffs or do I make them additive instead?!?
     }
+
+    public void OnTowerSelected(bool selected = true)
+    {
+        foreach (var effect in m_effectTriggers)
+        {
+            effect.DisplayRadius(selected);
+        }
+        foreach (var effect in m_projectileEffectTriggers)
+        {
+            effect.DisplayRadius(selected);
+        }
+    }
 }
