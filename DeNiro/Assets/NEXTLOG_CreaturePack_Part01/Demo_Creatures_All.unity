@@ -687,6 +687,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26af5ccc651c66b4cbfd95c363018961, type: 3}
+--- !u!4 &225741878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2018164693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &230261652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1440,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb4a63baa92dc5d478567ceb687537b8, type: 3}
+--- !u!1001 &437427844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 807290484}
+    m_Modifications:
+    - target: {fileID: 114588, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_Name
+      value: Toon Ghost-Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99a904156eb92af43bd3dbb779d975df, type: 3}
 --- !u!1001 &444899194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2130,6 +2193,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 426004995}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &626553400 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 435982, guid: 99a904156eb92af43bd3dbb779d975df,
+    type: 3}
+  m_PrefabInstance: {fileID: 437427844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &632692544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4257542853045284, guid: 92c87c50912f902419e244850d831184,
@@ -2539,6 +2608,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca25662f3f706d64eab82d3bf74eb773, type: 3}
+--- !u!1 &807290483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 807290484}
+  m_Layer: 0
+  m_Name: Creatures_Ghost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &807290484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807290483}
+  m_LocalRotation: {x: -0, y: -0.17642666, z: -0, w: 0.9843138}
+  m_LocalPosition: {x: 11.61039, y: 0.79, z: 7.976696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1541161951}
+  - {fileID: 225741878}
+  - {fileID: 626553400}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: -20.323002, z: 0}
 --- !u!4 &809719769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4506116229857590, guid: 606b14c8440befe4aa4d41de1d305a99,
@@ -4050,6 +4152,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 365524537}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1395226170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 807290484}
+    m_Modifications:
+    - target: {fileID: 177012, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_Name
+      value: Toon Ghost-Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d72b3a9ce858aa418c45605c9077745, type: 3}
 --- !u!1001 &1410299524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4402,6 +4561,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4069631193239432, guid: 9fa55e89ecf7abf4fb8ac4742cd3788c,
     type: 3}
   m_PrefabInstance: {fileID: 475617382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1541161951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 452924, guid: 7d72b3a9ce858aa418c45605c9077745,
+    type: 3}
+  m_PrefabInstance: {fileID: 1395226170}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1546969449 stripped
 Transform:
@@ -5182,6 +5347,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1183643630}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2018164693
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 807290484}
+    m_Modifications:
+    - target: {fileID: 128500, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_Name
+      value: Toon Ghost-Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474392, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d03760ff490bed4ca7b640acf8d53f1, type: 3}
 --- !u!1 &2022798207
 GameObject:
   m_ObjectHideFlags: 0

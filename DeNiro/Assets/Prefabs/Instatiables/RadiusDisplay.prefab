@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2648815963000785190}
   - component: {fileID: 2648815963000785189}
   m_Layer: 0
-  m_Name: AoeDisplay
+  m_Name: RadiusDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fb76b2af7d0ea784eb373ea132938ce4, type: 3}
-  m_Color: {r: 0.5101094, g: 1, b: 0.495283, a: 0.16470589}
+  m_Color: {r: 0.7851762, g: 1, b: 0.7783019, a: 0.6666667}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

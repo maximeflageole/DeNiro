@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class EffectTrigger : MonoBehaviour
 {
-    protected static float ALPHA_DISPLAY_VALUE = 42.0f/255.0f;
+    protected static float ALPHA_DISPLAY_VALUE = 100.0f/255.0f;
     protected Effect m_effect = null;
 
     protected List<TdEnemy> m_enemiesInCollider = new List<TdEnemy>();
