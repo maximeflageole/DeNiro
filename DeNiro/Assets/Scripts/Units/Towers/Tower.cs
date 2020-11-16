@@ -14,13 +14,11 @@ public class Tower: TdUnit
     [SerializeField]
     protected GameObject m_projectileTriggerPrefab;
     [SerializeField]
-    protected MeshRenderer m_towerMeshRenderer;
-    [SerializeField]
-    protected MeshFilter m_towerMeshFilter;
-    [SerializeField]
     protected Color m_xpGainTxtColor;
     [SerializeField]
     protected Color m_levelUpTxtColor;
+    [SerializeField]
+    protected Animator m_animator;
 
     [SerializeField]
     protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
@@ -34,10 +32,9 @@ public class Tower: TdUnit
 
     public void Init(CreatureData creatureData, TowerSaveData saveData = null)
     {
+        m_animator.SetFloat("Speed", 0.0f);
         m_creatureData = creatureData;
         m_data = m_creatureData.TowerData;
-        m_towerMeshFilter.mesh = m_data.TowerMesh;
-        m_towerMeshRenderer.materials = m_data.Materials.ToArray();
 
         foreach (var effect in m_data.StatEffects)
         {

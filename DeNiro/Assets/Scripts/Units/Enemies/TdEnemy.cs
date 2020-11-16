@@ -3,8 +3,12 @@ using Random = UnityEngine.Random;
 
 public class TdEnemy: TdUnit
 {
+    protected static float ROTATION_SPEED = 15.0f;
+
     [SerializeField]
     protected float m_speed = 10.0f;
+    [SerializeField]
+    protected Animator m_animator;
 
     protected EnemyData m_data;
 
@@ -24,16 +28,23 @@ public class TdEnemy: TdUnit
     protected override void Update()
     {
         base.Update();
+        Move();
+    }
+
+    protected virtual void Move()
+    {
         var directionalSpeed = m_directionalVector * m_speed * Time.deltaTime * GetSpeedMultiplier();
         GetComponent<Rigidbody>().velocity = directionalSpeed;
         m_waypointDistance -= (directionalSpeed * Time.deltaTime).magnitude;
 
         WaypointCheck();
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Damage(m_health.Max / 2.0f);
-        }
+        Quaternion OriginalRot = transform.rotation;
+        transform.LookAt(m_nextWaypoint.transform);
+        Quaternion NewRot = transform.rotation;
+        transform.rotation = OriginalRot;
+        transform.rotation = Quaternion.Lerp(transform.rotation, NewRot, ROTATION_SPEED * Time.deltaTime);
+        m_animator.SetFloat("Speed", directionalSpeed.magnitude);
     }
 
     protected void WaypointCheck()

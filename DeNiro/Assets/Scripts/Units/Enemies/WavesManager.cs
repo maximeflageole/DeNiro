@@ -47,7 +47,7 @@ public class WavesManager : Waypoint
 
     private void Spawn()
     {
-        var enemy = Instantiate(m_spawnee).GetComponent<TdEnemy>();
+        var enemy = Instantiate(m_spawnee, transform.position, Quaternion.identity).GetComponent<TdEnemy>();
         enemy.AssignWaypoint(m_nextWaypoint);
         enemy.AssignData(m_wavesData.Waves[m_currentWaveIndex].CreaturesData[m_unitsSpawnedInWave]);
         m_unitsSpawnedInWave ++;

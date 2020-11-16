@@ -30,7 +30,7 @@ public class TowerInPlacement : MonoBehaviour
 
     public Tower PlaceTower(Transform transform)
     {
-        var tower = Instantiate(m_towerToBuild, transform.position, transform.rotation).GetComponent<Tower>();
+        var tower = Instantiate(m_towerToBuild, transform.position, Quaternion.LookRotation(Vector3.back, Vector3.up)).GetComponent<Tower>();
         tower.Init(m_creatureData);
         return tower;
     }

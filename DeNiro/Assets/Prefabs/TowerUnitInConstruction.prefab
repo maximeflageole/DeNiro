@@ -54,9 +54,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a2ea6e425151756429ab73e89b7a280d, type: 2}
-  - {fileID: 2100000, guid: a2ea6e425151756429ab73e89b7a280d, type: 2}
-  - {fileID: 2100000, guid: a2ea6e425151756429ab73e89b7a280d, type: 2}
-  - {fileID: 2100000, guid: a2ea6e425151756429ab73e89b7a280d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +81,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587973237594984087}
-  m_Mesh: {fileID: 4300000, guid: 47d6905c3fe1a4eeb99178a27f854e0d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 6fb67e1f742c6f848905c519ea1cde7e, type: 3}
 --- !u!114 &8341602967873148185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43e67936ee388b49bda6442faede8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_towerToBuild: {fileID: 1587973237594984087, guid: e34c07f0880143b41a8019e140405c7a,
+  m_towerToBuild: {fileID: 1652348065175960, guid: fb574a201e68d4048b96f2961b451325,
     type: 3}
   m_towerMeshFilter: {fileID: 1587973238378814412}
   m_radiusDisplay: {fileID: 2648815963000785188, guid: fba4a1411c1ac17428377af261f853f6,
