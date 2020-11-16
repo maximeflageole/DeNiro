@@ -157,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36182072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.6763783, y: -2.9537585, z: 4.665692}
+  m_LocalPosition: {x: 6.6763783, y: -3, z: 4.665692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2126283440}
@@ -2344,7 +2344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126283439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.26, y: 3.251, z: -3.109}
+  m_LocalPosition: {x: -4.26, y: 3, z: -3.109}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 36182073}
@@ -2596,7 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36795dfba1890c94f87dba09a8342fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_towerInPlacementPrefab: {fileID: 1587973237594984087, guid: 12dd0ae94fa41d548a66c97794c4bdc5,
+  m_towerInPlacementPrefab: {fileID: 1652348065175960, guid: fb574a201e68d4048b96f2961b451325,
     type: 3}
   m_creaturesInventory: {fileID: 1796313525}
   m_currentlySelectedButton: {fileID: 0}

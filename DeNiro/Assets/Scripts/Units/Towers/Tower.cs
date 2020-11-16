@@ -19,21 +19,37 @@ public class Tower: TdUnit
     protected Color m_levelUpTxtColor;
     [SerializeField]
     protected Animator m_animator;
+    [SerializeField]
+    protected SkinnedMeshRenderer m_renderer;
+    [SerializeField]
+    protected Material m_inPlacementMaterial;
+    protected Material m_towerMaterial;
 
     [SerializeField]
     protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
     [SerializeField]
     protected List<ProjectileEffectTrigger> m_projectileEffectTriggers = new List<ProjectileEffectTrigger>();
 
+    protected bool m_inPlacement = true;
     protected TowerData m_data;
     protected TowerSaveData m_saveData;
     public TowerData GetData() { return m_data; }
     public TowerSaveData GetSaveData() { return m_saveData; }
 
-    public void Init(CreatureData creatureData, TowerSaveData saveData = null)
+    public void BeginPlacement(CreatureData creatureData)
     {
+        m_towerMaterial = m_renderer.material;
+        m_renderer.material = m_inPlacementMaterial;
         m_animator.SetFloat("Speed", 0.0f);
         m_creatureData = creatureData;
+
+        //TODO: Replug radius display
+    }
+
+    public Tower PlaceTower(TowerSaveData saveData = null)
+    {
+        m_renderer.material = m_towerMaterial;
+        m_inPlacement = false;
         m_data = m_creatureData.TowerData;
 
         foreach (var effect in m_data.StatEffects)
@@ -56,9 +72,11 @@ public class Tower: TdUnit
         }
         else
         {
-            m_saveData = new TowerSaveData() { id = creatureData.Id };
+            m_saveData = new TowerSaveData() { id = m_creatureData.Id };
         }
         m_data.Stats.Init(m_saveData.level);
+
+        return this;
     }
 
     protected void Shoot(ProjectileData data, TdUnit target)

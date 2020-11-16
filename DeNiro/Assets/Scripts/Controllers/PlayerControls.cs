@@ -6,7 +6,7 @@ public class PlayerControls : MonoBehaviour
 {
     public static PlayerControls Instance;
 
-    private TowerInPlacement m_towerInPlacement;
+    private Tower m_towerInPlacement;
 
     [SerializeField]
     private GameObject m_towerInPlacementPrefab;
@@ -97,7 +97,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            StopPlacingTower(true, false);
+            StopPlacingTower(false, false);
             UnselectTower();
         }
     }
@@ -122,9 +122,9 @@ public class PlayerControls : MonoBehaviour
             StopPlacingTower(true, false);
             return;
         }
-        var towerInPlacement = Instantiate(m_towerInPlacementPrefab).GetComponent<TowerInPlacement>();
+        var towerInPlacement = Instantiate(m_towerInPlacementPrefab).GetComponent<Tower>();
 
-        towerInPlacement.Init(button.CreatureData);
+        towerInPlacement.BeginPlacement(button.CreatureData);
         if (m_towerInPlacement != null)
         {
             StopPlacingTower(true, false);
@@ -156,9 +156,10 @@ public class PlayerControls : MonoBehaviour
         {
             return;
         }
-        m_towersInField.Add(m_towerInPlacement.PlaceTower(tile.GetTowerAnchor()));
+        m_towerInPlacement.PlaceTower();
+        m_towersInField.Add(m_towerInPlacement);
         tile.IsOccupied = true;
-        StopPlacingTower();
+        StopPlacingTower(false);
     }
 
     public void CollectTower(CreatureData data)
