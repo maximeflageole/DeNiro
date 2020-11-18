@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class TdEnemy: TdUnit
 {
     protected static float ROTATION_SPEED = 15.0f;
 
-    [SerializeField]
     protected float m_speed = 10.0f;
     [SerializeField]
     protected Animator m_animator;
@@ -17,7 +15,6 @@ public class TdEnemy: TdUnit
 
     protected EnemyData m_data;
 
-    public bool IsDying { get; protected set; }
     protected Waypoint m_nextWaypoint;
     protected float m_waypointDistance = 1;
     protected Vector3 m_directionalVector;
@@ -54,6 +51,7 @@ public class TdEnemy: TdUnit
         transform.rotation = OriginalRot;
         transform.rotation = Quaternion.Lerp(transform.rotation, NewRot, ROTATION_SPEED * Time.deltaTime);
         m_animator.SetFloat("Speed", directionalSpeed.magnitude);
+        Debug.Log("Speed " + directionalSpeed.magnitude);
     }
 
     protected void WaypointCheck()
@@ -72,7 +70,6 @@ public class TdEnemy: TdUnit
 
     protected override void GetKilled()
     {
-        IsDying = true;
         m_body.SetActive(false);
         m_animator.enabled = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;

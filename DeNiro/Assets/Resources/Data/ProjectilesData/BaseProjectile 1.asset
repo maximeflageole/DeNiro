@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32bc2a79b677ef5448b041ef67113c50, type: 3}
-  m_Name: BananaCreature
+  m_Script: {fileID: 11500000, guid: 8a3382fe39a01ab4387ed6de1a434cab, type: 3}
+  m_Name: BaseProjectile 1
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: 03bbac2d7a942784680e1cae53982470, type: 2}
-  EnemyData: {fileID: 11400000, guid: 9868ba8fbd741d04ab8232ad14755d69, type: 2}
+  ProjectileSpeed: 700
+  Damage: 25

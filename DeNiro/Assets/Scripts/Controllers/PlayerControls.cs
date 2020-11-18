@@ -9,8 +9,6 @@ public class PlayerControls : MonoBehaviour
     private Tower m_towerInPlacement;
 
     [SerializeField]
-    private GameObject m_towerInPlacementPrefab;
-    [SerializeField]
     private CreaturesInventory m_creaturesInventory;
     [SerializeField]
     private TowerUiButton m_currentlySelectedButton;
@@ -122,7 +120,7 @@ public class PlayerControls : MonoBehaviour
             StopPlacingTower(true, false);
             return;
         }
-        var towerInPlacement = Instantiate(m_towerInPlacementPrefab).GetComponent<Tower>();
+        var towerInPlacement = Instantiate(button.CreatureData.TowerData.Prefab).GetComponent<Tower>();
 
         towerInPlacement.BeginPlacement(button.CreatureData);
         if (m_towerInPlacement != null)

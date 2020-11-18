@@ -16,6 +16,8 @@ public class TdUnit: MonoBehaviour
     protected Canvas m_healthCanvas;
     [SerializeField]
     protected Color m_damageTextColor;
+    public bool IsDying { get; protected set; }
+
 
     protected ResourceContainer m_health;
     protected Dictionary<EStat, List<StatEffect>> m_effectsDictionary = new Dictionary<EStat, List<StatEffect>>();
@@ -127,6 +129,11 @@ public class TdUnit: MonoBehaviour
 
     public virtual void Die(bool wasKilled = true)
     {
+        if (IsDying)
+        {
+            return;
+        }
+        IsDying = true;
         OnDeathCallback?.Invoke();
         if (wasKilled)
         {

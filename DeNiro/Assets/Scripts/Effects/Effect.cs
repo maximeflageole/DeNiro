@@ -32,7 +32,7 @@ public enum EStat
     HasteDebuff,
     MovementSpeed, //TODO
     MovementSpeedDebuff,
-    DefenseBuff, //TODO
+    DefenseBuff, //TODO --> Should be changed to Attack Buff, not sure why it is effective right now
     DefenseDebuff,
     Range, //TODO
     RangeDebuff, //TODO

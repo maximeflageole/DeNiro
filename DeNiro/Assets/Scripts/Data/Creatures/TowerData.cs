@@ -8,4 +8,5 @@ public class TowerData : ScriptableObject
     public List<ProjectileEffect> ProjectileEffects = new List<ProjectileEffect>();
     public Sprite TowerSprite;
     public TowerStats Stats;
+    public GameObject Prefab;
 }

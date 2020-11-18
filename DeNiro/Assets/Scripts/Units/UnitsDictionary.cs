@@ -25,9 +25,9 @@ public class UnitsDictionary : ScriptableObject
 [System.Serializable]
 public enum EUnit
 {
-    Banana,
-    Tomato,
-    Pine,
+    Mushroom,
+    MushroomBoss,
+    Spider,
     Cereal
 }
 

@@ -2075,10 +2075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_defaultButtons:
-  - {fileID: 11400000, guid: 6ec1c7c259265b849a08d0797b1a8d5f, type: 2}
+  - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
   - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-  - {fileID: 11400000, guid: 856f6a39d8870824299489859318329d, type: 2}
-  - {fileID: 11400000, guid: d9bb30f1086f85845be087ef16d2c19e, type: 2}
   m_towerBtnPrefab: {fileID: 6899919561599926370, guid: 65b7d8313e277e245abdfe06d171ed44,
     type: 3}
 --- !u!1 &1879076892
@@ -2363,7 +2361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nextWaypoint: {fileID: 792369922}
-  m_spawnee: {fileID: 1652348065175960, guid: 32a00c6e3ae52f04fa320ac5ecddd3e1, type: 3}
   m_wavesData:
     FirstWaveDelay: 5
     WavesCooldown: 3
@@ -2374,19 +2371,19 @@ MonoBehaviour:
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
+      - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
     - CreaturesData:
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
+      - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
     - CreaturesData:
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
+      - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
 --- !u!135 &2126283442
 SphereCollider:
   m_ObjectHideFlags: 0

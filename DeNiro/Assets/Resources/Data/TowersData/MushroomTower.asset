@@ -19,4 +19,5 @@ MonoBehaviour:
     RateOfFire: 0.7
     ProjectileData: {fileID: 11400000, guid: e06164968e0803b4cb4f3fc9c2a2e53b, type: 2}
   TowerSprite: {fileID: 21300000, guid: c9c7785adc7a0594fb5744cbb360ff54, type: 3}
-  Stats: {fileID: 11400000, guid: 7751d146bc7cb8b419a63a8ef3f0c7b3, type: 2}
+  Stats: {fileID: 11400000, guid: f57fabf9d817edc47b399960d3685e6d, type: 2}
+  Prefab: {fileID: 1652348065175960, guid: fb574a201e68d4048b96f2961b451325, type: 3}

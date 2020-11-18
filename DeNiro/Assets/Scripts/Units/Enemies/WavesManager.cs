@@ -2,8 +2,6 @@
 
 public class WavesManager : Waypoint
 {
-    [SerializeField]
-    private GameObject m_spawnee;
     private int m_unitsSpawnedInWave;
     private int m_currentWaveIndex = 0;
 
@@ -29,7 +27,7 @@ public class WavesManager : Waypoint
             m_currentCooldown += Time.deltaTime;
             if (m_currentCooldown > m_nextSpawnTimer && m_unitsSpawnedInWave < m_wavesData.Waves[m_currentWaveIndex].CreaturesData.Count)
             {
-                Spawn();
+                Spawn(m_wavesData.Waves[m_currentWaveIndex].CreaturesData[m_unitsSpawnedInWave]);
                 ResetUnitsCooldown();
                 m_unitsCount++;
             }
@@ -45,9 +43,9 @@ public class WavesManager : Waypoint
         m_unitsCount--;
     }
 
-    private void Spawn()
+    private void Spawn(CreatureData data)
     {
-        var enemy = Instantiate(m_spawnee, transform.position, Quaternion.identity).GetComponent<TdEnemy>();
+        var enemy = Instantiate(data.EnemyData.Prefab, transform.position, Quaternion.identity).GetComponent<TdEnemy>();
         enemy.AssignWaypoint(m_nextWaypoint);
         enemy.AssignData(m_wavesData.Waves[m_currentWaveIndex].CreaturesData[m_unitsSpawnedInWave]);
         m_unitsSpawnedInWave ++;
