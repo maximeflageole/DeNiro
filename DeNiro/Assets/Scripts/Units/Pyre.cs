@@ -8,6 +8,6 @@
     public override void Die(bool wasKilled = true)
     {
         GameManager.Instance.EndGame(false);
-        base.Die(wasKilled);
+        gameObject.SetActive(false);
     }
 }

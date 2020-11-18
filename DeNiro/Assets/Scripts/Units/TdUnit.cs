@@ -132,6 +132,10 @@ public class TdUnit: MonoBehaviour
         {
             GetKilled();
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected virtual void GetKilled()

@@ -35,7 +35,7 @@ public class ProjectileEffectTrigger : EffectTrigger
     private void TryShoot()
     {
         //This is ugly af, but the OnTriggerExit is NOT called if we destroy an enemy, thanks unity for that
-        while (m_enemiesInCollider.Count > 0 && m_enemiesInCollider[0] == null)
+        while (m_enemiesInCollider.Count > 0 && (m_enemiesInCollider[0] == null || m_enemiesInCollider[0].IsDying))
         {
             m_enemiesInCollider.RemoveAt(0);
         }

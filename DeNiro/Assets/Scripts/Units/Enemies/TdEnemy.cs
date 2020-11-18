@@ -17,7 +17,7 @@ public class TdEnemy: TdUnit
 
     protected EnemyData m_data;
 
-    protected bool m_inDeathAnim;
+    public bool IsDying { get; protected set; }
     protected Waypoint m_nextWaypoint;
     protected float m_waypointDistance = 1;
     protected Vector3 m_directionalVector;
@@ -33,7 +33,7 @@ public class TdEnemy: TdUnit
 
     protected override void Update()
     {
-        if (!m_inDeathAnim)
+        if (!IsDying)
         {
             base.Update();
             Move();
@@ -72,10 +72,11 @@ public class TdEnemy: TdUnit
 
     protected override void GetKilled()
     {
-        m_inDeathAnim = true;
+        IsDying = true;
         m_body.SetActive(false);
         m_animator.enabled = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+
         if (m_hpImage != null)
         {
             m_hpImage.enabled = false;
