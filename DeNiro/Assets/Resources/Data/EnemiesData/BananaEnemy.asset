@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876f6e1b668d6dd42bc84a263203c334, type: 3}
   m_Name: BananaEnemy
   m_EditorClassIdentifier: 
-  Speed: 200
-  Health: 100
+  Speed: 400
+  MaxHealth: 100
+  BaseXpValue: 10

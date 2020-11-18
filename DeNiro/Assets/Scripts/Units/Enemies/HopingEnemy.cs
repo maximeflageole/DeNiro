@@ -8,8 +8,9 @@ public class HopingEnemy : TdEnemy
     {
         if (m_isHoping)
         {
-            var directionalSpeed = m_directionalVector * m_speed * Time.deltaTime * GetSpeedMultiplier();
+            var directionalSpeed = m_directionalVector * m_speed * Time.fixedDeltaTime * GetSpeedMultiplier();
             GetComponent<Rigidbody>().velocity = directionalSpeed;
+            Debug.Log("Character velocity " + directionalSpeed.magnitude);
             m_waypointDistance -= (directionalSpeed * Time.deltaTime).magnitude;
 
             WaypointCheck();

@@ -33,7 +33,7 @@ public class TdEnemy: TdUnit
 
     protected virtual void Move()
     {
-        var directionalSpeed = m_directionalVector * m_speed * Time.deltaTime * GetSpeedMultiplier();
+        var directionalSpeed = m_directionalVector * m_speed * Time.fixedDeltaTime * GetSpeedMultiplier();
         GetComponent<Rigidbody>().velocity = directionalSpeed;
         m_waypointDistance -= (directionalSpeed * Time.deltaTime).magnitude;
 
