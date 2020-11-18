@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class TdEnemy: TdUnit
@@ -9,9 +10,14 @@ public class TdEnemy: TdUnit
     protected float m_speed = 10.0f;
     [SerializeField]
     protected Animator m_animator;
+    [SerializeField]
+    protected GameObject m_body;
+    [SerializeField]
+    protected GameObject m_deathGO;
 
     protected EnemyData m_data;
 
+    protected bool m_inDeathAnim;
     protected Waypoint m_nextWaypoint;
     protected float m_waypointDistance = 1;
     protected Vector3 m_directionalVector;
@@ -27,8 +33,11 @@ public class TdEnemy: TdUnit
 
     protected override void Update()
     {
-        base.Update();
-        Move();
+        if (!m_inDeathAnim)
+        {
+            base.Update();
+            Move();
+        }
     }
 
     protected virtual void Move()
@@ -63,12 +72,36 @@ public class TdEnemy: TdUnit
 
     protected override void GetKilled()
     {
+        m_inDeathAnim = true;
+        m_body.SetActive(false);
+        m_animator.enabled = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        if (m_hpImage != null)
+        {
+            m_hpImage.enabled = false;
+        }
+
+        if (m_deathGO != null)
+        {
+            m_deathGO.SetActive(true);
+            Invoke("OnDeathComplete", m_deathGO.GetComponent<Animation>().clip.length);
+        }
+        else
+        {
+            OnDeathComplete();
+        }
+
         var randomValue = Random.Range(0.0f, 1.0f);
         if (randomValue < GameManager.RATE_OF_CONVERSION)
         {
             PlayerControls.Instance.CollectTower(m_creatureData);
         }
         PlayerControls.Instance.DistributeXp(m_data.BaseXpValue);
+    }
+
+    public void OnDeathComplete()
+    {
+        Destroy(gameObject);
     }
 
     protected float GetSpeedMultiplier()

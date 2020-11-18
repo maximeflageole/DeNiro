@@ -132,12 +132,11 @@ public class TdUnit: MonoBehaviour
         {
             GetKilled();
         }
-        Destroy(gameObject);
     }
 
     protected virtual void GetKilled()
     {
-
+        Destroy(gameObject);
     }
 
     protected float GetCalculatedDamage(float damageAmount)

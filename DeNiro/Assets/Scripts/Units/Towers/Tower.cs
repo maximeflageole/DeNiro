@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Tower: TdUnit
 {
+    protected static string ATTACK_TRIGGER = "Attack";
     [SerializeField]
     protected GameObject m_homingProjectile;
     [SerializeField]
@@ -24,6 +25,8 @@ public class Tower: TdUnit
     [SerializeField]
     protected Material m_inPlacementMaterial;
     protected Material m_towerMaterial;
+    protected ProjectileData m_nextProjectileThrown;
+    protected ProjectileEffectTrigger m_nextEffectTrigger;
 
     [SerializeField]
     protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
@@ -79,26 +82,11 @@ public class Tower: TdUnit
         return this;
     }
 
-    protected void Shoot(ProjectileData data, TdUnit target)
+    protected void Shoot(ProjectileData data, ProjectileEffectTrigger trigger)
     {
-        if (data.GetType() == typeof(ArtilleryData))
-        {
-            var artilleryProjectile = Instantiate(m_artilleryProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<ArtilleryProjectile>();
-            if (artilleryProjectile != null)
-            {
-                artilleryProjectile.Init(data, target.transform.position, GetFinalStat(EStat.DefenseBuff));
-            }
-            return;
-        }
-
-        else if (data.GetType() == typeof(HomingProjectileData))
-        {
-            var homingProjectile = Instantiate(m_homingProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<HomingProjectile>();
-            if (homingProjectile != null)
-            {
-                homingProjectile.Init(data, target, GetFinalStat(EStat.DefenseBuff));
-            }
-        }
+        m_nextProjectileThrown = data;
+        m_nextEffectTrigger = trigger;
+        m_animator.SetTrigger(ATTACK_TRIGGER);
     }
 
     public void GainXp(uint xpAmount)
@@ -135,5 +123,39 @@ public class Tower: TdUnit
         {
             effect.DisplayRadius(selected);
         }
+    }
+
+    public void DoAttack()
+    {
+        TdUnit target;
+
+        if (m_nextEffectTrigger == null || !m_nextEffectTrigger.TryGetTarget(out target))
+        {
+            m_nextEffectTrigger = null;
+            m_nextProjectileThrown = null;
+            return;
+        }
+
+        if (m_nextProjectileThrown.GetType() == typeof(ArtilleryData))
+        {
+            m_animator.SetTrigger(ATTACK_TRIGGER);
+            var artilleryProjectile = Instantiate(m_artilleryProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<ArtilleryProjectile>();
+            if (artilleryProjectile != null)
+            {
+                artilleryProjectile.Init(m_nextProjectileThrown, target.transform.position, GetFinalStat(EStat.DefenseBuff));
+            }
+        }
+        else if (m_nextProjectileThrown.GetType() == typeof(HomingProjectileData))
+        {
+            m_animator.SetTrigger(ATTACK_TRIGGER);
+            var homingProjectile = Instantiate(m_homingProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<HomingProjectile>();
+            if (homingProjectile != null)
+            {
+                homingProjectile.Init(m_nextProjectileThrown, target, GetFinalStat(EStat.DefenseBuff));
+            }
+        }
+
+        m_nextEffectTrigger = null;
+        m_nextProjectileThrown = null;
     }
 }

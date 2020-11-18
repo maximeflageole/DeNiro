@@ -7,7 +7,7 @@ public class ProjectileEffectTrigger : EffectTrigger
 
     protected float m_timer;
     protected float m_currentTimer = 0;
-    public Action<ProjectileData, TdUnit> ShootInvoke;
+    public Action<ProjectileData, ProjectileEffectTrigger> ShootInvoke;
 
     private void Update()
     {
@@ -48,21 +48,61 @@ public class ProjectileEffectTrigger : EffectTrigger
         {
             if (m_enemiesInCollider.Count > 0)
             {
-                Shoot(m_enemiesInCollider[0]);
+                Shoot();
             }
         }
         else if (m_projectileEffect.Target == ETarget.Towers)
         {
             if (m_towersInCollider.Count > 0)
             {
-                Shoot(m_towersInCollider[0]);
+                Shoot();
             }
         }
     }
 
-    protected void Shoot(TdUnit unit)
+    protected void Shoot()
     {
-        ShootInvoke.Invoke(m_projectileEffect.ProjectileData, unit);
+        ShootInvoke.Invoke(m_projectileEffect.ProjectileData, this);
         m_currentTimer = 0;
+    }
+
+    public TdUnit GetTarget()
+    {
+        if (m_projectileEffect.Target == ETarget.Enemies)
+        {
+            if (m_enemiesInCollider.Count > 0)
+            {
+                return(m_enemiesInCollider[0]);
+            }
+        }
+        else if (m_projectileEffect.Target == ETarget.Towers)
+        {
+            if (m_towersInCollider.Count > 0)
+            {
+                return(m_towersInCollider[0]);
+            }
+        }
+        return null;
+    }
+
+    public bool TryGetTarget( out TdUnit target)
+    {
+        target = null;
+
+        if (m_projectileEffect.Target == ETarget.Enemies)
+        {
+            if (m_enemiesInCollider.Count > 0)
+            {
+                target = m_enemiesInCollider[0];
+            }
+        }
+        else if (m_projectileEffect.Target == ETarget.Towers)
+        {
+            if (m_towersInCollider.Count > 0)
+            {
+                target = m_towersInCollider[0];
+            }
+        }
+        return target != null;
     }
 }
