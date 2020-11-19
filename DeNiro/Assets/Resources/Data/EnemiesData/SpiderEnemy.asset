@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3382fe39a01ab4387ed6de1a434cab, type: 3}
-  m_Name: BaseProjectile 1
+  m_Script: {fileID: 11500000, guid: 876f6e1b668d6dd42bc84a263203c334, type: 3}
+  m_Name: SpiderEnemy
   m_EditorClassIdentifier: 
-  ProjectileSpeed: 700
-  Damage: 25
+  Prefab: {fileID: 1652348065175960, guid: 82db044d22baec7478a895f1fd94601e, type: 3}
+  Speed: 200
+  MaxHealth: 40
+  BaseXpValue: 5

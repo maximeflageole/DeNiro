@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MushroomCreature
   m_EditorClassIdentifier: 
   Id: 0
-  TowerData: {fileID: 11400000, guid: 0840b4964d3c53c408a22f41cf11d642, type: 2}
-  EnemyData: {fileID: 11400000, guid: ff7fae42ba5ebc145abaca8f6ed48b36, type: 2}
+  TowerData: {fileID: 11400000, guid: 7cf8dc13a3616a945a97b12c9bb7fd93, type: 2}
+  EnemyData: {fileID: 11400000, guid: 8a3646870ffa7d14897e05224003767a, type: 2}

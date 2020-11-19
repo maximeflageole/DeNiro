@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 876f6e1b668d6dd42bc84a263203c334, type: 3}
-  m_Name: MushBossEnemy
+  m_Script: {fileID: 11500000, guid: 32bc2a79b677ef5448b041ef67113c50, type: 3}
+  m_Name: SpiderCreature
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1652348065175960, guid: cb0c4f70d4e946f4a8059f2ac9b5bdf2, type: 3}
-  Speed: 60
-  MaxHealth: 600
-  BaseXpValue: 30
+  Id: 2
+  TowerData: {fileID: 11400000, guid: 0840b4964d3c53c408a22f41cf11d642, type: 2}
+  EnemyData: {fileID: 11400000, guid: ff7fae42ba5ebc145abaca8f6ed48b36, type: 2}

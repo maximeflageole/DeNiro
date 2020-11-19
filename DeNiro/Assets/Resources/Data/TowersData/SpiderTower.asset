@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f24986403f73e46b9f903d49bbd5df, type: 3}
+  m_Name: SpiderTower
+  m_EditorClassIdentifier: 
+  StatEffects: []
+  ProjectileEffects:
+  - Target: 1
+    Radius: 50
+    RateOfFire: 0.25
+    ProjectileData: {fileID: 11400000, guid: c45569a2428578a43bb3020ebe5ec2ab, type: 2}
+  TowerSprite: {fileID: 21300000, guid: 05f1cf1600104a549b5b4dc26a373f6c, type: 3}
+  Stats: {fileID: 11400000, guid: 0716883e19f68ef40a008c8acffa4b08, type: 2}
+  Prefab: {fileID: 1652348065175960, guid: c72f765484885c545930735a4303388e, type: 3}

@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 public class TdEnemy: TdUnit
 {
     protected static float ROTATION_SPEED = 15.0f;
+    protected static string DEATH_TRIGGER = "Die";
 
     protected float m_speed = 10.0f;
     [SerializeField]
@@ -70,8 +71,6 @@ public class TdEnemy: TdUnit
 
     protected override void GetKilled()
     {
-        m_body.SetActive(false);
-        m_animator.enabled = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         if (m_hpImage != null)
@@ -81,12 +80,14 @@ public class TdEnemy: TdUnit
 
         if (m_deathGO != null)
         {
+            m_body.SetActive(false);
+            m_animator.enabled = false;
             m_deathGO.SetActive(true);
             Invoke("OnDeathComplete", m_deathGO.GetComponent<Animation>().clip.length);
         }
         else
         {
-            OnDeathComplete();
+            m_animator.SetTrigger(DEATH_TRIGGER);
         }
 
         var randomValue = Random.Range(0.0f, 1.0f);
@@ -95,6 +96,11 @@ public class TdEnemy: TdUnit
             PlayerControls.Instance.CollectTower(m_creatureData);
         }
         PlayerControls.Instance.DistributeXp(m_data.BaseXpValue);
+    }
+
+    public void DeathComplete()
+    {
+        OnDeathComplete();
     }
 
     public void OnDeathComplete()

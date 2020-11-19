@@ -2077,6 +2077,7 @@ MonoBehaviour:
   m_defaultButtons:
   - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
   - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
+  - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
   m_towerBtnPrefab: {fileID: 6899919561599926370, guid: 65b7d8313e277e245abdfe06d171ed44,
     type: 3}
 --- !u!1 &1879076892
@@ -2373,11 +2374,14 @@ MonoBehaviour:
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
     - CreaturesData:
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
     - CreaturesData:
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
       - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
@@ -2593,8 +2597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36795dfba1890c94f87dba09a8342fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_towerInPlacementPrefab: {fileID: 1652348065175960, guid: fb574a201e68d4048b96f2961b451325,
-    type: 3}
   m_creaturesInventory: {fileID: 1796313525}
   m_currentlySelectedButton: {fileID: 0}
   m_currentlySelectedTower: {fileID: 0}
