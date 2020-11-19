@@ -153,7 +153,7 @@ public class TdUnit: MonoBehaviour
     protected float GetCalculatedDamage(float damageAmount)
     {
         var calculatedDamage = damageAmount * Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseDebuff, false));
-        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.DefenseBuff, false));
+        calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.AttackBuff, false));
 
         return calculatedDamage;
     }

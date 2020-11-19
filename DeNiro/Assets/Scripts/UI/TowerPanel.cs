@@ -43,7 +43,7 @@ public class TowerPanel : MonoBehaviour
         m_ability2Panel.AssignData(null);
         m_xpImage.fillAmount = GameManager.Instance.GetNextLevelXpPercentage(saveData.xp, saveData.level);
         m_levelTMPro.text = LEVEL_BASE_TEXT + saveData.level;
-        m_attackValueTMPro.text = "+" + stats.GetStat(EStat.DefenseBuff).ToString("F0") + "%";
+        m_attackValueTMPro.text = "+" + stats.GetStat(EStat.AttackBuff).ToString("F0") + "%";
         m_hasteValueTMPro.text = "+" + stats.GetStat(EStat.Haste).ToString("F0") + "%";
         m_rangeValueTMPro.text = "+" + stats.GetStat(EStat.Range).ToString("F0") + "%";
         m_presenceValueTMPro.text = "+" + stats.GetStat(EStat.Presence).ToString("F0") + "%";

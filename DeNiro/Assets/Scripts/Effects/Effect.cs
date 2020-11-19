@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 [Serializable]
 public abstract class Effect
@@ -18,10 +17,21 @@ public class StatEffect: Effect
 }
 
 [Serializable]
-public class ProjectileEffect: Effect
+public class AttackEffect : Effect
 {
     public float RateOfFire = 1.0f; //Rate of fire is how long in seconds it takes to launch a projectile
+}
+
+[Serializable]
+public class ProjectileAttackEffect : AttackEffect
+{
     public ProjectileData ProjectileData;
+}
+
+[Serializable]
+public class InstantAttackEffect : AttackEffect
+{
+    public InstantAttackData InstantAttackData;
 }
 
 [Serializable]
@@ -32,7 +42,7 @@ public enum EStat
     HasteDebuff,
     MovementSpeed, //TODO
     MovementSpeedDebuff,
-    DefenseBuff, //TODO --> Should be changed to Attack Buff, not sure why it is effective right now
+    AttackBuff, //TODO --> Should be changed to Attack Buff, not sure why it is effective right now
     DefenseDebuff,
     Range, //TODO
     RangeDebuff, //TODO

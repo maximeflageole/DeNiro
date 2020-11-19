@@ -167,6 +167,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnTowerSelected(Tower tower)
     {
+        UnselectTower();
         m_currentlySelectedTower = tower;
         tower.OnTowerSelected(true);
         RefreshUnitUI();

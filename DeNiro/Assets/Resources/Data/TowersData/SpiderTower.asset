@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: SpiderTower
   m_EditorClassIdentifier: 
   StatEffects: []
-  ProjectileEffects:
+  ProjectileEffects: []
+  InstantEffects:
   - Target: 1
     Radius: 50
     RateOfFire: 0.25
-    ProjectileData: {fileID: 11400000, guid: c45569a2428578a43bb3020ebe5ec2ab, type: 2}
+    InstantAttackData: {fileID: 11400000, guid: dd3b992ac3aa50c41b42925031ca17b2,
+      type: 2}
   TowerSprite: {fileID: 21300000, guid: 05f1cf1600104a549b5b4dc26a373f6c, type: 3}
   Stats: {fileID: 11400000, guid: 0716883e19f68ef40a008c8acffa4b08, type: 2}
   Prefab: {fileID: 1652348065175960, guid: c72f765484885c545930735a4303388e, type: 3}

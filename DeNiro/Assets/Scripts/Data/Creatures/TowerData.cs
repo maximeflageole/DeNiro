@@ -5,7 +5,8 @@ using UnityEngine;
 public class TowerData : ScriptableObject
 {
     public List<StatEffect> StatEffects = new List<StatEffect>();
-    public List<ProjectileEffect> ProjectileEffects = new List<ProjectileEffect>();
+    public List<ProjectileAttackEffect> ProjectileEffects = new List<ProjectileAttackEffect>();
+    public List<InstantAttackEffect> InstantEffects = new List<InstantAttackEffect>();
     public Sprite TowerSprite;
     public TowerStats Stats;
     public GameObject Prefab;

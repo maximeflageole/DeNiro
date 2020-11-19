@@ -24,17 +24,21 @@ public class Tower: TdUnit
     [SerializeField]
     protected Animator m_animator;
     [SerializeField]
+    protected VfxHandler m_attackVfxHandler;
+    [SerializeField]
+    protected VfxHandler m_victimHitHandler;
+    [SerializeField]
     protected SkinnedMeshRenderer m_renderer;
     [SerializeField]
     protected Material m_inPlacementMaterial;
     protected Material m_towerMaterial;
-    protected ProjectileData m_nextProjectileThrown;
-    protected ProjectileEffectTrigger m_nextEffectTrigger;
+    protected AttackData m_nextAttackData;
+    protected InstantEffectTrigger m_nextEffectTrigger;
 
     [SerializeField]
     protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
     [SerializeField]
-    protected List<ProjectileEffectTrigger> m_projectileEffectTriggers = new List<ProjectileEffectTrigger>();
+    protected List<InstantEffectTrigger> m_instantEffectTriggers = new List<InstantEffectTrigger>();
 
     protected bool m_inPlacement = true;
     protected TowerData m_data;
@@ -67,10 +71,17 @@ public class Tower: TdUnit
         }
         foreach (var projectileEffect in m_data.ProjectileEffects)
         {
-            var effectTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<ProjectileEffectTrigger>();
+            var effectTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<InstantEffectTrigger>();
             effectTrigger.Init(projectileEffect);
-            m_projectileEffectTriggers.Add(effectTrigger);
-            effectTrigger.ShootInvoke += Shoot;
+            m_instantEffectTriggers.Add(effectTrigger);
+            effectTrigger.AttackInvoke += Attack;
+        }
+        foreach (var instantEffect in m_data.InstantEffects)
+        {
+            var effectTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<InstantEffectTrigger>();
+            effectTrigger.Init(instantEffect);
+            m_instantEffectTriggers.Add(effectTrigger);
+            effectTrigger.AttackInvoke += Attack;
         }
 
         if (saveData != null)
@@ -86,9 +97,9 @@ public class Tower: TdUnit
         return this;
     }
 
-    protected void Shoot(ProjectileData data, ProjectileEffectTrigger trigger)
+    protected void Attack(AttackData data, InstantEffectTrigger trigger)
     {
-        m_nextProjectileThrown = data;
+        m_nextAttackData = data;
         m_nextEffectTrigger = trigger;
         m_animator.SetTrigger(ATTACK_TRIGGER);
     }
@@ -123,7 +134,7 @@ public class Tower: TdUnit
         {
             effect.DisplayRadius(selected);
         }
-        foreach (var effect in m_projectileEffectTriggers)
+        foreach (var effect in m_instantEffectTriggers)
         {
             effect.DisplayRadius(selected);
         }
@@ -136,30 +147,42 @@ public class Tower: TdUnit
         if (m_nextEffectTrigger == null || !m_nextEffectTrigger.TryGetTarget(out target))
         {
             m_nextEffectTrigger = null;
-            m_nextProjectileThrown = null;
+            m_nextAttackData = null;
             return;
         }
 
-        if (m_nextProjectileThrown.GetType() == typeof(ArtilleryData))
+        if (m_nextAttackData.GetType() == typeof(ArtilleryData))
         {
-            m_animator.SetTrigger(ATTACK_TRIGGER);
             var artilleryProjectile = Instantiate(m_artilleryProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<ArtilleryProjectile>();
             if (artilleryProjectile != null)
             {
-                artilleryProjectile.Init(m_nextProjectileThrown, target.transform.position, GetFinalStat(EStat.DefenseBuff));
+                artilleryProjectile.Init((ProjectileData)m_nextAttackData, target.transform.position, GetFinalStat(EStat.AttackBuff));
             }
         }
-        else if (m_nextProjectileThrown.GetType() == typeof(HomingProjectileData))
+        else if (m_nextAttackData.GetType() == typeof(HomingProjectileData))
         {
-            m_animator.SetTrigger(ATTACK_TRIGGER);
             var homingProjectile = Instantiate(m_homingProjectile, m_canon.transform.position, Quaternion.identity, m_canon).GetComponent<HomingProjectile>();
             if (homingProjectile != null)
             {
-                homingProjectile.Init(m_nextProjectileThrown, target, GetFinalStat(EStat.DefenseBuff));
+                homingProjectile.Init((ProjectileData)m_nextAttackData, target, GetFinalStat(EStat.AttackBuff));
             }
+        }
+        else if (m_nextAttackData.GetType() == typeof(InstantAttackData))
+        {
+            var instantAttackData = (InstantAttackData)m_nextAttackData;
+            if (instantAttackData.m_onHitVfx != null)
+            {
+                Instantiate(instantAttackData.m_onHitVfx, target.transform.position, Quaternion.identity, target.transform);
+            }
+            target.Damage(m_nextAttackData.Damage * GetFinalStat(EStat.AttackBuff));
         }
 
         m_nextEffectTrigger = null;
-        m_nextProjectileThrown = null;
+        m_nextAttackData = null;
+    }
+
+    public void OnAttackBegin()
+    {
+        m_attackVfxHandler?.LaunchParticles();
     }
 }
