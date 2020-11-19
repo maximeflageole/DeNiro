@@ -154,7 +154,7 @@ public class PlayerControls : MonoBehaviour
         {
             return;
         }
-        m_towerInPlacement.PlaceTower();
+        m_towerInPlacement.PlaceTower(tile);
         m_towersInField.Add(m_towerInPlacement);
         tile.IsOccupied = true;
         StopPlacingTower(false);
@@ -181,6 +181,8 @@ public class PlayerControls : MonoBehaviour
 
     public void ReturnTowerToInventory()
     {
+        m_currentlySelectedTower.CurrentTile.IsOccupied = false;
+        m_currentlySelectedTower.CurrentTile = null;
         m_creaturesInventory.AddTowerToInventory(m_currentlySelectedTower.m_creatureData);
         m_towersInField.Remove(m_currentlySelectedTower);
         Destroy(m_currentlySelectedTower.gameObject);

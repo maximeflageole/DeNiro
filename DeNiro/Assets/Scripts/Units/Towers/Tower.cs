@@ -4,6 +4,9 @@ using UnityEngine;
 public class Tower: TdUnit
 {
     protected static string ATTACK_TRIGGER = "Attack";
+
+    public Tile CurrentTile { get; set; }
+
     [SerializeField]
     protected GameObject m_homingProjectile;
     [SerializeField]
@@ -49,8 +52,9 @@ public class Tower: TdUnit
         //TODO: Replug radius display
     }
 
-    public Tower PlaceTower(TowerSaveData saveData = null)
+    public Tower PlaceTower(Tile tile, TowerSaveData saveData = null)
     {
+        CurrentTile = tile;
         m_renderer.material = m_towerMaterial;
         m_inPlacement = false;
         m_data = m_creatureData.TowerData;
