@@ -1522,14 +1522,14 @@ Transform:
   - {fileID: 1030652089}
   - {fileID: 1616487023}
   - {fileID: 218582757}
+  - {fileID: 673636409}
   - {fileID: 11640930}
   - {fileID: 1595993859}
   - {fileID: 1374581947}
   - {fileID: 417763802}
-  - {fileID: 673636409}
+  - {fileID: 68001473}
   - {fileID: 559678610}
   - {fileID: 32105811}
-  - {fileID: 68001473}
   - {fileID: 1937168627}
   - {fileID: 1535488061}
   - {fileID: 1418642970}
@@ -1553,11 +1553,11 @@ Transform:
   - {fileID: 876087655}
   - {fileID: 1760756865}
   - {fileID: 264672314}
+  - {fileID: 1988704185}
   - {fileID: 102777967}
   - {fileID: 1386634291}
   - {fileID: 793726855}
   - {fileID: 541914713}
-  - {fileID: 1988704185}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3889,7 +3889,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

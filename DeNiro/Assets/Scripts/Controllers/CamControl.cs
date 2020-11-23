@@ -44,8 +44,14 @@ public class CamControl : MonoBehaviour
         var zoom = Input.mouseScrollDelta.y;
         if (zoom != 0)
         {
-// Camera.main.orthographicSize -= m_zoomSpeed * zoom;
-            transform.position += transform.forward * m_zoomSpeed * zoom;
+            if (Camera.main.orthographic)
+            {
+                Camera.main.orthographicSize -= m_zoomSpeed * zoom;
+            }
+            else
+            {
+                transform.position += transform.forward * m_zoomSpeed * zoom;
+            }
         }
     }
 
