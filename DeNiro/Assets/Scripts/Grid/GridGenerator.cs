@@ -16,7 +16,7 @@ public class GridGenerator : MonoBehaviour
         {
             for (int j = 0; j < m_dimensions.y; j++)
             {
-                var tilePosition = new Vector3(i * m_tileSize, 0, j * m_tileSize);
+                var tilePosition = new Vector3(i * m_tileSize, 0, j * m_tileSize) + transform.position;
                 Instantiate(m_tilePrefab, tilePosition, Quaternion.identity, transform);
             }
         }

@@ -16,6 +16,7 @@ public class PlayerControls : MonoBehaviour
     private Tower m_currentlySelectedTower;
     [SerializeField]
     private TowerPanel m_towerPanel;
+    private Tile m_hoveredTile;
     private List<Tower> m_towersInField = new List<Tower>();
     private static int guiInt = -1;
 
@@ -61,18 +62,30 @@ public class PlayerControls : MonoBehaviour
             return;
         }
 
+        m_hoveredTile?.SetEnabled(false);
+        m_hoveredTile = null;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
+        {
+            var tile = hit.transform.GetComponent<Tile>();
+            if (tile != null)
+            {
+                tile.SetEnabled(true);
+                m_hoveredTile = tile;
+            }
+        }
+
         if (m_towerInPlacement != null)
         {
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
             {
-                var tile = hit.transform.GetComponent<Tile>();
-                if (tile != null)
+                if (m_hoveredTile != null)
                 {
-                    m_towerInPlacement.transform.position = tile.GetTowerAnchor().position;
+                    m_towerInPlacement.transform.position = m_hoveredTile.GetTowerAnchor().position;
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        PlaceTower(tile);
+                        PlaceTower(m_hoveredTile);
                         UnselectTower();
                         return;
                     }
