@@ -497,7 +497,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5187feef148c632448b87959de8cbf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dimensions: {x: 40, y: 40}
+  m_tilesMaterials:
+  - TileType: 0
+    Material: {fileID: 2100000, guid: 0d337a70f9e175348909eb917056c239, type: 2}
+  - TileType: 1
+    Material: {fileID: 2100000, guid: 5fe0aebe85b574b4a94e74712f0aa915, type: 2}
+  - TileType: 2
+    Material: {fileID: 2100000, guid: 3b20fc9e84b968641b7312bdcdd1ffd8, type: 2}
+  - TileType: 3
+    Material: {fileID: 2100000, guid: 2768469f7f5282a4282f61dbf62e68e2, type: 2}
+  - TileType: 4
+    Material: {fileID: 2100000, guid: 48b31daa83ddb854fadd9402702394e4, type: 2}
+  m_mapData: {fileID: 11400000, guid: 4c547a7a1c2239041b22538d6a475573, type: 2}
   m_tilePrefab: {fileID: 5297254980605702105, guid: a56225b733106ff4fa96a2a206e89654,
     type: 3}
   m_tileSize: 0.5
