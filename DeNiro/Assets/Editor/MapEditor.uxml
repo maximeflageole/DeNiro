@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement style="flex-direction: row; flex-grow: 0; height: 100%;">
+        <Style src="Zone.uss" />
+        <ui:VisualElement style="flex-grow: 1; width: auto; height: 100%; min-height: 100%; flex-shrink: 1;">
+            <ui:ListView focusable="True" name="MapList" style="flex-grow: 1; flex-shrink: 0; min-width: 100px; height: 100%; max-width: 300px;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1;">
+            <ui:TextField picking-mode="Ignore" label="Map name" value="DefaultMapName" text="DefaultMapName" name="MapName" class="Zone" />
+            <ui:VisualElement name="Options" class="Zone">
+                <ui:Label text="Map dimension" name="MapDimension" />
+                <ui:VisualElement>
+                    <uie:IntegerField label="Height" value="10" name="Height" />
+                    <uie:IntegerField label="Width" value="10" name="Width" />
+                </ui:VisualElement>
+                <ui:Button text="Apply changes" name="ApplyChangesBtn" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Map" class="Zone" style="flex-grow: 1; flex-direction: column; flex-shrink: 0; width: 100%;" />
+            <ui:Button text="Save" name="SaveBtn" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

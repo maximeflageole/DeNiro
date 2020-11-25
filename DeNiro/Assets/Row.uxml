@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="Row">
+        <Style src="Editor/Zone.uss" />
+        <Style src="Editor/Tile.uss" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="Row" class="Row" style="flex-shrink: 0; min-width: auto;">
+        <Style src="Row.uss" />
+    </ui:VisualElement>
+</ui:UXML>
