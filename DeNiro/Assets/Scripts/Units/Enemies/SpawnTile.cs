@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WavesManager : Waypoint
+public class SpawnTile : Waypoint
 {
     private int m_unitsSpawnedInWave;
     private int m_currentWaveIndex = 0;
@@ -46,7 +46,7 @@ public class WavesManager : Waypoint
     private void Spawn(CreatureData data)
     {
         var enemy = Instantiate(data.EnemyData.Prefab, transform.position, Quaternion.identity).GetComponent<TdEnemy>();
-        enemy.AssignWaypoint(m_nextWaypoint);
+        enemy.AssignWaypoint(GetNextWaypoint());
         enemy.AssignData(m_wavesData.Waves[m_currentWaveIndex].CreaturesData[m_unitsSpawnedInWave]);
         m_unitsSpawnedInWave ++;
         enemy.OnDeathCallback += OnUnitDeath;

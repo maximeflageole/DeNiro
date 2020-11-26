@@ -11,6 +11,7 @@ public class MapEditor : EditorWindow
     private TextField m_mapName;
     private List<List<TileData>> m_tilesData = new List<List<TileData>>();
 
+    public static Dictionary<EDirection, Sprite> DirectionArrows = new Dictionary<EDirection, Sprite>();
     public static TilesData TilesData { get; set; }
 
     [MenuItem("Custom Tools/MapEditor")]
@@ -45,6 +46,14 @@ public class MapEditor : EditorWindow
 
         var saveBtn = root.Q<Button>("SaveBtn");
         saveBtn.clicked += SaveBtnClicked;
+
+        DirectionArrows.Clear();
+        DirectionArrows.Add(EDirection.Up, AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Editor/Sprites/ArrowUp.png"));
+        DirectionArrows.Add(EDirection.Right, AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Editor/Sprites/ArrowRight.png"));
+        DirectionArrows.Add(EDirection.Down, AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Editor/Sprites/ArrowDown.png"));
+        DirectionArrows.Add(EDirection.Left, AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Editor/Sprites/ArrowLeft.png"));
+
+
     }
 
     public void ApplyChangesClicked()
@@ -54,14 +63,15 @@ public class MapEditor : EditorWindow
 
     public void SaveBtnClicked()
     {
-        var tileTypes = new List<TileType>();
+        var tileTypes = new List<TileDataTuple>();
         foreach (var row in m_tilesData)
         {
             foreach (var tile in row)
             {
-                tileTypes.Add(tile.m_tileType);
+                tileTypes.Add(new TileDataTuple() { Direction = tile.m_direction, TileType = tile.m_tileType });
             }
         }
+
         MapData.CreateOrOverrideFile(m_mapName.value, tileTypes, m_tilesData.Count, m_tilesData[0].Count);
     }
 

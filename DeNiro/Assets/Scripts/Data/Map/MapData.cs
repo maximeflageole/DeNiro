@@ -7,10 +7,10 @@ public class MapData : ScriptableObject
     public int XSize;
     public int YSize;
     public string MapName;
-    public List<TileType> Tiles = new List<TileType>();
+    public List<TileDataTuple> Tiles = new List<TileDataTuple>();
     private static string FILE_PATH = "Assets/Resources/Data/Map/Maps/";
 
-    public static void CreateOrOverrideFile(string mapName, List<TileType> tiles, int xSize, int ySize)
+    public static void CreateOrOverrideFile(string mapName, List<TileDataTuple> tiles, int xSize, int ySize)
     {
 #if UNITY_EDITOR
 
@@ -43,4 +43,21 @@ public class MapData : ScriptableObject
 public struct RowData
 {
     public List<TileType> Tiles;
+}
+
+[System.Serializable]
+public enum EDirection
+{
+    Up,
+    Right,
+    Down,
+    Left,
+    Count
+}
+
+[System.Serializable]
+public struct TileDataTuple
+{
+    public TileType TileType;
+    public EDirection Direction;
 }

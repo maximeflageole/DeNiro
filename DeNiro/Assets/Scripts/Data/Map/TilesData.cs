@@ -7,6 +7,7 @@ public class TilesData : ScriptableObject
     public List<TileTuple> TilesList = new List<TileTuple>();
 }
 
+[System.Serializable]
 public enum TileType
 {
     Spawn,

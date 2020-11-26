@@ -1,11 +1,8 @@
-﻿using UnityEngine;
-
-public class Waypoint : MonoBehaviour
+﻿public class Waypoint : Tile
 {
-    [SerializeField]
     protected Waypoint m_nextWaypoint;
 
-    public Waypoint GetNextWaypoint() { return m_nextWaypoint; }
+    public Waypoint GetNextWaypoint() { return GridManager.GetNextWaypoint(this); }
 
     public virtual void GetReached()
     {
