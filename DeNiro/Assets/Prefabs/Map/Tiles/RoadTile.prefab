@@ -123,8 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097b97830ec826f46b63e688dea463d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_oddMaterial: {fileID: 0}
+  m_evenMaterial: {fileID: 0}
+  m_canHaveTower: 0
   m_towerAnchor: {fileID: 2784950328630595284}
-  m_meshRenderer: {fileID: 5342658025647462560}
+  m_visualMeshRenderer: {fileID: 6012163816894564269}
+  m_gameplayMeshRenderer: {fileID: 5342658025647462560}
   Coordinates: {x: 0, y: 0}
 --- !u!1 &1804237081919223860
 GameObject:
@@ -184,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5fe0aebe85b574b4a94e74712f0aa915, type: 2}
+  - {fileID: 2100000, guid: d7c83a9bbdf00324b803ae1daa2ef005, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

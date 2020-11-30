@@ -47,8 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe436a6d931e449863ebd7b75cf311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_oddMaterial: {fileID: 0}
+  m_evenMaterial: {fileID: 0}
+  m_canHaveTower: 0
   m_towerAnchor: {fileID: 2784950328630595284}
-  m_meshRenderer: {fileID: 5342658025647462560}
+  m_visualMeshRenderer: {fileID: 6012163816894564269}
+  m_gameplayMeshRenderer: {fileID: 5342658025647462560}
   Coordinates: {x: 0, y: 0}
 --- !u!33 &6158272464889256578
 MeshFilter:
@@ -184,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2768469f7f5282a4282f61dbf62e68e2, type: 2}
+  - {fileID: 2100000, guid: c6d38711520119c4e89ddf1ea6adc007, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -260,7 +264,7 @@ Transform:
   m_GameObject: {fileID: 5297254980605702105}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.01, z: 0.5}
   m_Children:
   - {fileID: 2784950328630595284}
   - {fileID: 2217716433285770987}

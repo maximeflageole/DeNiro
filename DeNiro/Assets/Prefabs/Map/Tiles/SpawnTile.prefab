@@ -123,8 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072d0d20b0de20c45bc0ee2bc4503db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_oddMaterial: {fileID: 0}
+  m_evenMaterial: {fileID: 0}
+  m_canHaveTower: 0
   m_towerAnchor: {fileID: 2784950328630595284}
-  m_meshRenderer: {fileID: 5342658025647462560}
+  m_visualMeshRenderer: {fileID: 6012163816894564269}
+  m_gameplayMeshRenderer: {fileID: 5342658025647462560}
+  Coordinates: {x: 0, y: 0}
   m_wavesData:
     FirstWaveDelay: 5
     WavesCooldown: 3
@@ -209,7 +214,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0d337a70f9e175348909eb917056c239, type: 2}
+  - {fileID: 2100000, guid: d7c83a9bbdf00324b803ae1daa2ef005, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
