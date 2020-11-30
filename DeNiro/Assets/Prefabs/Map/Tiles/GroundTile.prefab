@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_towerAnchor: {fileID: 2784950328630595284}
   m_meshRenderer: {fileID: 5342658025647462560}
+  Coordinates: {x: 0, y: 0}
 --- !u!33 &6158272464889256578
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -244,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5297254980605735929}
   m_Layer: 10
-  m_Name: Tile
+  m_Name: GroundTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 5297254980605702105}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.01, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
   m_Children:
   - {fileID: 2784950328630595284}
   - {fileID: 2217716433285770987}

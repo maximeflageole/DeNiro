@@ -23,10 +23,10 @@ public class TdEnemy: TdUnit
     public void AssignWaypoint(Waypoint waypoint)
     {
         m_nextWaypoint = waypoint;
-        var distanceVector = m_nextWaypoint.transform.position - transform.position;
+        var distanceVector = m_nextWaypoint.GetTowerAnchor().position - transform.position;
         m_waypointDistance = Mathf.Abs(distanceVector.magnitude);
         Debug.Log("Assigning next waypoint in " + m_waypointDistance);
-        m_directionalVector = (m_nextWaypoint.transform.position - transform.position).normalized;
+        m_directionalVector = (m_nextWaypoint.GetTowerAnchor().position - transform.position).normalized;
     }
 
     protected override void Update()

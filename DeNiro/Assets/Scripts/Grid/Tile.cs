@@ -3,7 +3,7 @@
 public class Tile : MonoBehaviour
 {
     [SerializeField]
-    private Transform m_towerAnchor;
+    protected Transform m_towerAnchor;
     [SerializeField]
     private MeshRenderer m_meshRenderer;
     [SerializeField]

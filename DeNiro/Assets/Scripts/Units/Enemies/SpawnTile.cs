@@ -45,7 +45,7 @@ public class SpawnTile : Waypoint
 
     private void Spawn(CreatureData data)
     {
-        var enemy = Instantiate(data.EnemyData.Prefab, transform.position, Quaternion.identity).GetComponent<TdEnemy>();
+        var enemy = Instantiate(data.EnemyData.Prefab, m_towerAnchor.position, Quaternion.identity).GetComponent<TdEnemy>();
         enemy.AssignWaypoint(GetNextWaypoint());
         enemy.AssignData(m_wavesData.Waves[m_currentWaveIndex].CreaturesData[m_unitsSpawnedInWave]);
         m_unitsSpawnedInWave ++;
