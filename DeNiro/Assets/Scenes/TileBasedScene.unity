@@ -270,7 +270,7 @@ MonoBehaviour:
   - TileType: 4
     Prefab: {fileID: 5297254980605702105, guid: d60b1278582243242a3c9d6edb0f1c30,
       type: 3}
-  m_mapData: {fileID: 11400000, guid: b6fc1c6e8a7051a499435d2ad965b782, type: 2}
+  m_mapData: {fileID: 11400000, guid: 4c547a7a1c2239041b22538d6a475573, type: 2}
   m_tileSize: 0.5
 --- !u!4 &205901491
 Transform:

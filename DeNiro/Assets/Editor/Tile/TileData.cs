@@ -70,4 +70,10 @@ public class TileData
         m_direction = direction;
         m_image.style.backgroundImage = MapEditor.DirectionArrows[direction].texture;
     }
+
+    public void AssignTileFromTileTuple(TileDataTuple tuple)
+    {
+        AssignDirection(tuple.Direction);
+        AssignTileType(tuple.TileType);
+    }
 }

@@ -8,12 +8,14 @@ public class MapData : ScriptableObject
     public int YSize;
     public string MapName;
     public List<TileDataTuple> Tiles = new List<TileDataTuple>();
-    private static string FILE_PATH = "Assets/Resources/Data/Map/Maps/";
+    private static string FILE_PATH = "Data/Map/Maps/";
+    private static string RESOURCES_PATH = "Assets/Resources/";
 
-    public static void CreateOrOverrideFile(string mapName, List<TileDataTuple> tiles, int xSize, int ySize)
+    public static bool CreateOrOverrideFile(string mapName, List<TileDataTuple> tiles, int xSize, int ySize)
     {
 #if UNITY_EDITOR
 
+        var hasFileBeenCreated = false;
         var file = Resources.Load(FILE_PATH + mapName);
         if (file != null)
         {
@@ -31,11 +33,18 @@ public class MapData : ScriptableObject
             MapData.YSize = ySize;
             MapData.Tiles = tiles;
 
-            UnityEditor.AssetDatabase.CreateAsset(MapData, FILE_PATH + MapData.MapName + ".asset");
+            UnityEditor.AssetDatabase.CreateAsset(MapData, RESOURCES_PATH + FILE_PATH + MapData.MapName + ".asset");
+            hasFileBeenCreated = true;
         }
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();
+        return hasFileBeenCreated;
 #endif
+    }
+
+    public TileDataTuple GetTileDataAtPos(int pos)
+    {
+        return Tiles[pos];
     }
 }
 
