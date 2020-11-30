@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fe436a6d931e449863ebd7b75cf311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_canHaveTower: 1
   m_towerAnchor: {fileID: 2784950328630595284}
   m_meshRenderer: {fileID: 5342658025647462560}
   Coordinates: {x: 0, y: 0}

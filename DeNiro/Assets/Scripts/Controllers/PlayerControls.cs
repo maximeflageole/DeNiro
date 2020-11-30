@@ -79,7 +79,7 @@ public class PlayerControls : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
             {
-                if (m_hoveredTile != null)
+                if (m_hoveredTile != null && m_hoveredTile.CanHaveTower())
                 {
                     m_towerInPlacement.transform.position = m_hoveredTile.GetTowerAnchor().position;
 
@@ -89,6 +89,11 @@ public class PlayerControls : MonoBehaviour
                         UnselectTower();
                         return;
                     }
+                }
+                else if (Input.GetMouseButtonDown(0))
+                {
+                    StopPlacingTower(true, false);
+                    return;
                 }
             }
         }
@@ -108,7 +113,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            StopPlacingTower(false, false);
+            StopPlacingTower(true, false);
             UnselectTower();
         }
     }
@@ -163,8 +168,9 @@ public class PlayerControls : MonoBehaviour
 
     private void PlaceTower(Tile tile)
     {
-        if (tile.IsOccupied)
+        if (tile.IsOccupied || !tile.CanHaveTower())
         {
+            StopPlacingTower(true, false);
             return;
         }
         m_towerInPlacement.PlaceTower(tile);
