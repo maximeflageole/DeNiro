@@ -131,7 +131,7 @@ MonoBehaviour:
   m_gameplayMeshRenderer: {fileID: 5342658025647462560}
   Coordinates: {x: 0, y: 0}
   m_wavesData:
-    FirstWaveDelay: 5
+    FirstWaveDelay: 10
     WavesCooldown: 3
     UnitsCooldown: 1
     Waves:

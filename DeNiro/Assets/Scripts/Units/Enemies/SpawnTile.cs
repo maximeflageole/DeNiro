@@ -19,6 +19,7 @@ public class SpawnTile : Waypoint
         m_nextSpawnTimer = m_wavesData.FirstWaveDelay;
         m_unitsSpawnedInWave = 0;
         m_waveTimerUI = GameManager.Instance.m_waveTimerUI;
+        m_waveTimerUI.Activate();
     }
 
     // Update is called once per frame
