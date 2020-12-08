@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 	public CurveData m_xpCurve;
 	public UnitsDictionary m_unitsDictionary;
 
+	public WaveTimerUI m_waveTimerUI;
+
     public static GameManager Instance;
 
 	float deltaTime = 0.0f;

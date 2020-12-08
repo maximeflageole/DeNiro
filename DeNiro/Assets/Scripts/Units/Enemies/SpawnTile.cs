@@ -11,12 +11,14 @@ public class SpawnTile : Waypoint
 
     [SerializeField]
     protected WavesData m_wavesData;
+    protected WaveTimerUI m_waveTimerUI;
 
     // Start is called before the first frame update
     void Start()
     {
         m_nextSpawnTimer = m_wavesData.FirstWaveDelay;
         m_unitsSpawnedInWave = 0;
+        m_waveTimerUI = GameManager.Instance.m_waveTimerUI;
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class SpawnTile : Waypoint
             m_currentCooldown += Time.deltaTime;
             if (m_currentCooldown > m_nextSpawnTimer && m_unitsSpawnedInWave < m_wavesData.Waves[m_currentWaveIndex].CreaturesData.Count)
             {
+                m_waveTimerUI.Activate(false);
                 Spawn(m_wavesData.Waves[m_currentWaveIndex].CreaturesData[m_unitsSpawnedInWave]);
                 ResetUnitsCooldown();
                 m_unitsCount++;
@@ -35,7 +38,8 @@ public class SpawnTile : Waypoint
             {
                 EndWave();
             }
-        }   
+            m_waveTimerUI.UpdateTimer(m_currentCooldown, m_nextSpawnTimer);
+        }
     }
 
     public void OnUnitDeath()
@@ -60,6 +64,7 @@ public class SpawnTile : Waypoint
 
     private void EndWave()
     {
+        m_waveTimerUI.Activate();
         m_currentWaveIndex++;
         m_nextSpawnTimer = m_wavesData.WavesCooldown;
         m_currentCooldown = 0;
