@@ -16,6 +16,7 @@ public class TdEnemy: TdUnit
 
     protected EnemyData m_data;
 
+    [SerializeField]
     protected Waypoint m_nextWaypoint;
     protected float m_waypointDistance = 1;
     protected Vector3 m_directionalVector;
@@ -46,10 +47,9 @@ public class TdEnemy: TdUnit
 
         WaypointCheck();
 
-        Quaternion OriginalRot = transform.rotation;
-        transform.LookAt(m_nextWaypoint.transform);
+        transform.LookAt(m_nextWaypoint.GetTowerAnchor());
         Quaternion NewRot = transform.rotation;
-        transform.rotation = OriginalRot;
+        transform.rotation = NewRot;
         transform.rotation = Quaternion.Lerp(transform.rotation, NewRot, ROTATION_SPEED * Time.deltaTime);
         m_animator.SetFloat("Speed", directionalSpeed.magnitude);
         Debug.Log("Speed " + directionalSpeed.magnitude);
