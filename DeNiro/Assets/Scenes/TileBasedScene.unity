@@ -998,7 +998,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1021,13 +1021,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.31567803, y: -0.26739872, z: 0.09319142, w: -0.90562725}
-  m_LocalPosition: {x: -0.98, y: 5.19, z: -3.98}
+  m_LocalRotation: {x: 0.3310888, y: 0.35726574, z: -0.13714148, w: 0.86251587}
+  m_LocalPosition: {x: -6.3777313, y: 5.19, z: -5.685079}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 40.440002, y: 8.607, z: 0.021000002}
+  m_LocalEulerAnglesHint: {x: 42, y: 45, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 0.05
   m_zoomSpeed: 0.15
-  m_rotationSpeed: 60
+  m_rotationSpeed: 0
 --- !u!114 &1028919334 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7174094370861562938, guid: 09a17beab85e1e3418e6198923629248,
@@ -2279,6 +2279,48 @@ MonoBehaviour:
   m_xpCurve: {fileID: 11400000, guid: ca4841fa2d669b048852e27b80b0a825, type: 2}
   m_unitsDictionary: {fileID: 11400000, guid: f972a9ca9411987449f6f7c9c2ab8dc9, type: 2}
   m_waveTimerUI: {fileID: 1658854353}
+  m_creatureTypesChart:
+    TypeChart:
+    - Type: 1
+      TypeChart:
+        TypeAdvantages: 0700000004000000
+        TypeDisadvantages: 0300000008000000
+    - Type: 2
+      TypeChart:
+        TypeAdvantages: 0700000009000000
+        TypeDisadvantages: 0800000004000000
+    - Type: 3
+      TypeChart:
+        TypeAdvantages: 0100000008000000
+        TypeDisadvantages: 0600000007000000
+    - Type: 4
+      TypeChart:
+        TypeAdvantages: 050000000a000000
+        TypeDisadvantages: 0200000006000000
+    - Type: 5
+      TypeChart:
+        TypeAdvantages: 0a00000002000000
+        TypeDisadvantages: 0800000001000000
+    - Type: 6
+      TypeChart:
+        TypeAdvantages: 0300000005000000
+        TypeDisadvantages: 0400000008000000
+    - Type: 7
+      TypeChart:
+        TypeAdvantages: 0300000008000000
+        TypeDisadvantages: 0600000009000000
+    - Type: 8
+      TypeChart:
+        TypeAdvantages: 0600000009000000
+        TypeDisadvantages: 0300000002000000
+    - Type: 9
+      TypeChart:
+        TypeAdvantages: 090000000a000000
+        TypeDisadvantages: 0400000008000000
+    - Type: 10
+      TypeChart:
+        TypeAdvantages: 0a00000002000000
+        TypeDisadvantages: 0900000001000000
   m_mainMenuPanel: {fileID: 2127013726}
 --- !u!1001 &7174094371338749246
 PrefabInstance:

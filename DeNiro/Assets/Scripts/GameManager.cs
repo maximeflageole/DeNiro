@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+	public CreatureTypesChart m_creatureTypesChart;
+
 	float deltaTime = 0.0f;
 
 	[SerializeField]
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+		m_creatureTypesChart.OnAwake();
     }
 
     private void Start()
