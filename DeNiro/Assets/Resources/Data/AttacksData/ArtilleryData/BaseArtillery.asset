@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76decd151f27354891cf3c056f9de57, type: 3}
   m_Name: BaseArtillery
   m_EditorClassIdentifier: 
+  Damage: 10
+  DamageType: 1
   AoEData: {fileID: 11400000, guid: 2811ac2688eca9b4ab34f5a1997fa59e, type: 2}
   VerticalPositionCurve:
     serializedVersion: 2

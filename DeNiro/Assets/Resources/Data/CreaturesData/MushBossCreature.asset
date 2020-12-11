@@ -15,3 +15,5 @@ MonoBehaviour:
   Id: 1
   TowerData: {fileID: 11400000, guid: 03bbac2d7a942784680e1cae53982470, type: 2}
   EnemyData: {fileID: 11400000, guid: 9868ba8fbd741d04ab8232ad14755d69, type: 2}
+  CreaturePrimaryType: 7
+  CreatureSecondaryType: 0

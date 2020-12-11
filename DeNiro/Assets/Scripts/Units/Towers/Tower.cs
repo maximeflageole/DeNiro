@@ -174,7 +174,7 @@ public class Tower: TdUnit
             {
                 Instantiate(instantAttackData.m_onHitVfx, target.transform.position, Quaternion.identity, target.transform);
             }
-            target.Damage(m_nextAttackData.Damage * GetFinalStat(EStat.AttackBuff));
+            target.Damage(Projectile.GetFinalDamage(m_nextAttackData, target, GetFinalStat(EStat.AttackBuff)));
         }
 
         m_nextEffectTrigger = null;

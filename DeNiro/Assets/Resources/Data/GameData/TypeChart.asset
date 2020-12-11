@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396021d89081b4e49a6b41996f80a9a7, type: 3}
+  m_Name: TypeChart
+  m_EditorClassIdentifier: 
+  TypeChart:
+  - Type: 3
+    TypeChart:
+      TypeAdvantages: 010000000700000003000000
+      TypeDisadvantages: 
+  - Type: 1
+    TypeChart:
+      TypeAdvantages: 07000000
+      TypeDisadvantages: 03000000
+  - Type: 7
+    TypeChart:
+      TypeAdvantages: 03000000
+      TypeDisadvantages: 01000000

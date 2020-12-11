@@ -12,7 +12,7 @@ public class HomingProjectile : Projectile
         var enemy = other.GetComponent<TdEnemy>();
         if (enemy != null && enemy == m_target)
         {
-            enemy.Damage(m_data.Damage * m_damageMultiplier);
+            enemy.Damage(GetFinalDamage(m_data, m_target, m_damageMultiplier));
             Destroy(gameObject);
         }
     }

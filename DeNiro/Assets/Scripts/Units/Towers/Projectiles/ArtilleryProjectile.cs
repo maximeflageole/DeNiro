@@ -34,7 +34,7 @@ public class ArtilleryProjectile : Projectile
     {
         var aoe = Instantiate(m_aoe, transform.position, Quaternion.identity).GetComponent<AoE>();
         aoe.transform.Rotate(Vector3.right, 90.0f);
-        aoe.Init(m_data.AoEData, m_damageMultiplier);
+        aoe.Init(m_data, m_damageMultiplier);
         Destroy(gameObject);
     }
 }

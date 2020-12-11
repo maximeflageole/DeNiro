@@ -2227,6 +2227,7 @@ GameObject:
   - component: {fileID: 2134529158}
   - component: {fileID: 2134529157}
   - component: {fileID: 2134529159}
+  - component: {fileID: 2134529160}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -2279,49 +2280,24 @@ MonoBehaviour:
   m_xpCurve: {fileID: 11400000, guid: ca4841fa2d669b048852e27b80b0a825, type: 2}
   m_unitsDictionary: {fileID: 11400000, guid: f972a9ca9411987449f6f7c9c2ab8dc9, type: 2}
   m_waveTimerUI: {fileID: 1658854353}
-  m_creatureTypesChart:
-    TypeChart:
-    - Type: 1
-      TypeChart:
-        TypeAdvantages: 0700000004000000
-        TypeDisadvantages: 0300000008000000
-    - Type: 2
-      TypeChart:
-        TypeAdvantages: 0700000009000000
-        TypeDisadvantages: 0800000004000000
-    - Type: 3
-      TypeChart:
-        TypeAdvantages: 0100000008000000
-        TypeDisadvantages: 0600000007000000
-    - Type: 4
-      TypeChart:
-        TypeAdvantages: 050000000a000000
-        TypeDisadvantages: 0200000006000000
-    - Type: 5
-      TypeChart:
-        TypeAdvantages: 0a00000002000000
-        TypeDisadvantages: 0800000001000000
-    - Type: 6
-      TypeChart:
-        TypeAdvantages: 0300000005000000
-        TypeDisadvantages: 0400000008000000
-    - Type: 7
-      TypeChart:
-        TypeAdvantages: 0300000008000000
-        TypeDisadvantages: 0600000009000000
-    - Type: 8
-      TypeChart:
-        TypeAdvantages: 0600000009000000
-        TypeDisadvantages: 0300000002000000
-    - Type: 9
-      TypeChart:
-        TypeAdvantages: 090000000a000000
-        TypeDisadvantages: 0400000008000000
-    - Type: 10
-      TypeChart:
-        TypeAdvantages: 0a00000002000000
-        TypeDisadvantages: 0900000001000000
+  TypesManager: {fileID: 2134529160}
   m_mainMenuPanel: {fileID: 2127013726}
+--- !u!114 &2134529160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134529156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c474521dd264d46aace307c60bf77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_creaturesTypeChart: {fileID: 11400000, guid: fcfe8d01a4d2e4746b387a0423979704,
+    type: 2}
+  m_typeAdvantageDamageMultiplier: 2
+  m_typeDisadvantageDamageMultiplier: 0.5
 --- !u!1001 &7174094371338749246
 PrefabInstance:
   m_ObjectHideFlags: 0

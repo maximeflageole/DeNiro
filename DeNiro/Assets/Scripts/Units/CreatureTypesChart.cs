@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class CreatureTypesChart
+[CreateAssetMenu(fileName = "TypeChart", menuName = "Type Chart")]
+public class CreatureTypesChart: ScriptableObject
 {
     public Dictionary<ECreatureType, List<ECreatureType>> TypeAdvantageDictionary = new Dictionary<ECreatureType, List<ECreatureType>>();
     public Dictionary<ECreatureType, List<ECreatureType>> TypeDisdvantageDictionary = new Dictionary<ECreatureType, List<ECreatureType>>();
@@ -16,10 +16,14 @@ public class CreatureTypesChart
 
     public void OnAwake()
     {
+        TypeAdvantageDictionary.Clear();
+        TypeDisdvantageDictionary.Clear();
+
         foreach (var creatureTuple in TypeChart)
         {
+            Debug.Log("Adding type " + creatureTuple.Type + " in dictionary");
             TypeAdvantageDictionary.Add(creatureTuple.Type, creatureTuple.TypeChart.TypeAdvantages);
-            TypeAdvantageDictionary.Add(creatureTuple.Type, creatureTuple.TypeChart.TypeDisadvantages);
+            TypeDisdvantageDictionary.Add(creatureTuple.Type, creatureTuple.TypeChart.TypeDisadvantages);
         }
     }
 }

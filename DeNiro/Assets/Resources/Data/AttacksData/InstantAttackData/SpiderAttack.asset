@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SpiderAttack
   m_EditorClassIdentifier: 
   Damage: 25
+  DamageType: 3
   m_onHitVfx: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-	public CreatureTypesChart m_creatureTypesChart;
+	public TypesManager TypesManager;
 
 	float deltaTime = 0.0f;
 
@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-		m_creatureTypesChart.OnAwake();
     }
 
     private void Start()
