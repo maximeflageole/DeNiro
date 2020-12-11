@@ -1,14 +1,22 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class TypesManager: MonoBehaviour
 {
     public CreatureTypesChart m_creaturesTypeChart;
+    public List<TypeData> m_typesData = new List<TypeData>();
+    public Dictionary<ECreatureType, TypeData> m_typesDataDict = new Dictionary<ECreatureType, TypeData>();
     public float m_typeAdvantageDamageMultiplier;
     public float m_typeDisadvantageDamageMultiplier;
 
     private void Awake()
     {
         m_creaturesTypeChart.OnAwake();
+        m_typesDataDict.Clear();
+        foreach (var type in m_typesData)
+        {
+            m_typesDataDict.Add(type.Type, type);
+        }
     }
 
     public float GetDamageTypeMultiplier(ECreatureType attackerType, ECreatureType targetType)

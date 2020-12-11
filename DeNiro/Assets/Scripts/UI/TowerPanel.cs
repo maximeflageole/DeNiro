@@ -27,6 +27,10 @@ public class TowerPanel : MonoBehaviour
     protected TextMeshProUGUI m_rangeValueTMPro;
     [SerializeField]
     protected TextMeshProUGUI m_presenceValueTMPro;
+    [SerializeField]
+    protected TypeIcon m_type1Icon;
+    [SerializeField]
+    protected TypeIcon m_type2Icon;
 
     protected CreatureData m_creatureData;
 
@@ -47,7 +51,8 @@ public class TowerPanel : MonoBehaviour
         m_hasteValueTMPro.text = "+" + stats.GetStat(EStat.Haste).ToString("F0") + "%";
         m_rangeValueTMPro.text = "+" + stats.GetStat(EStat.Range).ToString("F0") + "%";
         m_presenceValueTMPro.text = "+" + stats.GetStat(EStat.Presence).ToString("F0") + "%";
-
+        m_type1Icon.AssignType(creatureData.CreaturePrimaryType);
+        m_type2Icon.AssignType(creatureData.CreatureSecondaryType);
     }
 
     public void EnablePanel(bool isEnabled)

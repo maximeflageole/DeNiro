@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0529c44e41ebeb4abbca7e6cbfcf46d, type: 3}
+  m_Name: VegetalData
+  m_EditorClassIdentifier: 
+  Type: 7
+  PrimaryColor: {r: 0.6698113, g: 0.5245604, b: 0.0473923, a: 1}
+  SecondaryColor: {r: 0.1355248, g: 0.7830189, b: 0, a: 1}
+  Sprite: {fileID: 21300000, guid: 86230801e4aa98745b03a4de463727fa, type: 3}
