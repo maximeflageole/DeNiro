@@ -25,8 +25,8 @@ public class TypeIcon : MonoBehaviour
         if (GameManager.Instance.TypesManager.m_typesDataDict.TryGetValue(type, out TypeData value))
         {
             gameObject.SetActive(true);
-            m_background.color = value.PrimaryColor;
-            m_frame.color = value.SecondaryColor;
+            if (m_background != null) m_background.color = value.PrimaryColor;
+            if (m_frame != null) m_frame.color = value.SecondaryColor;
             m_icon.sprite = value.Sprite;
             return;
         }
