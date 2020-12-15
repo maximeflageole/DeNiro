@@ -12,8 +12,7 @@ public class CreatureTypesChart: ScriptableObject
     public List<ECreatureType> GetTypeAdvantages(ECreatureType originalType) { return TypeAdvantageDictionary[originalType]; }
     public List<ECreatureType> GetTypeDisadvantages(ECreatureType originalType) { return TypeDisdvantageDictionary[originalType]; }
     public List<TypeData> TypesData = new List<TypeData>();
-
-
+    
     public void OnAwake()
     {
         TypeAdvantageDictionary.Clear();
@@ -21,7 +20,6 @@ public class CreatureTypesChart: ScriptableObject
 
         foreach (var creatureTuple in TypeChart)
         {
-            Debug.Log("Adding type " + creatureTuple.Type + " in dictionary");
             TypeAdvantageDictionary.Add(creatureTuple.Type, creatureTuple.TypeChart.TypeAdvantages);
             TypeDisdvantageDictionary.Add(creatureTuple.Type, creatureTuple.TypeChart.TypeDisadvantages);
         }

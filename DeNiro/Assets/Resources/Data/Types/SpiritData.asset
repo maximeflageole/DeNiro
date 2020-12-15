@@ -16,3 +16,4 @@ MonoBehaviour:
   PrimaryColor: {r: 0.8101935, g: 0.5444998, b: 0.8679245, a: 1}
   SecondaryColor: {r: 0.3573606, g: 0, b: 0.5, a: 1}
   Sprite: {fileID: 21300000, guid: 5ffe795816cd2534eab19a0652e53cc4, type: 3}
+  UncoloredSprite: {fileID: 21300000, guid: fc2df0c17c92ad841a43f9b02642378f, type: 3}

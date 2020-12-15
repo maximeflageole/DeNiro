@@ -12,6 +12,7 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Types/TypeData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/CreatureTypesChart.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/AdvantageWheel.cs" />
     </changedPaths>
@@ -56,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608010842169</updated>
-      <workItem from="1608010846507" duration="2710000" />
+      <workItem from="1608010846507" duration="3347000" />
     </task>
     <servers />
   </component>

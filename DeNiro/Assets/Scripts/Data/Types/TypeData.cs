@@ -7,4 +7,5 @@ public class TypeData : ScriptableObject
     public Color PrimaryColor;
     public Color SecondaryColor;
     public Sprite Sprite;
+    public Sprite UncoloredSprite;
 }
