@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class FadeInFadeOut : MonoBehaviour
 {
-    protected float m_maxAlpha = 0;
-    protected Image m_rootImage;
-    protected TextMeshProUGUI m_rootTmpro;
+    [SerializeField] protected CanvasGroup m_canvasGroup;
+    protected float m_maxAlpha = 1;
     protected List<FadeInFadeOut> m_childList = new List<FadeInFadeOut>();
     protected bool m_fadingIn;
     protected bool m_fadingOut;
@@ -20,27 +19,6 @@ public class FadeInFadeOut : MonoBehaviour
 
     public void Activate(bool active = true)
     {
-        if (m_rootImage == null && m_rootTmpro == null)
-        {
-            m_rootImage = GetComponent<Image>();
-            m_rootTmpro = GetComponent<TextMeshProUGUI>();
-            m_childList = GetComponentsInChildren<FadeInFadeOut>().ToList();
-            m_childList.Remove(this);
-            if (m_rootImage == null && m_rootTmpro == null)
-            {
-                Debug.LogError("A FadeInFadeOut component does not have an image or TMPro at it's root");
-                return;
-            }
-            else if (m_rootImage != null)
-            {
-                m_maxAlpha = m_rootImage.color.a;
-            }
-            else
-            {
-                m_maxAlpha = m_rootTmpro.color.a;
-            }
-        }
-
         m_fadingIn = active;
         m_fadingOut = !active;
 
@@ -71,18 +49,8 @@ public class FadeInFadeOut : MonoBehaviour
 
         if (m_fadingIn)
         {
-            if (m_rootImage != null)
-            {
-                var tempColor = m_rootImage.color;
-                tempColor.a = (m_fadeCurrentTimer / m_fadeInDuration) * m_maxAlpha;
-                m_rootImage.color = tempColor;
-            }
-            else
-            {
-                var tempColor = m_rootTmpro.color;
-                tempColor.a = (m_fadeCurrentTimer / m_fadeInDuration) * m_maxAlpha;
-                m_rootTmpro.color = tempColor;
-            }
+            m_canvasGroup.alpha = (m_fadeCurrentTimer / m_fadeInDuration) * m_maxAlpha;
+
             if (m_fadeCurrentTimer > m_fadeInDuration)
             {
                 m_fadingIn = false;
@@ -91,18 +59,7 @@ public class FadeInFadeOut : MonoBehaviour
         }
         else
         {
-            if (m_rootImage != null)
-            {
-                var tempColor = m_rootImage.color;
-                tempColor.a = (1 - (m_fadeCurrentTimer / m_fadeInDuration)) * m_maxAlpha;
-                m_rootImage.color = tempColor;
-            }
-            else
-            {
-                var tempColor = m_rootTmpro.color;
-                tempColor.a = (1- (m_fadeCurrentTimer / m_fadeInDuration)) * m_maxAlpha;
-                m_rootTmpro.color = tempColor;
-            }
+            m_canvasGroup.alpha = (1- (m_fadeCurrentTimer / m_fadeInDuration)) * m_maxAlpha;
 
             if (m_fadeCurrentTimer > m_fadeOutDuration)
             {

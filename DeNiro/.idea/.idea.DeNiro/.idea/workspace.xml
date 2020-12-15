@@ -15,6 +15,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Types/TypeData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/CreatureTypesChart.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/AdvantageWheel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/BaseMenu.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -57,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608010842169</updated>
-      <workItem from="1608010846507" duration="3347000" />
+      <workItem from="1608010846507" duration="4001000" />
     </task>
     <servers />
   </component>
