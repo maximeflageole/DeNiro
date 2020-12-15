@@ -15,7 +15,7 @@ MonoBehaviour:
   TypeChart:
   - Type: 3
     TypeChart:
-      TypeAdvantages: 010000000700000003000000
+      TypeAdvantages: 0100000007000000
       TypeDisadvantages: 
   - Type: 1
     TypeChart:
@@ -25,3 +25,14 @@ MonoBehaviour:
     TypeChart:
       TypeAdvantages: 03000000
       TypeDisadvantages: 01000000
+  TypesData:
+  - {fileID: 11400000, guid: 9c47124ca5b3c484d87f25705e2b465b, type: 2}
+  - {fileID: 11400000, guid: d3343571049396b4a8cedc6626637001, type: 2}
+  - {fileID: 11400000, guid: 95fcc134c32daac449d3330a1522d3eb, type: 2}
+  - {fileID: 11400000, guid: 5489dcc136a208246ad4da12b62b14f2, type: 2}
+  - {fileID: 11400000, guid: c3b3e82f40d64324bb67c55b24afc85c, type: 2}
+  - {fileID: 11400000, guid: 363587e0aac11b54b87cd032da26df45, type: 2}
+  - {fileID: 11400000, guid: 6be256e4fb69ad44d9d05a60689cd977, type: 2}
+  - {fileID: 11400000, guid: 2457f54fd66914448aec67efee9118c0, type: 2}
+  - {fileID: 11400000, guid: 615652618af439e44a2dbbd017251718, type: 2}
+  - {fileID: 11400000, guid: 9b542e50b243cf049826aeb02a97defa, type: 2}
