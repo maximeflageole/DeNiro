@@ -15,6 +15,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Types/TypeData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/CreatureTypesChart.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/AdvantageWheel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/FadeInFadeOut.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/BaseMenu.cs" />
     </changedPaths>
   </component>
@@ -58,7 +60,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608010842169</updated>
-      <workItem from="1608010846507" duration="4001000" />
+      <workItem from="1608010846507" duration="4370000" />
+      <workItem from="1608064087173" duration="639000" />
     </task>
     <servers />
   </component>
@@ -74,6 +77,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

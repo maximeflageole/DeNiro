@@ -186,6 +186,7 @@
               <e p="AdvantageWheel.cs" t="Include" />
               <e p="BaseMenu.cs" t="Include" />
               <e p="FadeInFadeOut.cs" t="Include" />
+              <e p="MenuButton.cs" t="Include" />
             </e>
             <e p="WaveTimerUI.cs" t="Include" />
           </e>

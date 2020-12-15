@@ -5,32 +5,29 @@ public class BaseMenu : MonoBehaviour
 {
     [SerializeField] protected Button m_exitButton;
     [SerializeField] protected FadeInFadeOut m_fadingComp;
+    protected bool m_isOpen;
 
     protected void Awake()
     {
-        m_exitButton.onClick.AddListener(ExitMenu);
+        m_exitButton.onClick.AddListener(delegate{OpenMenu(false);});
     }
 
-    protected void ExitMenu()
+    public void OpenMenu(bool open = true)
     {
         if (m_fadingComp != null)
         {
-            m_fadingComp.Activate(false);
+            m_fadingComp.Activate(open);
         }
         else
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(open);
         }
+
+        m_isOpen = open;
     }
 
-    protected void OpenMenu()
+    public void ToggleMenu()
     {
-        if (m_fadingComp != null)
-        {
-            m_fadingComp.Activate(true);
-        }
-        else
-        {
-            gameObject.SetActive(true);
-        }    }
+        OpenMenu(!m_isOpen);
+    }
 }
