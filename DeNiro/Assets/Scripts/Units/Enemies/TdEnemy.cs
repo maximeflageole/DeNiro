@@ -52,7 +52,6 @@ public class TdEnemy: TdUnit
         transform.rotation = NewRot;
         transform.rotation = Quaternion.Lerp(transform.rotation, NewRot, ROTATION_SPEED * Time.deltaTime);
         m_animator.SetFloat("Speed", directionalSpeed.magnitude);
-        Debug.Log("Speed " + directionalSpeed.magnitude);
     }
 
     protected void WaypointCheck()

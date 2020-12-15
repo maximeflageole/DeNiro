@@ -16,8 +16,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/CreatureTypesChart.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/AdvantageWheel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/FadeInFadeOut.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/BaseMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/MenuButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/TdEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/CreaturesInventory.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -61,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608010842169</updated>
       <workItem from="1608010846507" duration="4370000" />
-      <workItem from="1608064087173" duration="639000" />
+      <workItem from="1608064087173" duration="4365000" />
     </task>
     <servers />
   </component>
