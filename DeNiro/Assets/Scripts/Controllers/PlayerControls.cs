@@ -5,9 +5,7 @@ using UnityEngine.EventSystems;
 public class PlayerControls : MonoBehaviour
 {
     public static PlayerControls Instance;
-
-    private Tower m_towerInPlacement;
-
+    
     [SerializeField]
     private CreaturesInventory m_creaturesInventory;
     [SerializeField]
@@ -75,13 +73,13 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        if (m_towerInPlacement != null)
+        if (m_currentlySelectedButton?.Tower != null)
         {
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreMasks))
             {
                 if (m_hoveredTile != null && m_hoveredTile.CanHaveTower())
                 {
-                    m_towerInPlacement.transform.position = m_hoveredTile.GetTowerAnchor().position;
+                    m_currentlySelectedButton.Tower.transform.position = m_hoveredTile.GetTowerAnchor().position;
 
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -138,30 +136,27 @@ public class PlayerControls : MonoBehaviour
             StopPlacingTower(true, false);
             return;
         }
-        var towerInPlacement = Instantiate(button.CreatureData.TowerData.Prefab).GetComponent<Tower>();
 
-        towerInPlacement.BeginPlacement(button.CreatureData);
-        if (m_towerInPlacement != null)
+        button.Tower.BeginPlacement(button.Tower.GetCreatureData());
+        if (m_currentlySelectedButton?.Tower != null)
         {
             StopPlacingTower(true, false);
         }
         m_currentlySelectedButton = button;
-        m_towerInPlacement = towerInPlacement;
     }
 
-    public void StopPlacingTower(bool destroy = true, bool wasConstructed = true)
+    public void StopPlacingTower(bool returnToInventory = true, bool wasConstructed = true)
     {
-        if (m_towerInPlacement != null)
+        if (m_currentlySelectedButton?.Tower != null)
         {
             if (wasConstructed)
             {
                 m_creaturesInventory.ConstructTower(m_currentlySelectedButton);
             }
-            if (destroy)
+            if (returnToInventory)
             {
-                Destroy(m_towerInPlacement.gameObject);
+                ReturnTowerToInventory(m_currentlySelectedButton.Tower);
             }
-            m_towerInPlacement = null;
             m_currentlySelectedButton = null;
         }
     }
@@ -173,8 +168,8 @@ public class PlayerControls : MonoBehaviour
             StopPlacingTower(true, false);
             return;
         }
-        m_towerInPlacement.PlaceTower(tile);
-        m_towersInField.Add(m_towerInPlacement);
+        m_currentlySelectedButton.Tower.PlaceTower(tile);
+        m_towersInField.Add(m_currentlySelectedButton.Tower);
         tile.IsOccupied = true;
         StopPlacingTower(false);
     }
@@ -184,6 +179,18 @@ public class PlayerControls : MonoBehaviour
         m_creaturesInventory.AddTowerToInventory(data);
     }
 
+    public void OnTowerSelectedToggle(Tower tower)
+    {
+        if (m_currentlySelectedTower == tower)
+        {
+            UnselectTower();
+        }
+        else
+        {
+            OnTowerSelected(tower);
+        }
+    } 
+    
     private void OnTowerSelected(Tower tower)
     {
         UnselectTower();
@@ -199,13 +206,23 @@ public class PlayerControls : MonoBehaviour
         m_towerPanel.EnablePanel(false);
     }
 
-    public void ReturnTowerToInventory()
+    public void ReturnTowerToInventory(Tower tower = null)
     {
-        m_currentlySelectedTower.CurrentTile.IsOccupied = false;
-        m_currentlySelectedTower.CurrentTile = null;
-        m_creaturesInventory.AddTowerToInventory(m_currentlySelectedTower.m_creatureData);
-        m_towersInField.Remove(m_currentlySelectedTower);
-        Destroy(m_currentlySelectedTower.gameObject);
+        bool activateBtn = false;
+        if (tower == null)
+        {
+            tower = m_currentlySelectedTower;
+            activateBtn = true;
+        }
+        
+        if (tower.CurrentTile != null)
+        {
+            tower.CurrentTile.IsOccupied = false;
+            tower.CurrentTile = null;   
+        }
+        
+        m_creaturesInventory.ReturnTowerToInventory(tower, activateBtn);
+        m_towersInField.Remove(tower);
         UnselectTower();
     }
 
@@ -213,8 +230,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (m_currentlySelectedTower != null)
         {
-            m_towerPanel.AssignTowerData(m_currentlySelectedTower.m_creatureData, m_currentlySelectedTower.GetData().Stats, m_currentlySelectedTower.GetSaveData());
-            return;
+            m_towerPanel.AssignTowerData(m_currentlySelectedTower.GetCreatureData(), m_currentlySelectedTower.GetData().Stats, m_currentlySelectedTower.GetSaveData());
         }
     }
 

@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9431fd858e5694e91e0be58bc549d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_creatureData: {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
   m_hpImage: {fileID: 2894838749623082484}
   m_healthCanvas: {fileID: 5147396617918206946}
   m_damageTextColor: {r: 1, g: 0.972549, b: 0.4, a: 1}
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_animator: {fileID: 95952727081316866}
   m_body: {fileID: 5975902956211893844}
   m_deathGO: {fileID: 0}
+  m_nextWaypoint: {fileID: 0}
 --- !u!1 &52053961681810568
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +380,10 @@ PrefabInstance:
       value: Creatures_Spider_001
       objectReference: {fileID: 0}
     - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -390,6 +396,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -400,14 +410,6 @@ PrefabInstance:
     - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4784429122413772, guid: 882bd7bbdc265e54387a6ba4e869d342, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -173,6 +173,9 @@
             <e p="GameManager.cs" t="Include" />
             <e p="TypesManager.cs" t="Include" />
           </e>
+          <e p="MermanLib" t="Include">
+            <e p="UnityManipulator.cs" t="Include" />
+          </e>
           <e p="SaveData.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="AbilityPanel.cs" t="Include" />

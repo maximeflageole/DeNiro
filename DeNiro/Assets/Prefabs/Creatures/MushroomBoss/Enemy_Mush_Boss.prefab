@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9431fd858e5694e91e0be58bc549d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_creatureData: {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
   m_hpImage: {fileID: 2894838749623082484}
   m_healthCanvas: {fileID: 5147396617918206946}
   m_damageTextColor: {r: 1, g: 0.972549, b: 0.4, a: 1}
@@ -106,6 +107,7 @@ MonoBehaviour:
   m_animator: {fileID: 95952727081316866}
   m_body: {fileID: 8128001040530711048}
   m_deathGO: {fileID: 7147950183812766609}
+  m_nextWaypoint: {fileID: 0}
 --- !u!1 &52053961681810568
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +385,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -395,6 +401,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -405,14 +415,6 @@ PrefabInstance:
     - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4154502346207334, guid: 0b2046447365ff84782fd56bb49b8f37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -452,6 +454,10 @@ PrefabInstance:
       value: Creatures_Mush_Elite_001
       objectReference: {fileID: 0}
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -464,6 +470,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -474,14 +484,6 @@ PrefabInstance:
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

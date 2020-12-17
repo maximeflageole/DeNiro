@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class EndLevelMenu : BaseMenu
 {
-    public const string VICTORY_TXT = "VICTORY!";
-    public const string DEFEAT_TXT = "DEFEAT";
+    private const string VICTORY_TXT = "VICTORY!";
+    private const string DEFEAT_TXT = "DEFEAT";
 
     public TextMeshProUGUI m_victoryText;
     public Button m_restartBtn;
@@ -53,7 +53,7 @@ public class EndLevelMenu : BaseMenu
         m_victoryText.text = DEFEAT_TXT;
     }
 
-    public void Hide()
+    private void Hide()
     {
         gameObject.SetActive(false);
         m_victoryText.gameObject.SetActive(false);

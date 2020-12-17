@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4428052402655414
 Transform:
   m_ObjectHideFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ab216c884927f41854f77cf8e38d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_creatureData: {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
   m_hpImage: {fileID: 0}
   m_healthCanvas: {fileID: 0}
   m_damageTextColor: {r: 0, g: 0, b: 0, a: 0}
@@ -114,11 +115,14 @@ MonoBehaviour:
   m_xpGainTxtColor: {r: 0.42773998, g: 0.8867924, b: 0.18823427, a: 1}
   m_levelUpTxtColor: {r: 0.8679245, g: 0.31092018, b: 0.21698113, a: 1}
   m_animator: {fileID: 95952727081316866}
+  m_attackVfxHandler: {fileID: 0}
+  m_victimHitHandler: {fileID: 0}
   m_renderer: {fileID: 6945852479925904536}
   m_inPlacementMaterial: {fileID: 2100000, guid: a2ea6e425151756429ab73e89b7a280d,
     type: 2}
+  m_towerMaterial: {fileID: 2100000, guid: 6d5d23ebf33537148b7a22ce57f3b3de, type: 2}
   m_effectTriggers: []
-  m_projectileEffectTriggers: []
+  m_instantEffectTriggers: []
 --- !u!1 &1997943136097065241
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +165,22 @@ PrefabInstance:
       value: Creatures_Mush_Elite_001
       objectReference: {fileID: 0}
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -171,6 +191,10 @@ PrefabInstance:
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -185,14 +209,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -203,18 +219,6 @@ PrefabInstance:
     - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557620510965496, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95910645638186898, guid: 34d6fdc0d66ebfa40b32a7b82f87dea9, type: 3}

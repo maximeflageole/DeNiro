@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class TdUnit: MonoBehaviour
 {
-    public CreatureData m_creatureData { get; protected set; }
+    [SerializeField] protected CreatureData m_creatureData;
+
+    public CreatureData GetCreatureData()
+    {
+        return m_creatureData;
+    }
 
     public Action OnDeathCallback;
     public UnitStats m_stats { get; protected set; }

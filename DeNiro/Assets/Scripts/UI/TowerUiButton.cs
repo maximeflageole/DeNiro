@@ -1,27 +1,46 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class TowerUiButton : MonoBehaviour
 {
 	[SerializeField]
 	private Image m_buttonImage;
-	[SerializeField]
-	public CreatureData CreatureData { get; private set; }
+
+	[SerializeField] private Image m_disabledImage;
+
+	public Tower Tower { get; private set; }
 	public Action<TowerUiButton> m_onClickCallback;
+	public bool IsAvailable { get; private set; }
 
 	void OnClick()
 	{
 		m_onClickCallback?.Invoke(this);
 	}
 
-	public void Init(CreatureData creatureData)
+	public void Init(Tower tower)
     {
-		CreatureData = creatureData;
+	    Tower = tower;
 
-		m_buttonImage.sprite = CreatureData.TowerData.TowerSprite;
+		m_buttonImage.sprite = Tower.GetCreatureData().TowerData.TowerSprite;
+		SetAvailable();
+    }
 
+	public void SetAvailable(bool available = true)
+	{
+		IsAvailable = available;
 		Button btn = GetComponent<Button>();
-		btn.onClick.AddListener(OnClick);
+		
+		m_disabledImage.gameObject.SetActive(!available);
+
+		if (available)
+		{
+			btn.onClick.AddListener(OnClick);
+		}
+		else
+		{
+			btn.onClick.RemoveAllListeners();
+		}
 	}
 }

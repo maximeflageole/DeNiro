@@ -26,25 +26,52 @@ public class CreaturesInventory : MonoBehaviour
             AddTowerToInventory(data);
         }
     }
-
+    
     public void AddTowerToInventory(CreatureData data)
     {
         if (IsDictionaryFull())
         {
             return;
         }
+        
+        var tower = Instantiate(data.TowerData.Prefab).GetComponent<Tower>();
+        
         var towerBtn = Instantiate(m_towerBtnPrefab, m_unitSlots[GetNextDictionaryOpenKey()].transform).GetComponent<TowerUiButton>();
         towerBtn.transform.SetAsFirstSibling();
-        towerBtn.Init(data);
+        towerBtn.Init(tower);
         m_unitSlotsDict[GetNextDictionaryOpenKey()] = towerBtn;
         towerBtn.m_onClickCallback += OnTowerButtonSelected;
+    }
+    
+    public void ReturnTowerToInventory(Tower tower, bool activateBtn)
+    {
+        foreach (var btn in m_unitSlotsDict.Values)
+        {
+            if (btn.Tower == tower)
+            {
+                if (activateBtn)
+                    btn.SetAvailable();
+                tower.OnTowerReturnToInventory();
+                return;
+            }
+        }
+        Debug.LogError("ReturnTowerToInventory for a tower which was not in the CreaturesInventory");
     }
 
     public void OnTowerButtonSelected(int buttonIndex)
     {
-        if (m_unitSlotsDict.ContainsKey(buttonIndex) && m_unitSlotsDict[buttonIndex] != null)
+        if (!m_unitSlotsDict.ContainsKey(buttonIndex) || m_unitSlotsDict[buttonIndex] == null)
+        {
+            return;
+        }
+        
+        if (m_unitSlotsDict[buttonIndex].IsAvailable)
         {
             OnTowerButtonSelected(m_unitSlotsDict[buttonIndex]);
+        }
+        else
+        {
+            PlayerControls.Instance.OnTowerSelectedToggle(m_unitSlotsDict[buttonIndex].Tower);
         }
     }
     
@@ -55,15 +82,7 @@ public class CreaturesInventory : MonoBehaviour
 
     public void ConstructTower(TowerUiButton button)
     {
-        for (var i = 0; i < m_unitSlots.Count; i++)
-        {
-            if (m_unitSlotsDict[i] == button)
-            {
-                m_unitSlotsDict[i] = null;
-                break;
-            }
-        }
-        Destroy(button.gameObject);
+        button.SetAvailable(false);
     }
 
     private void Update()

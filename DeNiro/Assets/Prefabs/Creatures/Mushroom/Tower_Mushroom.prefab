@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4428052402655414
 Transform:
   m_ObjectHideFlags: 0
@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ab216c884927f41854f77cf8e38d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_creatureData: {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
   m_hpImage: {fileID: 0}
   m_healthCanvas: {fileID: 0}
   m_damageTextColor: {r: 0, g: 0, b: 0, a: 0}
@@ -519,11 +520,14 @@ MonoBehaviour:
   m_xpGainTxtColor: {r: 0.42773998, g: 0.8867924, b: 0.18823427, a: 1}
   m_levelUpTxtColor: {r: 0.8679245, g: 0.31092018, b: 0.21698113, a: 1}
   m_animator: {fileID: 95952727081316866}
+  m_attackVfxHandler: {fileID: 0}
+  m_victimHitHandler: {fileID: 0}
   m_renderer: {fileID: 137797060112461260}
   m_inPlacementMaterial: {fileID: 2100000, guid: a2ea6e425151756429ab73e89b7a280d,
     type: 2}
+  m_towerMaterial: {fileID: 2100000, guid: f9ec99a3659d35143b8baa76110a6e88, type: 2}
   m_effectTriggers: []
-  m_projectileEffectTriggers: []
+  m_instantEffectTriggers: []
 --- !u!1 &1809127168686056
 GameObject:
   m_ObjectHideFlags: 0

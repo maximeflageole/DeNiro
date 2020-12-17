@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class Tower: TdUnit
@@ -31,6 +32,7 @@ public class Tower: TdUnit
     protected SkinnedMeshRenderer m_renderer;
     [SerializeField]
     protected Material m_inPlacementMaterial;
+    [SerializeField]
     protected Material m_towerMaterial;
     protected AttackData m_nextAttackData;
     protected InstantEffectTrigger m_nextEffectTrigger;
@@ -40,7 +42,6 @@ public class Tower: TdUnit
     [SerializeField]
     protected List<InstantEffectTrigger> m_instantEffectTriggers = new List<InstantEffectTrigger>();
 
-    protected bool m_inPlacement = true;
     protected TowerData m_data;
     protected TowerSaveData m_saveData;
     public TowerData GetData() { return m_data; }
@@ -48,19 +49,19 @@ public class Tower: TdUnit
 
     public void BeginPlacement(CreatureData creatureData)
     {
-        m_towerMaterial = m_renderer.material;
         m_renderer.material = m_inPlacementMaterial;
-        m_animator.SetFloat("Speed", 0.0f);
         m_creatureData = creatureData;
+
+        gameObject.SetActive(true);
+        m_animator.SetFloat("Speed", 0.0f);
 
         //TODO: Replug radius display
     }
 
-    public Tower PlaceTower(Tile tile, TowerSaveData saveData = null)
+    public void PlaceTower(Tile tile, TowerSaveData saveData = null)
     {
         CurrentTile = tile;
         m_renderer.material = m_towerMaterial;
-        m_inPlacement = false;
         m_data = m_creatureData.TowerData;
 
         foreach (var effect in m_data.StatEffects)
@@ -93,8 +94,14 @@ public class Tower: TdUnit
             m_saveData = new TowerSaveData() { id = m_creatureData.Id };
         }
         m_data.Stats.Init(m_saveData.level);
-
-        return this;
+    }
+    
+    public void OnTowerReturnToInventory()
+    {
+        CurrentTile = null;
+        MermanLib.UnityManipulator.DestroyAndClearList(ref m_instantEffectTriggers);
+        MermanLib.UnityManipulator.DestroyAndClearList(ref m_effectTriggers);
+        gameObject.SetActive(false);
     }
 
     protected void Attack(AttackData data, InstantEffectTrigger trigger)
