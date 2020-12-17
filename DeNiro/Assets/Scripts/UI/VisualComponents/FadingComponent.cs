@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class FadeInFadeOut : MonoBehaviour
+public class FadingComponent : MonoBehaviour
 {
     [SerializeField] protected CanvasGroup m_canvasGroup;
     protected float m_maxAlpha = 1;
-    protected List<FadeInFadeOut> m_childList = new List<FadeInFadeOut>();
+    protected List<FadingComponent> m_childList = new List<FadingComponent>();
     protected bool m_fadingIn;
     protected bool m_fadingOut;
     [SerializeField]

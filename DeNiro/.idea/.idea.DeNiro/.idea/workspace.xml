@@ -10,17 +10,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/OptionsMenu.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Types/TypeData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/CreatureTypesChart.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/AdvantageWheel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/FadeInFadeOut.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/BaseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/TdEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/CreaturesInventory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/FadingComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuPanel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/EndLevelMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/BaseMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/OptionsMenu.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -64,7 +71,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608010842169</updated>
       <workItem from="1608010846507" duration="4370000" />
-      <workItem from="1608064087173" duration="4365000" />
+      <workItem from="1608064087173" duration="5777000" />
+      <workItem from="1608237643540" duration="1220000" />
     </task>
     <servers />
   </component>

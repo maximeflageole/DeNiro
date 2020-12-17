@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class BaseMenu : MonoBehaviour
 {
     [SerializeField] protected Button m_exitButton;
-    [SerializeField] protected FadeInFadeOut m_fadingComp;
+    [SerializeField] protected FadingComponent m_fadingComp;
     protected bool m_isOpen;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         m_exitButton.onClick.AddListener(delegate{OpenMenu(false);});
     }

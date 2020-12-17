@@ -177,7 +177,7 @@
           <e p="UI" t="Include">
             <e p="AbilityPanel.cs" t="Include" />
             <e p="CreaturesInventory.cs" t="Include" />
-            <e p="MainMenuPanel.cs" t="Include" />
+            <e p="EndLevelMenu.cs" t="Include" />
             <e p="TeamUI.cs" t="Include" />
             <e p="TowerPanel.cs" t="Include" />
             <e p="TowerUiButton.cs" t="Include" />
@@ -185,8 +185,9 @@
             <e p="VisualComponents" t="Include">
               <e p="AdvantageWheel.cs" t="Include" />
               <e p="BaseMenu.cs" t="Include" />
-              <e p="FadeInFadeOut.cs" t="Include" />
+              <e p="FadingComponent.cs" t="Include" />
               <e p="MenuButton.cs" t="Include" />
+              <e p="OptionsMenu.cs" t="Include" />
             </e>
             <e p="WaveTimerUI.cs" t="Include" />
           </e>

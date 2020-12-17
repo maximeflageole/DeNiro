@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WaveTimerUI : FadeInFadeOut
+public class WaveTimerUI : FadingComponent
 {
     [SerializeField]
     private Image m_timerImage;

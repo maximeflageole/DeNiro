@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class GameManager : MonoBehaviour
 
 	float deltaTime = 0.0f;
 
-	[SerializeField]
-	protected MainMenuPanel m_mainMenuPanel;
+	[FormerlySerializedAs("m_mainMenuPanel")] [SerializeField]
+	protected EndLevelMenu mEndLevelMenu;
 	public Action m_restartAction { get; protected set; }
 	public Action m_exitAction { get; protected set; }
 
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
 		if (Input.GetKeyDown(KeyCode.Space))
         {
-			m_mainMenuPanel.ToggleDisplay();
+			mEndLevelMenu.ToggleDisplay();
         }
 	}
 
@@ -109,7 +110,7 @@ public class GameManager : MonoBehaviour
 
 	public void EndGame(bool victory)
     {
-		m_mainMenuPanel.ToggleDisplay(victory, true);
+		mEndLevelMenu.ToggleDisplay(victory, true);
 		GAME_OVER = true;
 
 	}
