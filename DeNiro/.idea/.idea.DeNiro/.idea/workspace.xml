@@ -32,11 +32,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Projectiles/Projectile.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/HopingEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/ListDestroyer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerUiButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerControls.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/CreaturesInventory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerUiButton.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -84,7 +84,8 @@
       <workItem from="1608010846507" duration="4370000" />
       <workItem from="1608064087173" duration="5777000" />
       <workItem from="1608237643540" duration="6968000" />
-      <workItem from="1608245074593" duration="3787000" />
+      <workItem from="1608245074593" duration="4381000" />
+      <workItem from="1608664704607" duration="390000" />
     </task>
     <servers />
   </component>

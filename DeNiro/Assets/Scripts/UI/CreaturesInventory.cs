@@ -50,7 +50,7 @@ public class CreaturesInventory : MonoBehaviour
             if (btn.Tower == tower)
             {
                 if (activateBtn)
-                    btn.SetAvailable();
+                    btn.SetAvailableForConstruction();
                 tower.OnTowerReturnToInventory();
                 return;
             }
@@ -77,12 +77,19 @@ public class CreaturesInventory : MonoBehaviour
     
     public void OnTowerButtonSelected(TowerUiButton button)
     {
-        PlayerControls.Instance.StartPlacingTower(button);
+        if (button.IsAvailable)
+        {
+            PlayerControls.Instance.StartPlacingTower(button);
+        }
+        else
+        {
+            PlayerControls.Instance.OnTowerSelectedToggle(button.Tower);
+        }
     }
 
     public void ConstructTower(TowerUiButton button)
     {
-        button.SetAvailable(false);
+        button.SetAvailableForConstruction(false);
     }
 
     private void Update()

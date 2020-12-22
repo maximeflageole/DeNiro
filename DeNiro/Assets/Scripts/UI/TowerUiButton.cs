@@ -24,23 +24,15 @@ public class TowerUiButton : MonoBehaviour
 	    Tower = tower;
 
 		m_buttonImage.sprite = Tower.GetCreatureData().TowerData.TowerSprite;
-		SetAvailable();
+		SetAvailableForConstruction();
+		
+		Button btn = GetComponent<Button>();
+		btn.onClick.AddListener(OnClick);
     }
 
-	public void SetAvailable(bool available = true)
+	public void SetAvailableForConstruction(bool available = true)
 	{
 		IsAvailable = available;
-		Button btn = GetComponent<Button>();
-		
 		m_disabledImage.gameObject.SetActive(!available);
-
-		if (available)
-		{
-			btn.onClick.AddListener(OnClick);
-		}
-		else
-		{
-			btn.onClick.RemoveAllListeners();
-		}
 	}
 }
