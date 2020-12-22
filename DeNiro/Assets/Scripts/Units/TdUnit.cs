@@ -25,7 +25,7 @@ public class TdUnit: MonoBehaviour
 
 
     protected ResourceContainer m_health;
-    protected Dictionary<EStat, List<StatEffect>> m_effectsDictionary = new Dictionary<EStat, List<StatEffect>>();
+    protected Dictionary<EStat, List<StatEffectData>> m_effectsDictionary = new Dictionary<EStat, List<StatEffectData>>();
     protected uint level = 1;
     protected bool m_markedForDestruction;
 
@@ -49,32 +49,32 @@ public class TdUnit: MonoBehaviour
     [SerializeField]
     protected GameObject m_textDisplayPrefab;
 
-    public void AddEffect(StatEffect effect)
+    public void AddEffect(StatEffectData effectData)
     {
-        if (!m_effectsDictionary.ContainsKey(effect.EffectType))
+        if (!m_effectsDictionary.ContainsKey(effectData.EffectType))
         {
-            m_effectsDictionary.Add(effect.EffectType, new List<StatEffect>());
+            m_effectsDictionary.Add(effectData.EffectType, new List<StatEffectData>());
         }
-        m_effectsDictionary[effect.EffectType].Add(effect);
+        m_effectsDictionary[effectData.EffectType].Add(effectData);
     }
 
-    public void RemoveEffect(StatEffect effect)
+    public void RemoveEffect(StatEffectData effectData)
     {
-        if (!m_effectsDictionary.ContainsKey(effect.EffectType))
+        if (!m_effectsDictionary.ContainsKey(effectData.EffectType))
         {
             return;
         }
-        for (var i = 0; i < m_effectsDictionary[effect.EffectType].Count; i++)
+        for (var i = 0; i < m_effectsDictionary[effectData.EffectType].Count; i++)
         {
-            if (m_effectsDictionary[effect.EffectType][i] == effect)
+            if (m_effectsDictionary[effectData.EffectType][i] == effectData)
             {
-                m_effectsDictionary[effect.EffectType].RemoveAt(i);
+                m_effectsDictionary[effectData.EffectType].RemoveAt(i);
                 i--;
             }
         }
-        if (m_effectsDictionary[effect.EffectType].Count == 0)
+        if (m_effectsDictionary[effectData.EffectType].Count == 0)
         {
-            m_effectsDictionary.Remove(effect.EffectType);
+            m_effectsDictionary.Remove(effectData.EffectType);
         }
     }
 

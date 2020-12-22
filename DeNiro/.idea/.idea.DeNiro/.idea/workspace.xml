@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b30a9729-1422-462d-8eba-389facb1673a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +16,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/OptionsMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -32,11 +38,24 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Projectiles/Projectile.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/HopingEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/ListDestroyer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerControls.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/CreaturesInventory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerUiButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/CreaturesInventory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Creatures/CreatureData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Creatures/EnemyData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/InstantEffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Creatures/TowerData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/Effect.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Attacks/AttackData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AttackData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AttackEffectTrigger.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -85,7 +104,7 @@
       <workItem from="1608064087173" duration="5777000" />
       <workItem from="1608237643540" duration="6968000" />
       <workItem from="1608245074593" duration="4381000" />
-      <workItem from="1608664704607" duration="390000" />
+      <workItem from="1608664704607" duration="7209000" />
     </task>
     <servers />
   </component>
@@ -105,24 +124,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs</url>
-          <line>51</line>
-          <properties documentPath="F:\Projects\DeNiro\DeNiro\Assets\Scripts\Units\Towers\Tower.cs" initialLine="50" containingFunctionPresentation="method 'BeginPlacement'">
-            <startOffsets>
-              <option value="1622" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1666" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

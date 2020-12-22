@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public class InstantEffectTrigger : EffectTrigger
+public class AttackEffectTrigger : EffectTrigger
 {
-    private AttackEffect m_attackEffect;
+    private AttackData m_attackData;
 
     protected float m_timer;
     protected float m_currentTimer = 0;
-    public Action<AttackData, InstantEffectTrigger> AttackInvoke;
+    public Action<AttackData, AttackEffectTrigger> AttackInvoke;
 
     private void Update()
     {
@@ -18,14 +18,14 @@ public class InstantEffectTrigger : EffectTrigger
         }
     }
 
-    public override void Init(Effect effect)
+    public void Init(EffectData effectData)
     {
-        base.Init(effect);
-        var attackEffect = (AttackEffect)effect;
+        base.Init(effectData);
+        var attackEffect = (AttackData)effectData;
         if (attackEffect != null)
         {
-            m_attackEffect = attackEffect;
-            m_timer = m_attackEffect.RateOfFire;
+            m_attackData = attackEffect;
+            m_timer = m_attackData.RateOfFire;
         }
         else
         {
@@ -45,14 +45,14 @@ public class InstantEffectTrigger : EffectTrigger
             m_towersInCollider.RemoveAt(0);
         }
 
-        if (m_attackEffect.Target == ETarget.Enemies)
+        if (m_attackData.TargetType == ETarget.Enemies)
         {
             if (m_enemiesInCollider.Count > 0)
             {
                 Attack();
             }
         }
-        else if (m_attackEffect.Target == ETarget.Towers)
+        else if (m_attackData.TargetType == ETarget.Towers)
         {
             if (m_towersInCollider.Count > 0)
             {
@@ -63,27 +63,27 @@ public class InstantEffectTrigger : EffectTrigger
 
     protected void Attack()
     {
-        if (m_attackEffect.GetType() == typeof(ProjectileAttackEffect))
+        if (m_attackData is ProjectileData)
         {
-            AttackInvoke.Invoke(((ProjectileAttackEffect)m_attackEffect).ProjectileData, this);
+            AttackInvoke.Invoke((ProjectileData)m_attackData, this);
         }
-        else if (m_attackEffect.GetType() == typeof(InstantAttackEffect))
+        else if (m_attackData is InstantAttackData)
         {
-            AttackInvoke.Invoke(((InstantAttackEffect)m_attackEffect).InstantAttackData, this);
+            AttackInvoke.Invoke((InstantAttackData)m_attackData, this);
         }
         m_currentTimer = 0;
     }
 
     public TdUnit GetTarget()
     {
-        if (m_attackEffect.Target == ETarget.Enemies)
+        if (m_attackData.TargetType == ETarget.Enemies)
         {
             if (m_enemiesInCollider.Count > 0)
             {
                 return(m_enemiesInCollider[0]);
             }
         }
-        else if (m_attackEffect.Target == ETarget.Towers)
+        else if (m_attackData.TargetType == ETarget.Towers)
         {
             if (m_towersInCollider.Count > 0)
             {
@@ -97,14 +97,14 @@ public class InstantEffectTrigger : EffectTrigger
     {
         target = null;
 
-        if (m_attackEffect.Target == ETarget.Enemies)
+        if (m_attackData.TargetType == ETarget.Enemies)
         {
             if (m_enemiesInCollider.Count > 0)
             {
                 target = m_enemiesInCollider[0];
             }
         }
-        else if (m_attackEffect.Target == ETarget.Towers)
+        else if (m_attackData.TargetType == ETarget.Towers)
         {
             if (m_towersInCollider.Count > 0)
             {

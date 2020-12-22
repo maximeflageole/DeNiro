@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f24986403f73e46b9f903d49bbd5df, type: 3}
   m_Name: MushroomTower
   m_EditorClassIdentifier: 
-  StatEffects: []
-  ProjectileEffects:
-  - Target: 1
-    Radius: 75
-    RateOfFire: 0.7
-    ProjectileData: {fileID: 11400000, guid: e06164968e0803b4cb4f3fc9c2a2e53b, type: 2}
   TowerSprite: {fileID: 21300000, guid: c9c7785adc7a0594fb5744cbb360ff54, type: 3}
   Stats: {fileID: 11400000, guid: f57fabf9d817edc47b399960d3685e6d, type: 2}
   Prefab: {fileID: 1652348065175960, guid: fb574a201e68d4048b96f2961b451325, type: 3}
+  Abilities:
+  - {fileID: 11400000, guid: 3877267d3a40c4442ac715f3325846ee, type: 2}

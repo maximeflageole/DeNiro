@@ -4,24 +4,24 @@ using UnityEngine;
 public abstract class EffectTrigger : MonoBehaviour
 {
     protected static float ALPHA_DISPLAY_VALUE = 100.0f/255.0f;
-    protected Effect m_effect = null;
+    protected EffectData m_effectData = null;
 
     protected List<TdEnemy> m_enemiesInCollider = new List<TdEnemy>();
     protected List<TdUnit> m_towersInCollider = new List<TdUnit>();
     [SerializeField]
     protected SpriteRenderer m_radiusRenderer;
 
-    public virtual void Init(Effect effect)
+    public virtual void Init(EffectData effectData)
     {
-        m_effect = effect;
-        var radius = effect.Radius / 100.0f;
+        m_effectData = effectData;
+        var radius = effectData.Range / 100.0f;
         transform.localScale = new Vector3(radius, 5.0f, radius);
         DisplayRadius(false);
     }
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (m_effect.Target == ETarget.Enemies)
+        if (m_effectData.TargetType == ETarget.Enemies)
         {
             var enemy = other.GetComponent<TdEnemy>();
             if (enemy != null)
@@ -30,7 +30,7 @@ public abstract class EffectTrigger : MonoBehaviour
             }
             return;
         }
-        if (m_effect.Target == ETarget.Towers)
+        if (m_effectData.TargetType == ETarget.Towers)
         {
             var tower = other.GetComponent<TdUnit>();
             if (tower != null)
@@ -43,7 +43,7 @@ public abstract class EffectTrigger : MonoBehaviour
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        if (m_effect.Target == ETarget.Enemies)
+        if (m_effectData.TargetType == ETarget.Enemies)
         {
             var enemy = other.GetComponent<TdEnemy>();
             if (enemy != null)
@@ -52,7 +52,7 @@ public abstract class EffectTrigger : MonoBehaviour
             }
             return;
         }
-        if (m_effect.Target == ETarget.Towers)
+        if (m_effectData.TargetType == ETarget.Towers)
         {
             var tower = other.GetComponent<TdUnit>();
             if (tower != null)

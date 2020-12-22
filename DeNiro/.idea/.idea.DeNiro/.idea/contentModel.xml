@@ -132,13 +132,17 @@
             <e p="PlayerControls.cs" t="Include" />
           </e>
           <e p="Data" t="Include">
-            <e p="AbilityData.cs" t="Include" />
+            <e p="Abilities" t="Include">
+              <e p="AbilityData.cs" t="Include" />
+              <e p="AttackData.cs" t="Include" />
+              <e p="EffectData.cs" t="Include" />
+              <e p="StatEffectData.cs" t="Include" />
+            </e>
             <e p="AoE" t="Include">
               <e p="AoEData.cs" t="Include" />
             </e>
             <e p="Attacks" t="Include">
               <e p="ArtilleryData.cs" t="Include" />
-              <e p="AttackData.cs" t="Include" />
               <e p="HomingProjectileData.cs" t="Include" />
               <e p="InstantAttackData.cs" t="Include" />
               <e p="ProjectileData.cs" t="Include" />
@@ -160,9 +164,8 @@
           </e>
           <e p="Effects" t="Include">
             <e p="AoeEffectTrigger.cs" t="Include" />
-            <e p="Effect.cs" t="Include" />
+            <e p="AttackEffectTrigger.cs" t="Include" />
             <e p="EffectTrigger.cs" t="Include" />
-            <e p="InstantEffectTrigger.cs" t="Include" />
           </e>
           <e p="EStat.cs" t="Include" />
           <e p="Grid" t="Include">

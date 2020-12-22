@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ba560d909d897b48b5fc5c27e69f8f5, type: 3}
-  m_Name: SpiderAttack
+  m_Name: ScratchAttack
   m_EditorClassIdentifier: 
   Damage: 25
-  DamageType: 3
+  DamageType: 9
+  RateOfFire: 0.25
+  TargetType: 1
   m_onHitVfx: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}

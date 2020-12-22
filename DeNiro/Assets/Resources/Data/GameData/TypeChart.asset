@@ -25,6 +25,14 @@ MonoBehaviour:
     TypeChart:
       TypeAdvantages: 03000000
       TypeDisadvantages: 01000000
+  - Type: 9
+    TypeChart:
+      TypeAdvantages: 
+      TypeDisadvantages: 
+  - Type: 10
+    TypeChart:
+      TypeAdvantages: 
+      TypeDisadvantages: 
   TypesData:
   - {fileID: 11400000, guid: 9c47124ca5b3c484d87f25705e2b465b, type: 2}
   - {fileID: 11400000, guid: d3343571049396b4a8cedc6626637001, type: 2}

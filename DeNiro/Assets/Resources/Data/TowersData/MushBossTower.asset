@@ -12,17 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f24986403f73e46b9f903d49bbd5df, type: 3}
   m_Name: MushBossTower
   m_EditorClassIdentifier: 
-  StatEffects:
-  - Target: 1
-    Radius: 100
-    EffectType: 4
-    Magnitude: 1.6
-    Duration: 0
-  ProjectileEffects:
-  - Target: 1
-    Radius: 75
-    RateOfFire: 0.5
-    ProjectileData: {fileID: 11400000, guid: ce4918c4687374b48addd12fdffea3d4, type: 2}
   TowerSprite: {fileID: 21300000, guid: b2c9262295e6dc44db44fb4f9a29a8c4, type: 3}
   Stats: {fileID: 11400000, guid: 7751d146bc7cb8b419a63a8ef3f0c7b3, type: 2}
   Prefab: {fileID: 1652348065175960, guid: a3a14a209f6471c4aa5b48b1a728e276, type: 3}
+  Abilities:
+  - {fileID: 11400000, guid: 44c313a16eefc584d92c9258d875cb1f, type: 2}
+  - {fileID: 11400000, guid: 3877267d3a40c4442ac715f3325846ee, type: 2}

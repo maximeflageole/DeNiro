@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "CreatureData", menuName = "Creature Data")]
+[CreateAssetMenu(fileName = "CreatureData", menuName = "Creatures/Creature Data")]
 public class CreatureData : ScriptableObject
 {
     public EUnit Id;

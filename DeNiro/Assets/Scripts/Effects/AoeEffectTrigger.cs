@@ -2,14 +2,14 @@
 
 public class AoeEffectTrigger : EffectTrigger
 {
-    private StatEffect m_statEffect;
+    private StatEffectData _mStatEffectData;
 
-    public override void Init(Effect effect)
+    public override void Init(EffectData effectData)
     {
-        base.Init(effect);
-        if (effect.GetType() == typeof(StatEffect))
+        base.Init(effectData);
+        if (effectData.GetType() == typeof(StatEffectData))
         {
-            m_statEffect = (StatEffect)effect;
+            _mStatEffectData = (StatEffectData)effectData;
         }
         else
         {
@@ -19,23 +19,23 @@ public class AoeEffectTrigger : EffectTrigger
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (m_effect.Target == ETarget.Enemies)
+        if (m_effectData.TargetType == ETarget.Enemies)
         {
             var enemy = other.GetComponent<TdEnemy>();
             if (enemy != null)
             {
                 m_enemiesInCollider.Add(enemy);
-                enemy.AddEffect(m_statEffect);
+                enemy.AddEffect(_mStatEffectData);
             }
             return;
         }
-        if (m_effect.Target == ETarget.Towers)
+        if (m_effectData.TargetType == ETarget.Towers)
         {
             var tower = other.GetComponent<TdUnit>();
             if (tower != null)
             {
                 m_towersInCollider.Add(tower);
-                tower.AddEffect(m_statEffect);
+                tower.AddEffect(_mStatEffectData);
             }
             return;
         }
@@ -43,23 +43,23 @@ public class AoeEffectTrigger : EffectTrigger
 
     protected override void OnTriggerExit(Collider other)
     {
-        if (m_effect.Target == ETarget.Enemies)
+        if (m_effectData.TargetType == ETarget.Enemies)
         {
             var enemy = other.GetComponent<TdEnemy>();
             if (enemy != null)
             {
                 m_enemiesInCollider.Remove(enemy);
-                enemy.RemoveEffect(m_statEffect);
+                enemy.RemoveEffect(_mStatEffectData);
             }
             return;
         }
-        if (m_effect.Target == ETarget.Towers)
+        if (m_effectData.TargetType == ETarget.Towers)
         {
             var tower = other.GetComponent<TdUnit>();
             if (tower != null)
             {
                 m_towersInCollider.Remove(tower);
-                tower.RemoveEffect(m_statEffect);
+                tower.RemoveEffect(_mStatEffectData);
             }
             return;
         }
@@ -69,11 +69,11 @@ public class AoeEffectTrigger : EffectTrigger
     {
         foreach (var tower in m_towersInCollider)
         {
-            tower.RemoveEffect(m_statEffect);
+            tower.RemoveEffect(_mStatEffectData);
         }
         foreach (var enemy in m_enemiesInCollider)
         {
-            enemy.RemoveEffect(m_statEffect);
+            enemy.RemoveEffect(_mStatEffectData);
         }
     }
 }

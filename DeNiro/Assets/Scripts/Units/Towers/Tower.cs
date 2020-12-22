@@ -35,12 +35,12 @@ public class Tower: TdUnit
     [SerializeField]
     protected Material m_towerMaterial;
     protected AttackData m_nextAttackData;
-    protected InstantEffectTrigger m_nextEffectTrigger;
+    protected AttackEffectTrigger m_nextEffectTrigger;
 
     [SerializeField]
     protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
     [SerializeField]
-    protected List<InstantEffectTrigger> m_instantEffectTriggers = new List<InstantEffectTrigger>();
+    protected List<AttackEffectTrigger> m_attackTrigger = new List<AttackEffectTrigger>();
 
     protected TowerData m_data;
     protected TowerSaveData m_saveData;
@@ -64,25 +64,26 @@ public class Tower: TdUnit
         m_renderer.material = m_towerMaterial;
         m_data = m_creatureData.TowerData;
 
-        foreach (var effect in m_data.StatEffects)
+        //TODO: Place all of these in it's own thing outside Tower.cs
+        foreach (var effect in m_data.Abilities[0].Effects)
         {
-            var effectTrigger = Instantiate(m_aoeTriggerPrefab, transform).GetComponent<AoeEffectTrigger>();
-            effectTrigger.Init(effect);
-            m_effectTriggers.Add(effectTrigger);
-        }
-        foreach (var projectileEffect in m_data.ProjectileEffects)
-        {
-            var effectTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<InstantEffectTrigger>();
-            effectTrigger.Init(projectileEffect);
-            m_instantEffectTriggers.Add(effectTrigger);
-            effectTrigger.AttackInvoke += Attack;
-        }
-        foreach (var instantEffect in m_data.InstantEffects)
-        {
-            var effectTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<InstantEffectTrigger>();
-            effectTrigger.Init(instantEffect);
-            m_instantEffectTriggers.Add(effectTrigger);
-            effectTrigger.AttackInvoke += Attack;
+            if (effect.GetType() == typeof(StatEffectData))
+            {
+                var effectTrigger = Instantiate(m_aoeTriggerPrefab, transform).GetComponent<AoeEffectTrigger>();
+                effectTrigger.Init(effect);
+                m_effectTriggers.Add(effectTrigger);      
+            }
+            else
+            {
+                var attackTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<AttackEffectTrigger>();
+        
+                if (attackTrigger != null)
+                {
+                    attackTrigger.Init(effect);
+                    m_attackTrigger.Add(attackTrigger);
+                    attackTrigger.AttackInvoke += Attack;   
+                }   
+            }
         }
 
         if (saveData != null)
@@ -99,12 +100,12 @@ public class Tower: TdUnit
     public void OnTowerReturnToInventory()
     {
         CurrentTile = null;
-        MermanLib.UnityManipulator.DestroyAndClearList(ref m_instantEffectTriggers);
+        MermanLib.UnityManipulator.DestroyAndClearList(ref m_attackTrigger);
         MermanLib.UnityManipulator.DestroyAndClearList(ref m_effectTriggers);
         gameObject.SetActive(false);
     }
 
-    protected void Attack(AttackData data, InstantEffectTrigger trigger)
+    protected void Attack(AttackData data, AttackEffectTrigger trigger)
     {
         m_nextAttackData = data;
         m_nextEffectTrigger = trigger;
@@ -141,7 +142,7 @@ public class Tower: TdUnit
         {
             effect.DisplayRadius(selected);
         }
-        foreach (var effect in m_instantEffectTriggers)
+        foreach (var effect in m_attackTrigger)
         {
             effect.DisplayRadius(selected);
         }
