@@ -29,7 +29,7 @@ public class TdUnit: MonoBehaviour
     protected uint level = 1;
     protected bool m_markedForDestruction;
 
-    public void Init(float maxHp)
+    public virtual void Init(float maxHp)
     {
         if (m_health == null)
         {

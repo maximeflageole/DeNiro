@@ -230,7 +230,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (m_currentlySelectedTower != null)
         {
-            m_towerPanel.AssignTowerData(m_currentlySelectedTower.GetCreatureData(), m_currentlySelectedTower.GetData().Stats, m_currentlySelectedTower.GetSaveData());
+            m_towerPanel.AssignTowerData(m_currentlySelectedTower);
         }
     }
 

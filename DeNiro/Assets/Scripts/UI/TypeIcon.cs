@@ -14,7 +14,7 @@ public class TypeIcon : MonoBehaviour
 #if UNITY_EDITOR
     public int type = 0;
 #endif
-    public void AssignType(ECreatureType type)
+    public void AssignType(ECreatureType type, bool colored = true)
     {
         if (type == ECreatureType.None || type == ECreatureType.Count)
         {
@@ -27,7 +27,7 @@ public class TypeIcon : MonoBehaviour
             gameObject.SetActive(true);
             if (m_background != null) m_background.color = value.PrimaryColor;
             if (m_frame != null) m_frame.color = value.SecondaryColor;
-            m_icon.sprite = value.Sprite;
+            m_icon.sprite = colored? value.Sprite : value.UncoloredSprite;
             return;
         }
         Debug.LogWarning("The creature type " + type + " has not been implemented yet in TypeData");

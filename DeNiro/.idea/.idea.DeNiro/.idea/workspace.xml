@@ -34,11 +34,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/BaseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/OptionsMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/EndLevelMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Projectiles/Projectile.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/HopingEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/ListDestroyer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerControls.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerUiButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/CreaturesInventory.cs" />
@@ -54,8 +52,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AttackData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AttackEffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerControls.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerPanel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/TypeIcon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/AbilityPanel.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -65,7 +68,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34950384" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -73,10 +76,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9772">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="9772" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -104,7 +107,8 @@
       <workItem from="1608064087173" duration="5777000" />
       <workItem from="1608237643540" duration="6968000" />
       <workItem from="1608245074593" duration="4381000" />
-      <workItem from="1608664704607" duration="7209000" />
+      <workItem from="1608664704607" duration="7810000" />
+      <workItem from="1608758899097" duration="2984000" />
     </task>
     <servers />
   </component>
@@ -124,5 +128,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs</url>
+          <line>60</line>
+          <properties documentPath="F:\Projects\DeNiro\DeNiro\Assets\Scripts\Units\Towers\Tower.cs" initialLine="59" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="1922" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1967" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

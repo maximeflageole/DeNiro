@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 public class Tower: TdUnit
@@ -7,6 +6,12 @@ public class Tower: TdUnit
     protected static string ATTACK_TRIGGER = "Attack";
 
     public Tile CurrentTile { get; set; }
+    public List<AbilityData> GetEquippedAbilities()
+    {
+        return m_equippedAbilities;
+    }
+    
+    public int CurrentAbilityIndex { get; protected set; }
 
     [SerializeField]
     protected GameObject m_homingProjectile;
@@ -36,6 +41,9 @@ public class Tower: TdUnit
     protected Material m_towerMaterial;
     protected AttackData m_nextAttackData;
     protected AttackEffectTrigger m_nextEffectTrigger;
+    
+    //TODO: Make sure that the equipped abilities come from the save and not from data
+    protected List<AbilityData> m_equippedAbilities = new List<AbilityData>();
 
     [SerializeField]
     protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
@@ -44,6 +52,16 @@ public class Tower: TdUnit
 
     protected TowerData m_data;
     protected TowerSaveData m_saveData;
+    
+    public void Start()
+    {
+        //TODO: This should not be the first 2 from the data
+        m_data = m_creatureData.TowerData;
+        m_equippedAbilities.Clear();
+        m_equippedAbilities.Add(m_data.Abilities[0]);
+        if (m_data.Abilities.Count > 1) m_equippedAbilities.Add(m_data.Abilities[1]);
+    }
+    
     public TowerData GetData() { return m_data; }
     public TowerSaveData GetSaveData() { return m_saveData; }
 
@@ -62,10 +80,9 @@ public class Tower: TdUnit
     {
         CurrentTile = tile;
         m_renderer.material = m_towerMaterial;
-        m_data = m_creatureData.TowerData;
 
         //TODO: Place all of these in it's own thing outside Tower.cs
-        foreach (var effect in m_data.Abilities[0].Effects)
+        foreach (var effect in m_data.Abilities[CurrentAbilityIndex].Effects)
         {
             if (effect.GetType() == typeof(StatEffectData))
             {
