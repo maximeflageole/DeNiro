@@ -178,6 +178,15 @@
           </e>
           <e p="MermanLib" t="Include">
             <e p="UnityManipulator.cs" t="Include" />
+            <e p="VisualComponents" t="Include">
+              <e p="AdvantageWheel.cs" t="Include" />
+              <e p="BaseMenu.cs" t="Include" />
+              <e p="FadingComponent.cs" t="Include" />
+              <e p="MenuButton.cs" t="Include" />
+              <e p="OptionsMenu.cs" t="Include" />
+              <e p="StupidTooltipOnHover.cs" t="Include" />
+              <e p="TooltipOnHover.cs" t="Include" />
+            </e>
           </e>
           <e p="SaveData.cs" t="Include" />
           <e p="UI" t="Include">
@@ -188,13 +197,6 @@
             <e p="TowerPanel.cs" t="Include" />
             <e p="TowerUiButton.cs" t="Include" />
             <e p="TypeIcon.cs" t="Include" />
-            <e p="VisualComponents" t="Include">
-              <e p="AdvantageWheel.cs" t="Include" />
-              <e p="BaseMenu.cs" t="Include" />
-              <e p="FadingComponent.cs" t="Include" />
-              <e p="MenuButton.cs" t="Include" />
-              <e p="OptionsMenu.cs" t="Include" />
-            </e>
             <e p="WaveTimerUI.cs" t="Include" />
           </e>
           <e p="Units" t="Include">

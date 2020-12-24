@@ -14,8 +14,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/OptionsMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/StupidTooltipOnHover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/TooltipOnHover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,6 +59,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TypeIcon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/StupidTooltipOnHover.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/TooltipOnHover.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/AbilityPanel.cs" />
     </changedPaths>
   </component>
@@ -108,7 +111,7 @@
       <workItem from="1608237643540" duration="6968000" />
       <workItem from="1608245074593" duration="4381000" />
       <workItem from="1608664704607" duration="7810000" />
-      <workItem from="1608758899097" duration="2984000" />
+      <workItem from="1608758899097" duration="6548000" />
     </task>
     <servers />
   </component>
