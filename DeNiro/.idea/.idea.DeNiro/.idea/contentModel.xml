@@ -181,6 +181,7 @@
             <e p="VisualComponents" t="Include">
               <e p="AdvantageWheel.cs" t="Include" />
               <e p="BaseMenu.cs" t="Include" />
+              <e p="ButtonGroup.cs" t="Include" />
               <e p="FadingComponent.cs" t="Include" />
               <e p="MenuButton.cs" t="Include" />
               <e p="OptionsMenu.cs" t="Include" />

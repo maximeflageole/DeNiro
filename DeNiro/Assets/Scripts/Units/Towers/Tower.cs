@@ -210,4 +210,11 @@ public class Tower: TdUnit
     {
         m_attackVfxHandler?.LaunchParticles();
     }
+
+    public void OnAbilitySelected(int abilityIndex)
+    {
+        if (abilityIndex == CurrentAbilityIndex) return;
+        CurrentAbilityIndex = abilityIndex;
+        Debug.Log("Ability selected " + abilityIndex);
+    }
 }

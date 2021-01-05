@@ -242,4 +242,10 @@ public class PlayerControls : MonoBehaviour
             tower.GainXp(individualAmount);
         }
     }
+
+    public void OnAbilitySelected(int abilityIndex)
+    {
+        m_currentlySelectedTower.OnAbilitySelected(abilityIndex);
+        m_towerPanel.SelectAbility(abilityIndex);
+    }
 }

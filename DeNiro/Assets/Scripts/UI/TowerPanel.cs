@@ -32,6 +32,8 @@ public class TowerPanel : MonoBehaviour
     [SerializeField]
     protected TypeIcon m_type2Icon;
 
+    [SerializeField] protected ButtonGroup m_buttonGroup;
+
     protected Tower m_tower;
 
     public void AssignTowerData(Tower tower)
@@ -47,9 +49,10 @@ public class TowerPanel : MonoBehaviour
         m_towerName.text = data.TowerData.name;
         
         var abilities = tower.GetEquippedAbilities();
-        m_ability1Panel.AssignData(abilities[0], tower.CurrentAbilityIndex == 0);
-        m_ability2Panel.AssignData(abilities.Count > 1 ? abilities[1] : null, tower.CurrentAbilityIndex == 1);
-        
+        m_ability1Panel.AssignData(abilities[0]);
+        m_ability2Panel.AssignData(abilities.Count > 1 ? abilities[1] : null);
+        SelectAbility(tower.CurrentAbilityIndex);
+
         m_xpImage.fillAmount = GameManager.Instance.GetNextLevelXpPercentage(saveData.xp, saveData.level);
         m_levelTMPro.text = LEVEL_BASE_TEXT + saveData.level;
         m_attackValueTMPro.text = "+" + stats.GetStat(EStat.AttackBuff).ToString("F0") + "%";
@@ -68,5 +71,12 @@ public class TowerPanel : MonoBehaviour
     public void OnClickRemove()
     {
         PlayerControls.Instance.ReturnTowerToInventory();
+    }
+
+    public void SelectAbility(int index)
+    {
+        m_ability1Panel.SelectAbilityAtIndex(index);
+        m_ability2Panel.SelectAbilityAtIndex(index);
+        m_buttonGroup.ChangeButtonExternal(index);
     }
 }

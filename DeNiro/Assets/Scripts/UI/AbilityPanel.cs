@@ -4,12 +4,19 @@ using UnityEngine;
 public class AbilityPanel : MonoBehaviour
 {
     private AbilityData m_abilityData;
+
+    [SerializeField] private int m_abilityIndex = 0;
     [SerializeField] private TextMeshProUGUI m_abilityName;
     [SerializeField] private TypeIcon m_icon;
-    [SerializeField] protected TextMeshProUGUI m_title;
-    [SerializeField] protected TextMeshProUGUI m_description;
-
-    public void AssignData(AbilityData data, bool isSelected)
+    [SerializeField] private TextMeshProUGUI m_title;
+    [SerializeField] private TextMeshProUGUI m_description;
+    
+    public void SelectAbilityAtIndex(int index)
+    {
+        var selected = m_abilityIndex == index;
+    }
+    
+    public void AssignData(AbilityData data)
     {
         m_abilityData = data;
         Display(data != null);
@@ -25,5 +32,10 @@ public class AbilityPanel : MonoBehaviour
     public void Display(bool isActive)
     {
         gameObject.SetActive(isActive);
+    }
+
+    public void OnClick(int index)
+    {
+        PlayerControls.Instance.OnAbilitySelected(index);
     }
 }
