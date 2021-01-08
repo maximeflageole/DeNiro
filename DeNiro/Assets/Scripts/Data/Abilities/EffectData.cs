@@ -21,7 +21,10 @@ public enum EStat
     Range, //TODO
     RangeDebuff, //TODO
     Presence, //TODO
-    PresenceDebuff //TODO
+    PresenceDebuff, //TODO
+    DamageOverTime, //TODO
+    HealOverTime, //TODO
+    Poison
 }
 
 [Serializable]

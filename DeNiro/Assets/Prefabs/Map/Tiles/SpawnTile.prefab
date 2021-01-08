@@ -131,16 +131,16 @@ MonoBehaviour:
   m_gameplayMeshRenderer: {fileID: 5342658025647462560}
   Coordinates: {x: 0, y: 0}
   m_wavesData:
-    FirstWaveDelay: 10
+    FirstWaveDelay: 1
     WavesCooldown: 3
     UnitsCooldown: 1
     Waves:
     - CreaturesData:
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: f2f707d2b4091c34589c7ce070059788, type: 2}
-      - {fileID: 11400000, guid: ace25af67ad770b4488bb727e44a395d, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+      - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
     - CreaturesData:
       - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
       - {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}

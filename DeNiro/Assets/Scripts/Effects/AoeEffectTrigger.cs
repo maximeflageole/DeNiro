@@ -2,14 +2,14 @@
 
 public class AoeEffectTrigger : EffectTrigger
 {
-    private StatEffectData _mStatEffectData;
+    private StatEffectData m_statEffectData;
 
     public override void Init(EffectData effectData)
     {
         base.Init(effectData);
         if (effectData.GetType() == typeof(StatEffectData))
         {
-            _mStatEffectData = (StatEffectData)effectData;
+            m_statEffectData = (StatEffectData)effectData;
         }
         else
         {
@@ -25,7 +25,7 @@ public class AoeEffectTrigger : EffectTrigger
             if (enemy != null)
             {
                 m_enemiesInCollider.Add(enemy);
-                enemy.AddEffect(_mStatEffectData);
+                enemy.AddEffect(m_statEffectData);
             }
             return;
         }
@@ -35,7 +35,7 @@ public class AoeEffectTrigger : EffectTrigger
             if (tower != null)
             {
                 m_towersInCollider.Add(tower);
-                tower.AddEffect(_mStatEffectData);
+                tower.AddEffect(m_statEffectData);
             }
             return;
         }
@@ -49,7 +49,7 @@ public class AoeEffectTrigger : EffectTrigger
             if (enemy != null)
             {
                 m_enemiesInCollider.Remove(enemy);
-                enemy.RemoveEffect(_mStatEffectData);
+                enemy.RemoveEffect(m_statEffectData);
             }
             return;
         }
@@ -59,7 +59,7 @@ public class AoeEffectTrigger : EffectTrigger
             if (tower != null)
             {
                 m_towersInCollider.Remove(tower);
-                tower.RemoveEffect(_mStatEffectData);
+                tower.RemoveEffect(m_statEffectData);
             }
             return;
         }
@@ -69,11 +69,11 @@ public class AoeEffectTrigger : EffectTrigger
     {
         foreach (var tower in m_towersInCollider)
         {
-            tower.RemoveEffect(_mStatEffectData);
+            tower.RemoveEffect(m_statEffectData);
         }
         foreach (var enemy in m_enemiesInCollider)
         {
-            enemy.RemoveEffect(_mStatEffectData);
+            enemy.RemoveEffect(m_statEffectData);
         }
     }
 }

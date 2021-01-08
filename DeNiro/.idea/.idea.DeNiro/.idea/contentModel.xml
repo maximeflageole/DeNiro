@@ -135,6 +135,7 @@
             <e p="Abilities" t="Include">
               <e p="AbilityData.cs" t="Include" />
               <e p="AttackData.cs" t="Include" />
+              <e p="DoTData.cs" t="Include" />
               <e p="EffectData.cs" t="Include" />
               <e p="StatEffectData.cs" t="Include" />
             </e>
@@ -165,6 +166,7 @@
           <e p="Effects" t="Include">
             <e p="AoeEffectTrigger.cs" t="Include" />
             <e p="AttackEffectTrigger.cs" t="Include" />
+            <e p="DoT.cs" t="Include" />
             <e p="EffectTrigger.cs" t="Include" />
           </e>
           <e p="EStat.cs" t="Include" />
@@ -194,6 +196,8 @@
             <e p="AbilityPanel.cs" t="Include" />
             <e p="CreaturesInventory.cs" t="Include" />
             <e p="EndLevelMenu.cs" t="Include" />
+            <e p="StatusEffectsPanel.cs" t="Include" />
+            <e p="StatusEffectUI.cs" t="Include" />
             <e p="TeamUI.cs" t="Include" />
             <e p="TowerPanel.cs" t="Include" />
             <e p="TowerUiButton.cs" t="Include" />

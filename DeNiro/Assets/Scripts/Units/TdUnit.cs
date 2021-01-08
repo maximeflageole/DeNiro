@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TdUnit: MonoBehaviour
 {
     [SerializeField] protected CreatureData m_creatureData;
+    [SerializeField] protected StatusEffectsPanel m_statusEffectPanel;
 
     public CreatureData GetCreatureData()
     {
@@ -56,6 +57,10 @@ public class TdUnit: MonoBehaviour
             m_effectsDictionary.Add(effectData.EffectType, new List<StatEffectData>());
         }
         m_effectsDictionary[effectData.EffectType].Add(effectData);
+        if (m_statusEffectPanel != null)
+        {
+            m_statusEffectPanel.UpdatePanel(effectData, 1 /*TODO: Get the stacked value*/);
+        }
     }
 
     public void RemoveEffect(StatEffectData effectData)
@@ -75,6 +80,10 @@ public class TdUnit: MonoBehaviour
         if (m_effectsDictionary[effectData.EffectType].Count == 0)
         {
             m_effectsDictionary.Remove(effectData.EffectType);
+            if (m_statusEffectPanel != null)
+            {
+                m_statusEffectPanel.UpdatePanel(effectData, 0 /*TODO: Get the stacked value*/);
+            }
         }
     }
 

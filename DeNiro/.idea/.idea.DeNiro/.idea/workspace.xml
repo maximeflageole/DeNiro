@@ -14,13 +14,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/StupidTooltipOnHover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/TooltipOnHover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.1.1/Scripts/Editor/TMPro_CreateObjectMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/ButtonGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://E:/Unity/2019.4.16f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/StupidTooltipOnHover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/DoT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/TooltipOnHover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectsPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/DoTData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -51,12 +56,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Attacks/AttackData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectTrigger.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AttackData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AttackEffectTrigger.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TypeIcon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/StupidTooltipOnHover.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/TooltipOnHover.cs" />
@@ -65,6 +66,15 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/AbilityPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/DoT.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/DoTData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AoeEffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectsPanel.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -115,7 +125,8 @@
       <workItem from="1608245074593" duration="4381000" />
       <workItem from="1608664704607" duration="7810000" />
       <workItem from="1608758899097" duration="7893000" />
-      <workItem from="1609884473538" duration="4420000" />
+      <workItem from="1609884473538" duration="7017000" />
+      <workItem from="1610131627926" duration="6154000" />
     </task>
     <servers />
   </component>

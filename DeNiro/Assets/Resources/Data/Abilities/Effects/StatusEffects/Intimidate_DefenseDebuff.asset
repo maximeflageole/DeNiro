@@ -17,3 +17,4 @@ MonoBehaviour:
   EffectType: 6
   Magnitude: 1.6
   Duration: 0
+  EffectSprite: {fileID: 21300000, guid: 9b10fe9a543d07d438506df4a8f6d2ae, type: 3}
