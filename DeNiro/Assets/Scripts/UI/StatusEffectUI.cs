@@ -13,7 +13,6 @@ public class StatusEffectUI : MonoBehaviour
         gameObject.SetActive(true);
         Image.sprite = sprite;
         SetStackAmount(stackAmount);
-
     }
 
     public void SetStackAmount(int amount)

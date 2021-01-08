@@ -84,7 +84,7 @@ public class Tower: TdUnit
         //TODO: Place all of these in it's own thing outside Tower.cs
         foreach (var effect in m_data.Abilities[CurrentAbilityIndex].Effects)
         {
-            if (effect.GetType() == typeof(StatEffectData))
+            if (effect is StatEffectData)
             {
                 var effectTrigger = Instantiate(m_aoeTriggerPrefab, transform).GetComponent<AoeEffectTrigger>();
                 effectTrigger.Init(effect);

@@ -7,7 +7,7 @@ public class AoeEffectTrigger : EffectTrigger
     public override void Init(EffectData effectData)
     {
         base.Init(effectData);
-        if (effectData.GetType() == typeof(StatEffectData))
+        if (effectData is StatEffectData)
         {
             m_statEffectData = (StatEffectData)effectData;
         }

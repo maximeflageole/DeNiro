@@ -21,10 +21,9 @@ public class AttackEffectTrigger : EffectTrigger
     public void Init(EffectData effectData)
     {
         base.Init(effectData);
-        var attackEffect = (AttackData)effectData;
-        if (attackEffect != null)
+        if (effectData is AttackData)
         {
-            m_attackData = attackEffect;
+            m_attackData = (AttackData)effectData;
             m_timer = m_attackData.RateOfFire;
         }
         else

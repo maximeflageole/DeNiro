@@ -36,7 +36,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/FadeInFadeOut.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/TdEnemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/FadingComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/VisualComponents/BaseMenu.cs" />
@@ -57,7 +56,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Attacks/AttackData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AttackData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AttackEffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TypeIcon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/StupidTooltipOnHover.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/TooltipOnHover.cs" />
@@ -65,16 +63,18 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/ButtonGroup.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/AbilityPanel.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AbilityData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/DoT.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/EffectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/DoTData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AoeEffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectsPanel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AttackEffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AoeEffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -126,7 +126,7 @@
       <workItem from="1608664704607" duration="7810000" />
       <workItem from="1608758899097" duration="7893000" />
       <workItem from="1609884473538" duration="7017000" />
-      <workItem from="1610131627926" duration="6154000" />
+      <workItem from="1610131627926" duration="8386000" />
     </task>
     <servers />
   </component>

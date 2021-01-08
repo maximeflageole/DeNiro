@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetType: 1
   Range: 100
-  EffectType: 0
+  EffectType: 13
   Magnitude: 1
   Duration: 1.5
   EffectSprite: {fileID: -4347532159779508366, guid: f98d6bf4797db5d45bd827e451d72224,

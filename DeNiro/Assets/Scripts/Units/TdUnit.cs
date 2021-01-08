@@ -30,7 +30,17 @@ public class TdUnit: MonoBehaviour
     protected uint level = 1;
     protected bool m_markedForDestruction;
 
-    public virtual void Init(float maxHp)
+    void OnEnable()
+    {
+        GameManager.Instance.RegisterUnit(this);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.UnregisterUnit(this);
+    }
+
+    public void Init(float maxHp)
     {
         if (m_health == null)
         {
@@ -170,5 +180,33 @@ public class TdUnit: MonoBehaviour
         calculatedDamage /= Mathf.Max(1.0f, GetEffectMultiplier(EStat.AttackBuff, false));
 
         return calculatedDamage;
+    }
+
+    public void Tick()
+    {
+        foreach (var effect in m_effectsDictionary.Values)
+        {
+            if (effect[0] is DoTData)
+            {
+                SufferEffect((DoTData)effect[0], effect.Count);
+            }
+        }
+    }
+
+    protected void SufferEffect(StatEffectData effectData, int amount)
+    {
+
+    }
+
+    protected void SufferEffect(DoTData doTData, int amount)
+    {
+        switch (doTData.EffectType)
+        {
+            case EStat.Poison:
+                Damage(doTData.DamagePerTick);
+                break;
+            default:
+                break;
+        }
     }
 }

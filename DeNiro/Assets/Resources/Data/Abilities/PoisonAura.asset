@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 876f6e1b668d6dd42bc84a263203c334, type: 3}
-  m_Name: SpiderEnemy
+  m_Script: {fileID: 11500000, guid: 64d85ba589d246e4c9e620e7ee3b0e4a, type: 3}
+  m_Name: PoisonAura
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1652348065175960, guid: 82db044d22baec7478a895f1fd94601e, type: 3}
-  Speed: 5
-  MaxHealth: 4000
-  BaseXpValue: 5
+  Name: Poison Aura
+  Description: Inflicts 1 stack of poison around this unit to every enemy
+  CreatureType: 2
+  Effects:
+  - {fileID: 11400000, guid: 68e650a4827f45f4b804b87667c9cfd1, type: 2}

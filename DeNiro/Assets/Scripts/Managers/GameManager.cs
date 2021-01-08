@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
+	private static float TICK_TIMER = 0.25f;
+	private static float TICK_CURRENT_TIMER = 0f;
+	
     public const float RATE_OF_CONVERSION = 0.3f;
 	public static uint MAX_LEVEL = 10;
 	public static bool GAME_OVER = false;
+
+	public List<TdUnit> UnitList = new List<TdUnit>();
 
 	public CurveData m_xpCurve;
 	public UnitsDictionary m_unitsDictionary;
@@ -25,6 +31,16 @@ public class GameManager : MonoBehaviour
 	public Action m_restartAction { get; protected set; }
 	public Action m_exitAction { get; protected set; }
 
+	public void RegisterUnit(TdUnit unit)
+	{
+		UnitList.Add(unit);
+	}
+
+	public void UnregisterUnit(TdUnit unit)
+	{
+		UnitList.Remove(unit);
+	}
+	
 	void Update()
 	{
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
@@ -32,6 +48,19 @@ public class GameManager : MonoBehaviour
         {
 			mEndLevelMenu.ToggleDisplay();
         }
+	}
+
+	private void FixedUpdate()
+	{
+		TICK_CURRENT_TIMER += Time.deltaTime;
+		if (TICK_CURRENT_TIMER > TICK_TIMER)
+		{
+			TICK_CURRENT_TIMER = 0f;
+			foreach (var unit in UnitList)
+			{
+				unit.Tick();
+			}
+		}
 	}
 
 	void OnGUI()
