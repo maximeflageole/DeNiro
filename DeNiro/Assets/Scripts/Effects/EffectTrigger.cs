@@ -11,6 +11,8 @@ public abstract class EffectTrigger : MonoBehaviour
     [SerializeField]
     protected SpriteRenderer m_radiusRenderer;
 
+    public bool Enabled { get; protected set; }
+
     public virtual void Init(EffectData effectData)
     {
         m_effectData = effectData;
@@ -37,7 +39,6 @@ public abstract class EffectTrigger : MonoBehaviour
             {
                 m_towersInCollider.Add(tower);
             }
-            return;
         }
     }
 
@@ -59,7 +60,6 @@ public abstract class EffectTrigger : MonoBehaviour
             {
                 m_towersInCollider.Remove(tower);
             }
-            return;
         }
     }
 
@@ -77,5 +77,11 @@ public abstract class EffectTrigger : MonoBehaviour
         }
 
         m_radiusRenderer.color = color;
+    }
+
+    public void SetEnabled(bool enabled)
+    {
+        Enabled = enabled;
+        GetComponent<Collider>().enabled = enabled;
     }
 }

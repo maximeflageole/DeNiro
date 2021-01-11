@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_creatureData: {fileID: 11400000, guid: 74da5a5b089ff45489894c48d0801132, type: 2}
+  m_statusEffectPanel: {fileID: 0}
   m_hpImage: {fileID: 0}
   m_healthCanvas: {fileID: 0}
   m_damageTextColor: {r: 0, g: 0, b: 0, a: 0}
@@ -110,10 +111,6 @@ MonoBehaviour:
   m_artilleryProjectile: {fileID: 6410920816443845527, guid: ac5977c5cb8e670419af5c7076fe9151,
     type: 3}
   m_canon: {fileID: 1313726575277065982}
-  m_aoeTriggerPrefab: {fileID: 8196590656541032325, guid: b7f69799e6a3b684a8e452177dfcd0db,
-    type: 3}
-  m_projectileTriggerPrefab: {fileID: 8196590656541032325, guid: c6b9c8b42c496b048ae48c06fcac9b1f,
-    type: 3}
   m_xpGainTxtColor: {r: 0.42773998, g: 0.8867924, b: 0.18823427, a: 1}
   m_levelUpTxtColor: {r: 0.8679245, g: 0.31092018, b: 0.21698113, a: 1}
   m_animator: {fileID: 95952727081316866}
@@ -123,8 +120,8 @@ MonoBehaviour:
   m_inPlacementMaterial: {fileID: 2100000, guid: a2ea6e425151756429ab73e89b7a280d,
     type: 2}
   m_towerMaterial: {fileID: 2100000, guid: 685775caee8e35d4599e5bcc06720029, type: 2}
-  m_effectTriggers: []
-  m_instantEffectTriggers: []
+  m_abilityInstancePrefab: {fileID: 3588419099295086474, guid: 225e5f664d6c6154195d6b3bad0e7811,
+    type: 3}
 --- !u!114 &3973447313939263650
 MonoBehaviour:
   m_ObjectHideFlags: 0

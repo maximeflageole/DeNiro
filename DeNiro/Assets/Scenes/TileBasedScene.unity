@@ -6423,6 +6423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b5e8d852b1c5e4e939027e0a8ccb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitList: []
   m_xpCurve: {fileID: 11400000, guid: ca4841fa2d669b048852e27b80b0a825, type: 2}
   m_unitsDictionary: {fileID: 11400000, guid: f972a9ca9411987449f6f7c9c2ab8dc9, type: 2}
   m_waveTimerUI: {fileID: 1658854353}

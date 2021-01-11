@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-	private static float TICK_TIMER = 0.25f;
+	private static float TICK_TIMER = 0.5f;
 	private static float TICK_CURRENT_TIMER = 0f;
 	
     public const float RATE_OF_CONVERSION = 0.3f;

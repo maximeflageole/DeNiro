@@ -21,6 +21,7 @@ public class AttackEffectTrigger : EffectTrigger
     public void Init(EffectData effectData)
     {
         base.Init(effectData);
+        m_currentTimer = 0;
         if (effectData is AttackData)
         {
             m_attackData = (AttackData)effectData;

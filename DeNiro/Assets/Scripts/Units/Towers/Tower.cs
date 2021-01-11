@@ -20,10 +20,6 @@ public class Tower: TdUnit
     [SerializeField]
     protected Transform m_canon;
     [SerializeField]
-    protected GameObject m_aoeTriggerPrefab;
-    [SerializeField]
-    protected GameObject m_projectileTriggerPrefab;
-    [SerializeField]
     protected Color m_xpGainTxtColor;
     [SerializeField]
     protected Color m_levelUpTxtColor;
@@ -39,16 +35,15 @@ public class Tower: TdUnit
     protected Material m_inPlacementMaterial;
     [SerializeField]
     protected Material m_towerMaterial;
+    [SerializeField] 
+    protected GameObject m_abilityInstancePrefab;
+
     protected AttackData m_nextAttackData;
     protected AttackEffectTrigger m_nextEffectTrigger;
+    protected List<AbilityInstance> m_abilityInstances = new List<AbilityInstance>();
     
     //TODO: Make sure that the equipped abilities come from the save and not from data
     protected List<AbilityData> m_equippedAbilities = new List<AbilityData>();
-
-    [SerializeField]
-    protected List<AoeEffectTrigger> m_effectTriggers = new List<AoeEffectTrigger>();
-    [SerializeField]
-    protected List<AttackEffectTrigger> m_attackTrigger = new List<AttackEffectTrigger>();
 
     protected TowerData m_data;
     protected TowerSaveData m_saveData;
@@ -81,28 +76,17 @@ public class Tower: TdUnit
         CurrentTile = tile;
         m_renderer.material = m_towerMaterial;
 
-        //TODO: Place all of these in it's own thing outside Tower.cs
-        foreach (var effect in m_data.Abilities[CurrentAbilityIndex].Effects)
+        MermanLib.UnityManipulator.DestroyAndClearList(ref m_abilityInstances);
+
+        for (var i = 0; i < m_data.Abilities.Count; i++)
         {
-            if (effect is StatEffectData)
-            {
-                var effectTrigger = Instantiate(m_aoeTriggerPrefab, transform).GetComponent<AoeEffectTrigger>();
-                effectTrigger.Init(effect);
-                m_effectTriggers.Add(effectTrigger);      
-            }
-            else
-            {
-                var attackTrigger = Instantiate(m_projectileTriggerPrefab, transform).GetComponent<AttackEffectTrigger>();
-        
-                if (attackTrigger != null)
-                {
-                    attackTrigger.Init(effect);
-                    m_attackTrigger.Add(attackTrigger);
-                    attackTrigger.AttackInvoke += Attack;   
-                }   
-            }
+            var abilityInstance = Instantiate(m_abilityInstancePrefab, transform).GetComponent<AbilityInstance>();
+            m_abilityInstances.Add(abilityInstance);
+            abilityInstance.Init(m_data.Abilities[i], Attack);
         }
 
+        SelectAbility();
+        
         if (saveData != null)
         {
             m_saveData = saveData;
@@ -117,8 +101,7 @@ public class Tower: TdUnit
     public void OnTowerReturnToInventory()
     {
         CurrentTile = null;
-        MermanLib.UnityManipulator.DestroyAndClearList(ref m_attackTrigger);
-        MermanLib.UnityManipulator.DestroyAndClearList(ref m_effectTriggers);
+        MermanLib.UnityManipulator.DestroyAndClearList(ref m_abilityInstances);
         gameObject.SetActive(false);
     }
 
@@ -155,14 +138,8 @@ public class Tower: TdUnit
 
     public void OnTowerSelected(bool selected = true)
     {
-        foreach (var effect in m_effectTriggers)
-        {
-            effect.DisplayRadius(selected);
-        }
-        foreach (var effect in m_attackTrigger)
-        {
-            effect.DisplayRadius(selected);
-        }
+        if (m_abilityInstances.Count != 0)
+            m_abilityInstances[CurrentAbilityIndex].SetSelected(selected);
     }
 
     public void DoAttack()
@@ -215,6 +192,15 @@ public class Tower: TdUnit
     {
         if (abilityIndex == CurrentAbilityIndex) return;
         CurrentAbilityIndex = abilityIndex;
-        Debug.Log("Ability selected " + abilityIndex);
+        SelectAbility();
+    }
+
+    private void SelectAbility()
+    {
+        for (var i = 0; i < m_abilityInstances.Count; i++)
+        {
+            m_abilityInstances[i].SetSelected(i == CurrentAbilityIndex);
+            m_abilityInstances[i].SetEnabled(i == CurrentAbilityIndex);
+        }
     }
 }

@@ -14,6 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/AbilityInstance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MermanLib/UnityManipulator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.1.1/Scripts/Editor/TMPro_CreateObjectMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/Abilities/StatEffectData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,7 +55,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/Effect.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Attacks/AttackData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/AttackData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/TypeIcon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MermanLib/VisualComponents/StupidTooltipOnHover.cs" />
@@ -70,11 +70,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/Abilities/DoTData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectsPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AoeEffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AbilityInstance.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AttackEffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AoeEffectTrigger.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -126,7 +128,8 @@
       <workItem from="1608664704607" duration="7810000" />
       <workItem from="1608758899097" duration="7893000" />
       <workItem from="1609884473538" duration="7017000" />
-      <workItem from="1610131627926" duration="8386000" />
+      <workItem from="1610131627926" duration="9138000" />
+      <workItem from="1610403706608" duration="4340000" />
     </task>
     <servers />
   </component>

@@ -164,6 +164,7 @@
             <e p="WavesData.cs" t="Include" />
           </e>
           <e p="Effects" t="Include">
+            <e p="AbilityInstance.cs" t="Include" />
             <e p="AoeEffectTrigger.cs" t="Include" />
             <e p="AttackEffectTrigger.cs" t="Include" />
             <e p="DoT.cs" t="Include" />
