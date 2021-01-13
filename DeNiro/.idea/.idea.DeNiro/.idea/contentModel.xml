@@ -122,6 +122,22 @@
             </e>
           </e>
         </e>
+        <e p="Hovl Studio" t="Include">
+          <e p="AAA Projectiles Vol 1" t="Include">
+            <e p="Demo scenes" t="Include">
+              <e p="Readme.txt" t="Include" />
+            </e>
+            <e p="Prefabs" t="Include">
+              <e p="Readme.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="ParticleCollisionInstance.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="Electricity.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Row.uxml" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AoE" t="Include">

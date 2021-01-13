@@ -48,7 +48,15 @@ public class GameManager : MonoBehaviour
         {
 			mEndLevelMenu.ToggleDisplay();
         }
-	}
+
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			Time.timeScale = 0.1f;
+		}
+		if (Input.GetKeyDown(KeyCode.N))
+		{
+			Time.timeScale = 1f;
+		}	}
 
 	private void FixedUpdate()
 	{

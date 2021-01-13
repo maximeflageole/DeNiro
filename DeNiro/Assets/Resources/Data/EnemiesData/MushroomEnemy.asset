@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MushroomEnemy
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1652348065175960, guid: af0322b02de7c16489d175b50f153fd6, type: 3}
-  Speed: 200
+  Speed: 50
   MaxHealth: 100
   BaseXpValue: 10

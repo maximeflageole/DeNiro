@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SpiderEnemy
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1652348065175960, guid: 82db044d22baec7478a895f1fd94601e, type: 3}
-  Speed: 130
+  Speed: 80
   MaxHealth: 40
   BaseXpValue: 5

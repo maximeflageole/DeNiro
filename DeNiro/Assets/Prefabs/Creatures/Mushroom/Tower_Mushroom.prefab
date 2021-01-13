@@ -509,7 +509,7 @@ MonoBehaviour:
   m_damageTextColor: {r: 0, g: 0, b: 0, a: 0}
   m_textDisplayPrefab: {fileID: 5586132209049661056, guid: 0e8e09648bb1ba64f9bc69e1264b20f9,
     type: 3}
-  m_homingProjectile: {fileID: 6008273815989587059, guid: 21148fb7fb205734482ee1a2885974f2,
+  m_homingProjectile: {fileID: 1699459221867030, guid: dc6c3918ea33ce94ebd77a1bf6862e2b,
     type: 3}
   m_artilleryProjectile: {fileID: 6410920816443845527, guid: ac5977c5cb8e670419af5c7076fe9151,
     type: 3}

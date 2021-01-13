@@ -72,11 +72,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StatusEffectUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AoeEffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/TdUnit.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/EffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AbilityInstance.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/AttackEffectTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Tower.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Towers/Projectiles/HomingProjectile.cs" />
+      <option value="$PROJECT_DIR$/Assets/Hovl Studio/AAA Projectiles Vol 1/Scripts/ParticleCollisionInstance.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgFUKX1n7l2B3yZsqervDYBz84" />
@@ -130,6 +132,7 @@
       <workItem from="1609884473538" duration="7017000" />
       <workItem from="1610131627926" duration="9138000" />
       <workItem from="1610403706608" duration="4939000" />
+      <workItem from="1610565988713" duration="7082000" />
     </task>
     <servers />
   </component>

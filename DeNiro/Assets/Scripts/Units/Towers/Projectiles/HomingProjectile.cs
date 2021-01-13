@@ -3,17 +3,23 @@
 public class HomingProjectile : Projectile
 {
     [SerializeField]
+    protected ParticleSystem m_particleSystem;
+    [SerializeField]
     protected HomingProjectileData m_data;
+
+    private bool m_reachedTarget = false;
 
     protected TdUnit m_target;
 
     protected void OnTriggerEnter(Collider other)
     {
         var enemy = other.GetComponent<TdEnemy>();
-        if (enemy != null && enemy == m_target)
+        if (enemy != null && enemy == m_target && !m_reachedTarget)
         {
             enemy.Damage(GetFinalDamage(m_data, m_target, m_damageMultiplier));
-            Destroy(gameObject);
+            m_reachedTarget = true;
+            m_particleSystem.Clear(true);
+            GetComponent<ParticleCollisionInstance>().OnCollisionExternal();
         }
     }
 
@@ -32,7 +38,14 @@ public class HomingProjectile : Projectile
             return;
         }
 
-        var directionalVector = (m_target.transform.position - transform.position).normalized;
-        GetComponent<Rigidbody>().velocity = directionalVector * Time.deltaTime * m_data.ProjectileSpeed;
+        var velocity = Vector3.zero;
+
+        if (!m_reachedTarget)
+        {
+            var directionalVector = (m_target.transform.position - transform.position).normalized;
+            velocity = directionalVector * Time.deltaTime * m_data.ProjectileSpeed;
+        }
+        
+        GetComponent<Rigidbody>().velocity = velocity;
     }
 }
