@@ -192,14 +192,14 @@ public class Tower: TdUnit
     {
         if (abilityIndex == CurrentAbilityIndex) return;
         CurrentAbilityIndex = abilityIndex;
-        SelectAbility();
+        SelectAbility(true);
     }
 
-    private void SelectAbility()
+    private void SelectAbility(bool displayRange = false)
     {
         for (var i = 0; i < m_abilityInstances.Count; i++)
         {
-            m_abilityInstances[i].SetSelected(i == CurrentAbilityIndex);
+            m_abilityInstances[i].SetSelected(i == CurrentAbilityIndex && displayRange);
             m_abilityInstances[i].SetEnabled(i == CurrentAbilityIndex);
         }
     }
